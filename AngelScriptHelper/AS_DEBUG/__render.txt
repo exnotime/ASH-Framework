@@ -1,0 +1,47 @@
+void render()
+
+Temps: 1, 2, 3, 5, 7, 9
+
+Variables: 
+ 005: (heap) Camera {noname}
+ 007: (heap) Level {noname}
+ 009: (heap) StateMachine {noname}
+
+
+- 72,5 -
+    0   9 *    SUSPEND
+    1   9 *    PshC4    0x0          (i:0, f:0)
+    3  10 *    PshC4    0x0          (i:0, f:0)
+    5  11 *    PshC4    0x0          (i:0, f:0)
+    7  12 *    CALLSYS  256           (void ClearWindow(int, int, int))
+- 73,5 -
+    9   9 *    SUSPEND
+   10   9 *    PSF      v5
+   11  11 *    ALLOC    0x1353c4ca850, 0             (type:Camera, {no func})
+   15   9 *    PshGPtr  0x1353c52e8f8          (i:1328156961016, f:6.56197e-312)
+   18  11 *    CHKREF
+   19  11 *    PshVPtr  v5
+   20  13 *    COPY     v1, 67108891
+   22  11 *    PopPtr
+   23   9 *    VAR      v5
+   24  11 *    GETOBJ   0
+   25  11 *    CALLSYS  267           (void AddCamera(Camera))
+- 74,5 -
+   27   9 *    SUSPEND
+   28   9 *    PshG4    0x1353c52e168          (i:1328156959080, f:6.56197e-312)
+   31  10 *    PshGPtr  0x1353c52e9a8          (i:1328156961192, f:6.56197e-312)
+   34  12 *    CHKREF
+   35  12 *    RefCpyV  v7, 0x3c4cd980          (type:Level)
+   38  12 *    CALLINTF 350           (void Level::Render(float))
+   40   9 *    FREE     v7, 0x3c4cd980          (type:Level)
+- 75,5 -
+   43   9 *    SUSPEND
+   44   9 *    PshGPtr  0x1353c52f138          (i:1328156963128, f:6.56197e-312)
+   47  11 *    CHKREF
+   48  11 *    RefCpyV  v9, 0x3c4cd0c0          (type:StateMachine)
+   51  11 *    CALLINTF 440           (void StateMachine::Render())
+   53   9 *    FREE     v9, 0x3c4cd0c0          (type:StateMachine)
+- 77,2 -
+   56   9 *    SUSPEND
+            0:
+   57   9 *    RET      0

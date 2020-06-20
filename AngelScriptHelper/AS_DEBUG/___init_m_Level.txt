@@ -1,0 +1,18 @@
+<unrecognized token> _unnamed_function_()
+
+Temps: 2
+
+Variables: 
+ 002: (heap) Level {noname}
+
+
+- 11,7 -
+    0   2 *    SUSPEND
+    1   2 *    CALL     305           (Level@ Level())
+    3   2 *    STOREOBJ v2
+    4   2 *    PshVPtr  v2
+    5   4 *    PGA      0x3c52e9a8          (var:m_Level)
+    8   6 *    REFCPY   0x1353c4cd980          (i:1328156563840, f:6.56197e-312)
+   11   4 *    PopPtr
+   12   2 *    FREE     v2, 0x3c4cd980          (type:Level)
+   15   2 *    RET      0

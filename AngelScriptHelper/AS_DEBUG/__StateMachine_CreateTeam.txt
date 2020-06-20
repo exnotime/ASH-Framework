@@ -1,0 +1,38 @@
+int StateMachine::CreateTeam()
+
+Temps: 2, 4
+
+Variables: 
+ 001: int team
+ 000: StateMachine this
+ 004: (heap) array {noname}
+
+
+- 14,9 -
+    0   4 *    SUSPEND
+               VarDecl  0
+    1   4 *    PshVPtr  v0
+    2   6 *    ADDSi    v44, 134217771
+    4   6 *    RDSPtr
+    5   6 *    CALLSYS  490           (uint array::length() const)
+    7   4 *    CpyRtoV4 v2
+    8   4 *    CpyVtoV4 v1, v2
+- 15,9 -
+   10   4 *    SUSPEND
+   11   4 *    CALL     445           (Actor@[]@ $fact())
+   13   4 *    STOREOBJ v4
+   14   4 *    ChkNullV v4
+   15   4 *    VAR      v4
+   16   6 *    PshVPtr  v0
+   17   8 *    ADDSi    v44, 134217771
+   19   8 *    RDSPtr
+   20   8 *    GETOBJREF 2
+   21   8 *    CALLSYS  486           (void array::insertLast(const Actor@[]&in))
+   23   4 *    FREE     v4, 0x3c518b00          (type:array)
+- 16,9 -
+   26   4 *    SUSPEND
+            {
+            }
+   27   4 *    CpyVtoR4 v1
+            0:
+   28   4 *    RET      2

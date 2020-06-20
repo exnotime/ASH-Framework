@@ -1,0 +1,17 @@
+uint Actor::GetEntity()
+
+Temps: 1
+
+Variables: 
+ 000: Actor this
+
+
+- 16,32 -
+    0   1 *    SUSPEND
+    1   1 *    LoadThisR v52, 134217763
+    3   1 *    RDR4     v1
+            {
+            }
+    4   1 *    CpyVtoR4 v1
+            0:
+    5   1 *    RET      2

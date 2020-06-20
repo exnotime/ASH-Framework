@@ -1,0 +1,12 @@
+<unrecognized token> _unnamed_function_()
+
+Temps: 
+
+Variables: 
+
+
+- 8,8 -
+    0   0 *    SUSPEND
+    1   0 *    PGA      0x3c52e8f8          (var:m_Camera)
+    4   2 *    ALLOC    0x1353c4ca850, 0             (type:Camera, {no func})
+    8   0 *    RET      0

@@ -1,0 +1,63 @@
+bool EventStream::GetNextEvent(Event@&out)
+
+Temps: 1, 2, 4
+
+Variables: 
+ -002: Event@& e
+ 000: EventStream this
+ 004: (heap) Event {noname}
+
+
+- 37,9 -
+               VarDecl  0
+    0   4 *    SUSPEND
+    1   4 *    LoadThisR v32, 134217770
+    3   4 *    RDR4     v2
+    4   4 *    PshVPtr  v0
+    5   6 *    ADDSi    v36, 134217770
+    7   6 *    RDSPtr
+    8   6 *    CALLSYS  422           (uint array::length() const)
+   10   4 *    CpyRtoV4 v1
+   11   4 *    CMPi     v2, v1
+   13   4 *    JNZ      +6              (d:21)
+- 38,13 -
+            {
+   15   4 *    SUSPEND
+   16   4 *    SetV1    v1, 0x0
+            {
+            }
+   18   4 *    CpyVtoR4 v1
+   19   4 *    JMP      +35              (d:56)
+- 40,9 -
+            }
+            1:
+   21   4 *    SUSPEND
+   22   4 *    LoadThisR v32, 134217770
+   24   4 *    RDR4     v2
+   25   4 *    PshV4    v2
+   26   5 *    PshVPtr  v0
+   27   7 *    ADDSi    v36, 134217770
+   29   7 *    RDSPtr
+   30   7 *    Thiscall1 413           (Event@& array::opIndex(uint))
+   32   4 *    PshRPtr
+   33   6 *    RDSPtr
+   34   6 *    RefCpyV  v4, 0x3c4cbf40          (type:Event)
+   37   6 *    PopPtr
+   38   4 *    VAR      v4
+   39   6 *    PshVPtr  v-2
+   40   8 *    GETOBJREF 2
+   41   8 *    REFCPY   0x1353c4cbf40          (i:1328156557120, f:6.56197e-312)
+   44   6 *    FREE     v4, 0x3c4cbf40          (type:Event)
+   47   6 *    PopPtr
+- 41,9 -
+   48   4 *    SUSPEND
+   49   4 *    LoadThisR v32, 134217770
+   51   4 *    INCi
+- 42,9 -
+   52   4 *    SUSPEND
+   53   4 *    SetV1    v2, 0x1
+            {
+            }
+   55   4 *    CpyVtoR4 v2
+            0:
+   56   4 *    RET      4

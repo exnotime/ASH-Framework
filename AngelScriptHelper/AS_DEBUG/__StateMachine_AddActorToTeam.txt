@@ -1,0 +1,33 @@
+void StateMachine::AddActorToTeam(int, Actor@)
+
+Temps: 2
+
+Variables: 
+ -002: int team
+ -003: Actor@ a
+ 000: StateMachine this
+ 002: (heap) Actor {noname}
+
+
+- 20,9 -
+               VarDecl  0
+               VarDecl  1
+    0   2 *    SUSPEND
+    1   2 *    PshVPtr  v-3
+    2   4 *    RefCpyV  v2, 0x3c4cca30          (type:Actor)
+    5   4 *    PopPtr
+    6   2 *    VAR      v2
+    7   4 *    PshV4    v-2
+    8   5 *    PshVPtr  v0
+    9   7 *    ADDSi    v44, 134217771
+   11   7 *    RDSPtr
+   12   7 *    Thiscall1 481           (Actor@[]& array::opIndex(uint))
+   14   4 *    PshRPtr
+   15   6 *    GETREF   2
+   16   6 *    CALLSYS  454           (void array::insertLast(Actor@&in))
+   18   2 *    FREE     v2, 0x3c4cca30          (type:Actor)
+- 21,6 -
+   21   2 *    SUSPEND
+            0:
+   22   2 *    FREE     v-3, 0x3c4cca30          (type:Actor)
+   25   2 *    RET      5

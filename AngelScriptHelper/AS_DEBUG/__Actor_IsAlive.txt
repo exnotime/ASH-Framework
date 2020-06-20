@@ -1,0 +1,20 @@
+bool Actor::IsAlive()
+
+Temps: 1, 2
+
+Variables: 
+ 000: Actor this
+
+
+- 12,22 -
+    0   2 *    SUSPEND
+    1   2 *    LoadThisR v36, 134217763
+    3   2 *    RDR4     v1
+    4   2 *    CMPIf    v1, 0.000000
+    6   2 *    TP
+    7   2 *    CpyRtoV4 v1
+            {
+            }
+    8   2 *    CpyVtoR4 v1
+            0:
+    9   2 *    RET      2

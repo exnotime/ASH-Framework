@@ -1,0 +1,21 @@
+MovementEvent::MovementEvent()
+
+Temps: 1
+
+Variables: 
+ 000: MovementEvent this
+
+
+- 19,12 -
+    0   1 *    SUSPEND
+    1   1 *    PshVPtr  v0
+    2   3 *    CALL     329           (Event::Event())
+- 16,23 -
+    4   1 *    SUSPEND
+    5   1 *    SetV4    v1, 0x0          (i:0, f:0)
+    7   1 *    LoadThisR v32, 134217769
+    9   1 *    WRTV4    v1
+- 16,46 -
+   10   1 *    SUSPEND
+            0:
+   11   1 *    RET      2

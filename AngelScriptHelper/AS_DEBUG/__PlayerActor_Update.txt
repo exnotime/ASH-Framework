@@ -1,0 +1,312 @@
+void PlayerActor::Update(EventStream@)
+
+Temps: 1, 2, 5, 6, 7, 9, 11, 12
+
+Variables: 
+ -002: EventStream@ es
+ 004: (heap) MovementEvent me
+ 004: (heap) MovementEvent me
+ 004: (heap) MovementEvent me
+ 004: (heap) MovementEvent me
+ 000: PlayerActor this
+ 009: (heap) PlayerActor {noname}
+ 011: (heap) Event {noname}
+ 006: Vec2 {noname}
+
+
+- 38,9 -
+               VarDecl  0
+    0  12 *    SUSPEND
+    1  12 *    PshC4    0x47          (i:71, f:9.94922e-44)
+    3  13 *    CALLSYS  275           (bool IsKeyPushed(Key))
+    5  12 *    JLowZ    +82              (d:89)
+- 39,13 -
+            {
+    7  12 *    SUSPEND
+               VarDecl  1
+    8  12 *    CALL     332           (MovementEvent@ MovementEvent())
+   10  12 *    STOREOBJ v4
+- 40,13 -
+   11  12 *    SUSPEND
+   12  12 *    PshVPtr  v0
+   13  14 *    ADDSi    v32, 134217765
+   15  14 *    PshVPtr  v4
+   16  16 *    ADDSi    v36, 134217769
+   18  16 *    COPY     v1, 67108885
+   20  14 *    PopPtr
+- 41,13 -
+   21  12 *    SUSPEND
+   22  12 *    PshVPtr  v0
+   23  14 *    ADDSi    v32, 134217765
+   25  14 *    ADDSi    v1, 67108885
+   27  14 *    PopRPtr
+   28  12 *    RDR4     v7
+   29  12 *    PshV4    v7
+   30  13 *    PshVPtr  v0
+   31  15 *    ADDSi    v32, 134217765
+   33  15 *    ADDSi    v0, 67108885
+   35  15 *    PopRPtr
+   36  13 *    RDR4     v2
+   37  13 *    SUBIf    v2, v2, 1.000000
+   40  13 *    PshV4    v2
+   41  14 *    PSF      v6
+   42  16 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v6, 1
+   44  12 *    PSF      v6
+   45  14 *    PshVPtr  v4
+   46  16 *    ADDSi    v37, 134217769
+   48  16 *    COPY     v1, 67108885
+               ObjInfo  v6, 0
+   50  14 *    PopPtr
+- 42,13 -
+   51  12 *    SUSPEND
+   52  12 *    PshVPtr  v0
+   53  14 *    RefCpyV  v9, 0x3c4cc3a0          (type:PlayerActor)
+   56  14 *    PopPtr
+   57  12 *    VAR      v9
+   58  14 *    PshVPtr  v4
+   59  16 *    ADDSi    v40, 134217769
+   61  16 *    GETOBJREF 2
+   62  16 *    REFCPY   0x1353c4cca30          (i:1328156559920, f:6.56197e-312)
+   65  14 *    FREE     v9, 0x3c4cc3a0          (type:PlayerActor)
+   68  14 *    PopPtr
+- 43,13 -
+   69  12 *    SUSPEND
+   70  12 *    PshVPtr  v4
+   71  14 *    RefCpyV  v11, 0x3c4cbf40          (type:Event)
+   74  14 *    PopPtr
+   75  12 *    VAR      v11
+   76  14 *    PshVPtr  v-2
+   77  16 *    GETOBJ   2
+   78  16 *    CALLINTF 403           (void EventStream::PushNewEvent(Event@))
+- 44,13 -
+   80  12 *    SUSPEND
+   81  12 *    LoadThisR v44, 134217765
+   83  12 *    DECf
+   84  12 *    FREE     v4, 0x3c4ccc60          (type:MovementEvent)
+            }
+   87  12 *    JMP      +265              (d:354)
+- 45,16 -
+            1:
+   89  12 *    SUSPEND
+   90  12 *    PshC4    0x48          (i:72, f:1.00893e-43)
+   92  13 *    CALLSYS  275           (bool IsKeyPushed(Key))
+   94  12 *    JLowZ    +82              (d:178)
+- 46,13 -
+            {
+   96  12 *    SUSPEND
+               VarDecl  2
+   97  12 *    CALL     332           (MovementEvent@ MovementEvent())
+   99  12 *    STOREOBJ v4
+- 47,13 -
+  100  12 *    SUSPEND
+  101  12 *    PshVPtr  v0
+  102  14 *    ADDSi    v32, 134217765
+  104  14 *    PshVPtr  v4
+  105  16 *    ADDSi    v36, 134217769
+  107  16 *    COPY     v1, 67108885
+  109  14 *    PopPtr
+- 48,13 -
+  110  12 *    SUSPEND
+  111  12 *    PshVPtr  v0
+  112  14 *    ADDSi    v32, 134217765
+  114  14 *    ADDSi    v1, 67108885
+  116  14 *    PopRPtr
+  117  12 *    RDR4     v12
+  118  12 *    PshV4    v12
+  119  13 *    PshVPtr  v0
+  120  15 *    ADDSi    v32, 134217765
+  122  15 *    ADDSi    v0, 67108885
+  124  15 *    PopRPtr
+  125  13 *    RDR4     v7
+  126  13 *    ADDIf    v2, v7, 1.000000
+  129  13 *    PshV4    v2
+  130  14 *    PSF      v6
+  131  16 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v6, 1
+  133  12 *    PSF      v6
+  134  14 *    PshVPtr  v4
+  135  16 *    ADDSi    v37, 134217769
+  137  16 *    COPY     v1, 67108885
+               ObjInfo  v6, 0
+  139  14 *    PopPtr
+- 49,13 -
+  140  12 *    SUSPEND
+  141  12 *    PshVPtr  v0
+  142  14 *    RefCpyV  v9, 0x3c4cc3a0          (type:PlayerActor)
+  145  14 *    PopPtr
+  146  12 *    VAR      v9
+  147  14 *    PshVPtr  v4
+  148  16 *    ADDSi    v40, 134217769
+  150  16 *    GETOBJREF 2
+  151  16 *    REFCPY   0x1353c4cca30          (i:1328156559920, f:6.56197e-312)
+  154  14 *    FREE     v9, 0x3c4cc3a0          (type:PlayerActor)
+  157  14 *    PopPtr
+- 50,13 -
+  158  12 *    SUSPEND
+  159  12 *    PshVPtr  v4
+  160  14 *    RefCpyV  v11, 0x3c4cbf40          (type:Event)
+  163  14 *    PopPtr
+  164  12 *    VAR      v11
+  165  14 *    PshVPtr  v-2
+  166  16 *    GETOBJ   2
+  167  16 *    CALLINTF 403           (void EventStream::PushNewEvent(Event@))
+- 51,13 -
+  169  12 *    SUSPEND
+  170  12 *    LoadThisR v44, 134217765
+  172  12 *    DECf
+  173  12 *    FREE     v4, 0x3c4ccc60          (type:MovementEvent)
+            }
+  176  12 *    JMP      +176              (d:354)
+- 52,16 -
+            3:
+  178  12 *    SUSPEND
+  179  12 *    PshC4    0x49          (i:73, f:1.02295e-43)
+  181  13 *    CALLSYS  275           (bool IsKeyPushed(Key))
+  183  12 *    JLowZ    +82              (d:267)
+- 53,13 -
+            {
+  185  12 *    SUSPEND
+               VarDecl  3
+  186  12 *    CALL     332           (MovementEvent@ MovementEvent())
+  188  12 *    STOREOBJ v4
+- 54,13 -
+  189  12 *    SUSPEND
+  190  12 *    PshVPtr  v0
+  191  14 *    ADDSi    v32, 134217765
+  193  14 *    PshVPtr  v4
+  194  16 *    ADDSi    v36, 134217769
+  196  16 *    COPY     v1, 67108885
+  198  14 *    PopPtr
+- 55,13 -
+  199  12 *    SUSPEND
+  200  12 *    PshVPtr  v0
+  201  14 *    ADDSi    v32, 134217765
+  203  14 *    ADDSi    v1, 67108885
+  205  14 *    PopRPtr
+  206  12 *    RDR4     v7
+  207  12 *    SUBIf    v2, v7, 1.000000
+  210  12 *    PshV4    v2
+  211  13 *    PshVPtr  v0
+  212  15 *    ADDSi    v32, 134217765
+  214  15 *    ADDSi    v0, 67108885
+  216  15 *    PopRPtr
+  217  13 *    RDR4     v7
+  218  13 *    PshV4    v7
+  219  14 *    PSF      v6
+  220  16 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v6, 1
+  222  12 *    PSF      v6
+  223  14 *    PshVPtr  v4
+  224  16 *    ADDSi    v37, 134217769
+  226  16 *    COPY     v1, 67108885
+               ObjInfo  v6, 0
+  228  14 *    PopPtr
+- 56,13 -
+  229  12 *    SUSPEND
+  230  12 *    PshVPtr  v0
+  231  14 *    RefCpyV  v9, 0x3c4cc3a0          (type:PlayerActor)
+  234  14 *    PopPtr
+  235  12 *    VAR      v9
+  236  14 *    PshVPtr  v4
+  237  16 *    ADDSi    v40, 134217769
+  239  16 *    GETOBJREF 2
+  240  16 *    REFCPY   0x1353c4cca30          (i:1328156559920, f:6.56197e-312)
+  243  14 *    FREE     v9, 0x3c4cc3a0          (type:PlayerActor)
+  246  14 *    PopPtr
+- 57,13 -
+  247  12 *    SUSPEND
+  248  12 *    PshVPtr  v4
+  249  14 *    RefCpyV  v11, 0x3c4cbf40          (type:Event)
+  252  14 *    PopPtr
+  253  12 *    VAR      v11
+  254  14 *    PshVPtr  v-2
+  255  16 *    GETOBJ   2
+  256  16 *    CALLINTF 403           (void EventStream::PushNewEvent(Event@))
+- 58,13 -
+  258  12 *    SUSPEND
+  259  12 *    LoadThisR v44, 134217765
+  261  12 *    DECf
+  262  12 *    FREE     v4, 0x3c4ccc60          (type:MovementEvent)
+            }
+  265  12 *    JMP      +87              (d:354)
+- 59,16 -
+            5:
+  267  12 *    SUSPEND
+  268  12 *    PshC4    0x4a          (i:74, f:1.03696e-43)
+  270  13 *    CALLSYS  275           (bool IsKeyPushed(Key))
+  272  12 *    JLowZ    +80              (d:354)
+- 60,13 -
+            {
+  274  12 *    SUSPEND
+               VarDecl  4
+  275  12 *    CALL     332           (MovementEvent@ MovementEvent())
+  277  12 *    STOREOBJ v4
+- 61,13 -
+  278  12 *    SUSPEND
+  279  12 *    PshVPtr  v0
+  280  14 *    ADDSi    v32, 134217765
+  282  14 *    PshVPtr  v4
+  283  16 *    ADDSi    v36, 134217769
+  285  16 *    COPY     v1, 67108885
+  287  14 *    PopPtr
+- 62,13 -
+  288  12 *    SUSPEND
+  289  12 *    PshVPtr  v0
+  290  14 *    ADDSi    v32, 134217765
+  292  14 *    ADDSi    v1, 67108885
+  294  14 *    PopRPtr
+  295  12 *    RDR4     v5
+  296  12 *    ADDIf    v7, v5, 1.000000
+  299  12 *    PshV4    v7
+  300  13 *    PshVPtr  v0
+  301  15 *    ADDSi    v32, 134217765
+  303  15 *    ADDSi    v0, 67108885
+  305  15 *    PopRPtr
+  306  13 *    RDR4     v5
+  307  13 *    PshV4    v5
+  308  14 *    PSF      v6
+  309  16 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v6, 1
+  311  12 *    PSF      v6
+  312  14 *    PshVPtr  v4
+  313  16 *    ADDSi    v37, 134217769
+  315  16 *    COPY     v1, 67108885
+               ObjInfo  v6, 0
+  317  14 *    PopPtr
+- 63,13 -
+  318  12 *    SUSPEND
+  319  12 *    PshVPtr  v0
+  320  14 *    RefCpyV  v9, 0x3c4cc3a0          (type:PlayerActor)
+  323  14 *    PopPtr
+  324  12 *    VAR      v9
+  325  14 *    PshVPtr  v4
+  326  16 *    ADDSi    v40, 134217769
+  328  16 *    GETOBJREF 2
+  329  16 *    REFCPY   0x1353c4cca30          (i:1328156559920, f:6.56197e-312)
+  332  14 *    FREE     v9, 0x3c4cc3a0          (type:PlayerActor)
+  335  14 *    PopPtr
+- 64,13 -
+  336  12 *    SUSPEND
+  337  12 *    PshVPtr  v4
+  338  14 *    RefCpyV  v11, 0x3c4cbf40          (type:Event)
+  341  14 *    PopPtr
+  342  12 *    VAR      v11
+  343  14 *    PshVPtr  v-2
+  344  16 *    GETOBJ   2
+  345  16 *    CALLINTF 403           (void EventStream::PushNewEvent(Event@))
+- 65,13 -
+  347  12 *    SUSPEND
+  348  12 *    LoadThisR v44, 134217765
+  350  12 *    DECf
+  351  12 *    FREE     v4, 0x3c4ccc60          (type:MovementEvent)
+- 69,6 -
+            }
+            7:
+            6:
+            4:
+            2:
+  354  12 *    SUSPEND
+            0:
+  355  12 *    FREE     v-2, 0x3c4cc800          (type:EventStream)
+  358  12 *    RET      4

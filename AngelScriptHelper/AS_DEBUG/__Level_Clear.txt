@@ -1,0 +1,95 @@
+void Level::Clear()
+
+Temps: 2, 4
+
+Variables: 
+ 001: uint y
+ 003: uint x
+ 000: Level this
+ 004: Vec2 {noname}
+
+
+- 19,15 -
+    0   4 *    SUSPEND
+               VarDecl  0
+    1   4 *    SetV4    v1, 0x0          (i:0, f:0)
+    3   4 *    JMP      +61              (d:66)
+            4:
+    5   4 *    SUSPEND
+- 20,19 -
+            {
+    6   4 *    SUSPEND
+               VarDecl  1
+    7   4 *    SetV4    v3, 0x0          (i:0, f:0)
+    9   4 *    JMP      +41              (d:52)
+            8:
+   11   4 *    SUSPEND
+- 21,17 -
+            {
+   12   4 *    SUSPEND
+   13   4 *    PshC4    0x3f800000          (i:1065353216, f:1)
+   15   5 *    PSF      v4
+   16   7 *    CALLSYS  71           (Vec2::Vec2(float))
+               ObjInfo  v4, 1
+   18   4 *    VAR      v4
+   19   6 *    PshV4    v1
+   20   7 *    PshV4    v3
+   21   8 *    PshVPtr  v0
+   22  10 *    ADDSi    v60, 134217767
+   24  10 *    RDSPtr
+   25  10 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+   27   6 *    PshRPtr
+   28   8 *    ADDSi    v32, 134217761
+   30   8 *    GETREF   2
+   31   8 *    COPY     v1, 67108885
+               ObjInfo  v4, 0
+   33   6 *    PopPtr
+- 22,17 -
+   34   4 *    SUSPEND
+   35   4 *    SetV1    v2, 0x0
+   37   4 *    PshV4    v1
+   38   5 *    PshV4    v3
+   39   6 *    PshVPtr  v0
+   40   8 *    ADDSi    v60, 134217767
+   42   8 *    RDSPtr
+   43   8 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+   45   4 *    PshRPtr
+   46   6 *    ADDSi    v33, 134217761
+   48   6 *    PopRPtr
+   49   4 *    WRTV1    v2
+- 20,51 -
+            }
+            7:
+   50   4 *    SUSPEND
+   51   4 *    IncVi    v3
+- 20,31 -
+            5:
+   52   4 *    SUSPEND
+   53   4 *    PshVPtr  v0
+   54   6 *    ADDSi    v60, 134217767
+   56   6 *    RDSPtr
+   57   6 *    CALLSYS  394           (uint grid::width() const)
+   59   4 *    CpyRtoV4 v2
+   60   4 *    CMPu     v3, v2
+   62   4 *    JS       -53              (d:11)
+- 19,48 -
+            6:
+            }
+            3:
+   64   4 *    SUSPEND
+   65   4 *    IncVi    v1
+- 19,27 -
+            1:
+   66   4 *    SUSPEND
+   67   4 *    PshVPtr  v0
+   68   6 *    ADDSi    v60, 134217767
+   70   6 *    RDSPtr
+   71   6 *    CALLSYS  395           (uint grid::height() const)
+   73   4 *    CpyRtoV4 v2
+   74   4 *    CMPu     v1, v2
+   76   4 *    JS       -73              (d:5)
+- 25,6 -
+            2:
+   78   4 *    SUSPEND
+            0:
+   79   4 *    RET      2

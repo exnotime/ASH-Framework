@@ -1,0 +1,1924 @@
+{
+    "Functions": [
+        {
+            "Name": "init",
+            "Namespace": "",
+            "Declaration": "void init()",
+            "Params": [],
+            "Variables": [],
+            "ReturnType": "void"
+        },
+        {
+            "Name": "command",
+            "Namespace": "",
+            "Declaration": "void command(const string)",
+            "Params": [
+                {
+                    "Name": "c",
+                    "Type": "string",
+                    "DefaultVal": ""
+                }
+            ],
+            "Variables": [
+                {
+                    "Name": "c",
+                    "Type": "string"
+                }
+            ],
+            "ReturnType": "void"
+        },
+        {
+            "Name": "reload",
+            "Namespace": "",
+            "Declaration": "bool reload()",
+            "Params": [],
+            "Variables": [],
+            "ReturnType": "bool"
+        },
+        {
+            "Name": "update",
+            "Namespace": "",
+            "Declaration": "void update(float)",
+            "Params": [
+                {
+                    "Name": "dt",
+                    "Type": "float",
+                    "DefaultVal": ""
+                }
+            ],
+            "Variables": [
+                {
+                    "Name": "dt",
+                    "Type": "float"
+                }
+            ],
+            "ReturnType": "void"
+        },
+        {
+            "Name": "render",
+            "Namespace": "",
+            "Declaration": "void render()",
+            "Params": [],
+            "Variables": [],
+            "ReturnType": "void"
+        }
+    ],
+    "Types": [
+        {
+            "Name": "Tile",
+            "Namespace": "",
+            "AccessMask": 4294967295,
+            "Flags": 1,
+            "Declaration": "Tile",
+            "Properties": [
+                {
+                    "Name": "textureIndex",
+                    "Type": "Vec2",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "Vec2 textureIndex"
+                },
+                {
+                    "Name": "filled",
+                    "Type": "bool",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "bool filled"
+                }
+            ],
+            "Behaviors": [
+                {
+                    "Type": 5,
+                    "Func": {
+                        "Name": "$beh5",
+                        "Namespace": "",
+                        "Declaration": "void  beh5()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 6,
+                    "Func": {
+                        "Name": "$beh6",
+                        "Namespace": "",
+                        "Declaration": "void  beh6()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 9,
+                    "Func": {
+                        "Name": "$beh9",
+                        "Namespace": "",
+                        "Declaration": "int  beh9()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 10,
+                    "Func": {
+                        "Name": "$beh10",
+                        "Namespace": "",
+                        "Declaration": "void  beh10()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 11,
+                    "Func": {
+                        "Name": "$beh11",
+                        "Namespace": "",
+                        "Declaration": "bool  beh11()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "bool"
+                    }
+                },
+                {
+                    "Type": 12,
+                    "Func": {
+                        "Name": "$beh12",
+                        "Namespace": "",
+                        "Declaration": "void  beh12(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 13,
+                    "Func": {
+                        "Name": "$beh13",
+                        "Namespace": "",
+                        "Declaration": "void  beh13(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 7,
+                    "Func": {
+                        "Name": "$beh7",
+                        "Namespace": "",
+                        "Declaration": "int&  beh7()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 0,
+                    "Func": {
+                        "Name": "Tile",
+                        "Namespace": "",
+                        "Declaration": "void Tile()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 3,
+                    "Func": {
+                        "Name": "Tile",
+                        "Namespace": "",
+                        "Declaration": "Tile@ Tile()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": ""
+                    }
+                }
+            ],
+            "Methods": []
+        },
+        {
+            "Name": "Level",
+            "Namespace": "",
+            "AccessMask": 4294967295,
+            "Flags": 1,
+            "Declaration": "Level",
+            "Properties": [
+                {
+                    "Name": "m_Font",
+                    "Type": "Font@",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "Font@ m_Font"
+                },
+                {
+                    "Name": "m_BackgroundLayer",
+                    "Type": "RenderTexture@",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "RenderTexture@ m_BackgroundLayer"
+                },
+                {
+                    "Name": "m_TileSize",
+                    "Type": "Vec2",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "Vec2 m_TileSize"
+                },
+                {
+                    "Name": "m_Size",
+                    "Type": "Vec2",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "Vec2 m_Size"
+                },
+                {
+                    "Name": "m_Textures",
+                    "Type": "",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "Texture@[]& m_Textures"
+                },
+                {
+                    "Name": "m_Grid",
+                    "Type": "",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "grid<Tile>& m_Grid"
+                }
+            ],
+            "Behaviors": [
+                {
+                    "Type": 5,
+                    "Func": {
+                        "Name": "$beh5",
+                        "Namespace": "",
+                        "Declaration": "void  beh5()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 6,
+                    "Func": {
+                        "Name": "$beh6",
+                        "Namespace": "",
+                        "Declaration": "void  beh6()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 9,
+                    "Func": {
+                        "Name": "$beh9",
+                        "Namespace": "",
+                        "Declaration": "int  beh9()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 10,
+                    "Func": {
+                        "Name": "$beh10",
+                        "Namespace": "",
+                        "Declaration": "void  beh10()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 11,
+                    "Func": {
+                        "Name": "$beh11",
+                        "Namespace": "",
+                        "Declaration": "bool  beh11()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "bool"
+                    }
+                },
+                {
+                    "Type": 12,
+                    "Func": {
+                        "Name": "$beh12",
+                        "Namespace": "",
+                        "Declaration": "void  beh12(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 13,
+                    "Func": {
+                        "Name": "$beh13",
+                        "Namespace": "",
+                        "Declaration": "void  beh13(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 7,
+                    "Func": {
+                        "Name": "$beh7",
+                        "Namespace": "",
+                        "Declaration": "int&  beh7()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 0,
+                    "Func": {
+                        "Name": "Level",
+                        "Namespace": "",
+                        "Declaration": "void Level()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 0,
+                    "Func": {
+                        "Name": "Level",
+                        "Namespace": "",
+                        "Declaration": "void Level(Vec2)",
+                        "Params": [
+                            {
+                                "Name": "size",
+                                "Type": "Vec2",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [
+                            {
+                                "Name": "size",
+                                "Type": "Vec2"
+                            }
+                        ],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 3,
+                    "Func": {
+                        "Name": "Level",
+                        "Namespace": "",
+                        "Declaration": "Level@ Level()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": ""
+                    }
+                },
+                {
+                    "Type": 3,
+                    "Func": {
+                        "Name": "Level",
+                        "Namespace": "",
+                        "Declaration": "Level@ Level(Vec2)",
+                        "Params": [
+                            {
+                                "Name": "size",
+                                "Type": "Vec2",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": ""
+                    }
+                }
+            ],
+            "Methods": [
+                {
+                    "Name": "Clear",
+                    "Namespace": "",
+                    "Declaration": "void Clear()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "reloadLevelGrid",
+                    "Namespace": "",
+                    "Declaration": "void reloadLevelGrid()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "SelectTile",
+                    "Namespace": "",
+                    "Declaration": "void SelectTile(int, int)",
+                    "Params": [
+                        {
+                            "Name": "",
+                            "Type": "int",
+                            "DefaultVal": ""
+                        },
+                        {
+                            "Name": "",
+                            "Type": "int",
+                            "DefaultVal": ""
+                        }
+                    ],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "Init",
+                    "Namespace": "",
+                    "Declaration": "void Init()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "Render",
+                    "Namespace": "",
+                    "Declaration": "void Render(float)",
+                    "Params": [
+                        {
+                            "Name": "",
+                            "Type": "float",
+                            "DefaultVal": ""
+                        }
+                    ],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "IsWalkable",
+                    "Namespace": "",
+                    "Declaration": "bool IsWalkable(Vec2)",
+                    "Params": [
+                        {
+                            "Name": "",
+                            "Type": "Vec2",
+                            "DefaultVal": ""
+                        }
+                    ],
+                    "Variables": [],
+                    "ReturnType": "bool"
+                }
+            ]
+        },
+        {
+            "Name": "Actor",
+            "Namespace": "",
+            "AccessMask": 4294967295,
+            "Flags": 1,
+            "Declaration": "Actor",
+            "Properties": [
+                {
+                    "Name": "m_GridPosition",
+                    "Type": "Vec2",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "Vec2 m_GridPosition"
+                },
+                {
+                    "Name": "m_Health",
+                    "Type": "float",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "float m_Health"
+                },
+                {
+                    "Name": "m_MaxHealth",
+                    "Type": "float",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "float m_MaxHealth"
+                },
+                {
+                    "Name": "m_ActionPoints",
+                    "Type": "float",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "float m_ActionPoints"
+                },
+                {
+                    "Name": "m_MaxActionPoints",
+                    "Type": "float",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "float m_MaxActionPoints"
+                },
+                {
+                    "Name": "m_Entity",
+                    "Type": "uint",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "uint m_Entity"
+                }
+            ],
+            "Behaviors": [
+                {
+                    "Type": 2,
+                    "Func": {
+                        "Name": "~Actor",
+                        "Namespace": "",
+                        "Declaration": "void Actor()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 5,
+                    "Func": {
+                        "Name": "$beh5",
+                        "Namespace": "",
+                        "Declaration": "void  beh5()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 6,
+                    "Func": {
+                        "Name": "$beh6",
+                        "Namespace": "",
+                        "Declaration": "void  beh6()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 9,
+                    "Func": {
+                        "Name": "$beh9",
+                        "Namespace": "",
+                        "Declaration": "int  beh9()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 10,
+                    "Func": {
+                        "Name": "$beh10",
+                        "Namespace": "",
+                        "Declaration": "void  beh10()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 11,
+                    "Func": {
+                        "Name": "$beh11",
+                        "Namespace": "",
+                        "Declaration": "bool  beh11()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "bool"
+                    }
+                },
+                {
+                    "Type": 12,
+                    "Func": {
+                        "Name": "$beh12",
+                        "Namespace": "",
+                        "Declaration": "void  beh12(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 13,
+                    "Func": {
+                        "Name": "$beh13",
+                        "Namespace": "",
+                        "Declaration": "void  beh13(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 7,
+                    "Func": {
+                        "Name": "$beh7",
+                        "Namespace": "",
+                        "Declaration": "int&  beh7()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 0,
+                    "Func": {
+                        "Name": "Actor",
+                        "Namespace": "",
+                        "Declaration": "void Actor()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 3,
+                    "Func": {
+                        "Name": "Actor",
+                        "Namespace": "",
+                        "Declaration": "Actor@ Actor()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": ""
+                    }
+                }
+            ],
+            "Methods": [
+                {
+                    "Name": "Init",
+                    "Namespace": "",
+                    "Declaration": "void Init()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "IsAlive",
+                    "Namespace": "",
+                    "Declaration": "bool IsAlive()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "bool"
+                },
+                {
+                    "Name": "Update",
+                    "Namespace": "",
+                    "Declaration": "void Update(EventStream@)",
+                    "Params": [
+                        {
+                            "Name": "",
+                            "Type": "",
+                            "DefaultVal": ""
+                        }
+                    ],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "Render",
+                    "Namespace": "",
+                    "Declaration": "void Render()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "Reset",
+                    "Namespace": "",
+                    "Declaration": "void Reset()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "GetEntity",
+                    "Namespace": "",
+                    "Declaration": "uint GetEntity()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "uint"
+                }
+            ]
+        },
+        {
+            "Name": "PlayerActor",
+            "Namespace": "",
+            "AccessMask": 4294967295,
+            "Flags": 1,
+            "Declaration": "PlayerActor",
+            "Properties": [
+                {
+                    "Name": "m_GridPosition",
+                    "Type": "Vec2",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "Vec2 m_GridPosition"
+                },
+                {
+                    "Name": "m_Health",
+                    "Type": "float",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "float m_Health"
+                },
+                {
+                    "Name": "m_MaxHealth",
+                    "Type": "float",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "float m_MaxHealth"
+                },
+                {
+                    "Name": "m_ActionPoints",
+                    "Type": "float",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "float m_ActionPoints"
+                },
+                {
+                    "Name": "m_MaxActionPoints",
+                    "Type": "float",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "float m_MaxActionPoints"
+                },
+                {
+                    "Name": "m_Entity",
+                    "Type": "uint",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "uint m_Entity"
+                }
+            ],
+            "Behaviors": [
+                {
+                    "Type": 5,
+                    "Func": {
+                        "Name": "$beh5",
+                        "Namespace": "",
+                        "Declaration": "void  beh5()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 6,
+                    "Func": {
+                        "Name": "$beh6",
+                        "Namespace": "",
+                        "Declaration": "void  beh6()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 9,
+                    "Func": {
+                        "Name": "$beh9",
+                        "Namespace": "",
+                        "Declaration": "int  beh9()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 10,
+                    "Func": {
+                        "Name": "$beh10",
+                        "Namespace": "",
+                        "Declaration": "void  beh10()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 11,
+                    "Func": {
+                        "Name": "$beh11",
+                        "Namespace": "",
+                        "Declaration": "bool  beh11()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "bool"
+                    }
+                },
+                {
+                    "Type": 12,
+                    "Func": {
+                        "Name": "$beh12",
+                        "Namespace": "",
+                        "Declaration": "void  beh12(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 13,
+                    "Func": {
+                        "Name": "$beh13",
+                        "Namespace": "",
+                        "Declaration": "void  beh13(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 7,
+                    "Func": {
+                        "Name": "$beh7",
+                        "Namespace": "",
+                        "Declaration": "int&  beh7()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 0,
+                    "Func": {
+                        "Name": "PlayerActor",
+                        "Namespace": "",
+                        "Declaration": "void PlayerActor()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 3,
+                    "Func": {
+                        "Name": "PlayerActor",
+                        "Namespace": "",
+                        "Declaration": "PlayerActor@ PlayerActor()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": ""
+                    }
+                }
+            ],
+            "Methods": [
+                {
+                    "Name": "Init",
+                    "Namespace": "",
+                    "Declaration": "void Init()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "IsAlive",
+                    "Namespace": "",
+                    "Declaration": "bool IsAlive()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "bool"
+                },
+                {
+                    "Name": "Update",
+                    "Namespace": "",
+                    "Declaration": "void Update(EventStream@)",
+                    "Params": [
+                        {
+                            "Name": "",
+                            "Type": "",
+                            "DefaultVal": ""
+                        }
+                    ],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "Render",
+                    "Namespace": "",
+                    "Declaration": "void Render()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "Reset",
+                    "Namespace": "",
+                    "Declaration": "void Reset()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "GetEntity",
+                    "Namespace": "",
+                    "Declaration": "uint GetEntity()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "uint"
+                }
+            ]
+        },
+        {
+            "Name": "Event",
+            "Namespace": "",
+            "AccessMask": 4294967295,
+            "Flags": 1,
+            "Declaration": "Event",
+            "Properties": [
+                {
+                    "Name": "eventType",
+                    "Type": "",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "EventType eventType"
+                }
+            ],
+            "Behaviors": [
+                {
+                    "Type": 5,
+                    "Func": {
+                        "Name": "$beh5",
+                        "Namespace": "",
+                        "Declaration": "void  beh5()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 6,
+                    "Func": {
+                        "Name": "$beh6",
+                        "Namespace": "",
+                        "Declaration": "void  beh6()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 9,
+                    "Func": {
+                        "Name": "$beh9",
+                        "Namespace": "",
+                        "Declaration": "int  beh9()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 10,
+                    "Func": {
+                        "Name": "$beh10",
+                        "Namespace": "",
+                        "Declaration": "void  beh10()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 11,
+                    "Func": {
+                        "Name": "$beh11",
+                        "Namespace": "",
+                        "Declaration": "bool  beh11()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "bool"
+                    }
+                },
+                {
+                    "Type": 12,
+                    "Func": {
+                        "Name": "$beh12",
+                        "Namespace": "",
+                        "Declaration": "void  beh12(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 13,
+                    "Func": {
+                        "Name": "$beh13",
+                        "Namespace": "",
+                        "Declaration": "void  beh13(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 7,
+                    "Func": {
+                        "Name": "$beh7",
+                        "Namespace": "",
+                        "Declaration": "int&  beh7()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 0,
+                    "Func": {
+                        "Name": "Event",
+                        "Namespace": "",
+                        "Declaration": "void Event()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 3,
+                    "Func": {
+                        "Name": "Event",
+                        "Namespace": "",
+                        "Declaration": "Event@ Event()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": ""
+                    }
+                }
+            ],
+            "Methods": [
+                {
+                    "Name": "Perform",
+                    "Namespace": "",
+                    "Declaration": "void Perform()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "void"
+                }
+            ]
+        },
+        {
+            "Name": "MovementEvent",
+            "Namespace": "",
+            "AccessMask": 4294967295,
+            "Flags": 5,
+            "Declaration": "MovementEvent",
+            "Properties": [
+                {
+                    "Name": "eventType",
+                    "Type": "",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "EventType eventType"
+                },
+                {
+                    "Name": "from",
+                    "Type": "Vec2",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "Vec2 from"
+                },
+                {
+                    "Name": "to",
+                    "Type": "Vec2",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "Vec2 to"
+                },
+                {
+                    "Name": "actor",
+                    "Type": "",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "Actor@ actor"
+                }
+            ],
+            "Behaviors": [
+                {
+                    "Type": 5,
+                    "Func": {
+                        "Name": "$beh5",
+                        "Namespace": "",
+                        "Declaration": "void  beh5()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 6,
+                    "Func": {
+                        "Name": "$beh6",
+                        "Namespace": "",
+                        "Declaration": "void  beh6()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 9,
+                    "Func": {
+                        "Name": "$beh9",
+                        "Namespace": "",
+                        "Declaration": "int  beh9()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 10,
+                    "Func": {
+                        "Name": "$beh10",
+                        "Namespace": "",
+                        "Declaration": "void  beh10()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 11,
+                    "Func": {
+                        "Name": "$beh11",
+                        "Namespace": "",
+                        "Declaration": "bool  beh11()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "bool"
+                    }
+                },
+                {
+                    "Type": 12,
+                    "Func": {
+                        "Name": "$beh12",
+                        "Namespace": "",
+                        "Declaration": "void  beh12(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 13,
+                    "Func": {
+                        "Name": "$beh13",
+                        "Namespace": "",
+                        "Declaration": "void  beh13(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 7,
+                    "Func": {
+                        "Name": "$beh7",
+                        "Namespace": "",
+                        "Declaration": "int&  beh7()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 0,
+                    "Func": {
+                        "Name": "MovementEvent",
+                        "Namespace": "",
+                        "Declaration": "void MovementEvent()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 3,
+                    "Func": {
+                        "Name": "MovementEvent",
+                        "Namespace": "",
+                        "Declaration": "MovementEvent@ MovementEvent()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": ""
+                    }
+                }
+            ],
+            "Methods": [
+                {
+                    "Name": "Perform",
+                    "Namespace": "",
+                    "Declaration": "void Perform()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "void"
+                }
+            ]
+        },
+        {
+            "Name": "EventStream",
+            "Namespace": "",
+            "AccessMask": 4294967295,
+            "Flags": 5,
+            "Declaration": "EventStream",
+            "Properties": [
+                {
+                    "Name": "consumed",
+                    "Type": "int",
+                    "Private": true,
+                    "Protected": false,
+                    "Declaration": "private int consumed"
+                },
+                {
+                    "Name": "m_Events",
+                    "Type": "",
+                    "Private": true,
+                    "Protected": false,
+                    "Declaration": "private Event@[]& m_Events"
+                }
+            ],
+            "Behaviors": [
+                {
+                    "Type": 5,
+                    "Func": {
+                        "Name": "$beh5",
+                        "Namespace": "",
+                        "Declaration": "void  beh5()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 6,
+                    "Func": {
+                        "Name": "$beh6",
+                        "Namespace": "",
+                        "Declaration": "void  beh6()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 9,
+                    "Func": {
+                        "Name": "$beh9",
+                        "Namespace": "",
+                        "Declaration": "int  beh9()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 10,
+                    "Func": {
+                        "Name": "$beh10",
+                        "Namespace": "",
+                        "Declaration": "void  beh10()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 11,
+                    "Func": {
+                        "Name": "$beh11",
+                        "Namespace": "",
+                        "Declaration": "bool  beh11()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "bool"
+                    }
+                },
+                {
+                    "Type": 12,
+                    "Func": {
+                        "Name": "$beh12",
+                        "Namespace": "",
+                        "Declaration": "void  beh12(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 13,
+                    "Func": {
+                        "Name": "$beh13",
+                        "Namespace": "",
+                        "Declaration": "void  beh13(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 7,
+                    "Func": {
+                        "Name": "$beh7",
+                        "Namespace": "",
+                        "Declaration": "int&  beh7()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 0,
+                    "Func": {
+                        "Name": "EventStream",
+                        "Namespace": "",
+                        "Declaration": "void EventStream()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 3,
+                    "Func": {
+                        "Name": "EventStream",
+                        "Namespace": "",
+                        "Declaration": "EventStream@ EventStream()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": ""
+                    }
+                }
+            ],
+            "Methods": [
+                {
+                    "Name": "PushNewEvent",
+                    "Namespace": "",
+                    "Declaration": "void PushNewEvent(Event@)",
+                    "Params": [
+                        {
+                            "Name": "",
+                            "Type": "",
+                            "DefaultVal": ""
+                        }
+                    ],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "GetNextEvent",
+                    "Namespace": "",
+                    "Declaration": "bool GetNextEvent(Event@&out)",
+                    "Params": [
+                        {
+                            "Name": "",
+                            "Type": "",
+                            "DefaultVal": ""
+                        }
+                    ],
+                    "Variables": [],
+                    "ReturnType": "bool"
+                }
+            ]
+        },
+        {
+            "Name": "Globals",
+            "Namespace": "",
+            "AccessMask": 4294967295,
+            "Flags": 5,
+            "Declaration": "Globals",
+            "Properties": [
+                {
+                    "Name": "currentLevel",
+                    "Type": "",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "Level@ currentLevel"
+                }
+            ],
+            "Behaviors": [
+                {
+                    "Type": 5,
+                    "Func": {
+                        "Name": "$beh5",
+                        "Namespace": "",
+                        "Declaration": "void  beh5()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 6,
+                    "Func": {
+                        "Name": "$beh6",
+                        "Namespace": "",
+                        "Declaration": "void  beh6()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 9,
+                    "Func": {
+                        "Name": "$beh9",
+                        "Namespace": "",
+                        "Declaration": "int  beh9()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 10,
+                    "Func": {
+                        "Name": "$beh10",
+                        "Namespace": "",
+                        "Declaration": "void  beh10()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 11,
+                    "Func": {
+                        "Name": "$beh11",
+                        "Namespace": "",
+                        "Declaration": "bool  beh11()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "bool"
+                    }
+                },
+                {
+                    "Type": 12,
+                    "Func": {
+                        "Name": "$beh12",
+                        "Namespace": "",
+                        "Declaration": "void  beh12(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 13,
+                    "Func": {
+                        "Name": "$beh13",
+                        "Namespace": "",
+                        "Declaration": "void  beh13(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 7,
+                    "Func": {
+                        "Name": "$beh7",
+                        "Namespace": "",
+                        "Declaration": "int&  beh7()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 0,
+                    "Func": {
+                        "Name": "Globals",
+                        "Namespace": "",
+                        "Declaration": "void Globals()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 3,
+                    "Func": {
+                        "Name": "Globals",
+                        "Namespace": "",
+                        "Declaration": "Globals@ Globals()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": ""
+                    }
+                }
+            ],
+            "Methods": []
+        },
+        {
+            "Name": "StateMachine",
+            "Namespace": "",
+            "AccessMask": 4294967295,
+            "Flags": 5,
+            "Declaration": "StateMachine",
+            "Properties": [
+                {
+                    "Name": "CurrentTeam",
+                    "Type": "int",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "int CurrentTeam"
+                },
+                {
+                    "Name": "Turn",
+                    "Type": "int",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "int Turn"
+                },
+                {
+                    "Name": "CurrentActorIndex",
+                    "Type": "int",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "int CurrentActorIndex"
+                },
+                {
+                    "Name": "TeamActors",
+                    "Type": "",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "Actor@[][]& TeamActors"
+                },
+                {
+                    "Name": "Events",
+                    "Type": "EventStream",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "EventStream& Events"
+                },
+                {
+                    "Name": "GameSpeed",
+                    "Type": "float",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "float GameSpeed"
+                },
+                {
+                    "Name": "timer",
+                    "Type": "float",
+                    "Private": false,
+                    "Protected": false,
+                    "Declaration": "float timer"
+                }
+            ],
+            "Behaviors": [
+                {
+                    "Type": 5,
+                    "Func": {
+                        "Name": "$beh5",
+                        "Namespace": "",
+                        "Declaration": "void  beh5()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 6,
+                    "Func": {
+                        "Name": "$beh6",
+                        "Namespace": "",
+                        "Declaration": "void  beh6()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 9,
+                    "Func": {
+                        "Name": "$beh9",
+                        "Namespace": "",
+                        "Declaration": "int  beh9()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 10,
+                    "Func": {
+                        "Name": "$beh10",
+                        "Namespace": "",
+                        "Declaration": "void  beh10()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 11,
+                    "Func": {
+                        "Name": "$beh11",
+                        "Namespace": "",
+                        "Declaration": "bool  beh11()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "bool"
+                    }
+                },
+                {
+                    "Type": 12,
+                    "Func": {
+                        "Name": "$beh12",
+                        "Namespace": "",
+                        "Declaration": "void  beh12(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 13,
+                    "Func": {
+                        "Name": "$beh13",
+                        "Namespace": "",
+                        "Declaration": "void  beh13(int&in)",
+                        "Params": [
+                            {
+                                "Name": "",
+                                "Type": "int",
+                                "DefaultVal": ""
+                            }
+                        ],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 7,
+                    "Func": {
+                        "Name": "$beh7",
+                        "Namespace": "",
+                        "Declaration": "int&  beh7()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "int"
+                    }
+                },
+                {
+                    "Type": 0,
+                    "Func": {
+                        "Name": "StateMachine",
+                        "Namespace": "",
+                        "Declaration": "void StateMachine()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": "void"
+                    }
+                },
+                {
+                    "Type": 3,
+                    "Func": {
+                        "Name": "StateMachine",
+                        "Namespace": "",
+                        "Declaration": "StateMachine@ StateMachine()",
+                        "Params": [],
+                        "Variables": [],
+                        "ReturnType": ""
+                    }
+                }
+            ],
+            "Methods": [
+                {
+                    "Name": "CreateTeam",
+                    "Namespace": "",
+                    "Declaration": "int CreateTeam()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "int"
+                },
+                {
+                    "Name": "AddActorToTeam",
+                    "Namespace": "",
+                    "Declaration": "void AddActorToTeam(int, Actor@)",
+                    "Params": [
+                        {
+                            "Name": "",
+                            "Type": "int",
+                            "DefaultVal": ""
+                        },
+                        {
+                            "Name": "",
+                            "Type": "",
+                            "DefaultVal": ""
+                        }
+                    ],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "Update",
+                    "Namespace": "",
+                    "Declaration": "void Update(float)",
+                    "Params": [
+                        {
+                            "Name": "",
+                            "Type": "float",
+                            "DefaultVal": ""
+                        }
+                    ],
+                    "Variables": [],
+                    "ReturnType": "void"
+                },
+                {
+                    "Name": "Render",
+                    "Namespace": "",
+                    "Declaration": "void Render()",
+                    "Params": [],
+                    "Variables": [],
+                    "ReturnType": "void"
+                }
+            ]
+        }
+    ],
+    "TypeDefs": [],
+    "Enums": [
+        {
+            "Values": [
+                {
+                    "Name": "MOVEMENT",
+                    "Value": 0
+                },
+                {
+                    "Name": "ATTACK",
+                    "Value": 1
+                },
+                {
+                    "Name": "ITEM",
+                    "Value": 2
+                }
+            ],
+            "Name": "EventType"
+        }
+    ],
+    "GlobalVariables": [
+        {
+            "Name": "m_PlayerTeam",
+            "Namespace": "",
+            "Type": "int",
+            "Const": false
+        },
+        {
+            "Name": "m_EnemyTeam",
+            "Namespace": "",
+            "Type": "int",
+            "Const": false
+        },
+        {
+            "Name": "fps",
+            "Namespace": "",
+            "Type": "float",
+            "Const": false
+        },
+        {
+            "Name": "m_Camera",
+            "Namespace": "",
+            "Type": "Camera",
+            "Const": false
+        },
+        {
+            "Name": "m_Player",
+            "Namespace": "",
+            "Type": "PlayerActor",
+            "Const": false
+        },
+        {
+            "Name": "m_Player2",
+            "Namespace": "",
+            "Type": "PlayerActor",
+            "Const": false
+        },
+        {
+            "Name": "m_Level",
+            "Namespace": "",
+            "Type": "Level",
+            "Const": false
+        },
+        {
+            "Name": "m_StateMachine",
+            "Namespace": "",
+            "Type": "StateMachine",
+            "Const": false
+        },
+        {
+            "Name": "g_Globals",
+            "Namespace": "",
+            "Type": "Globals",
+            "Const": false
+        }
+    ]
+}

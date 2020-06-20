@@ -1,0 +1,418 @@
+// AngelScript 2.34.0 DEBUG
+// Lib options  AS_DEBUG AS_64BIT_PTR AS_WIN AS_X64_MSVC 
+// Engine properties
+ep 0 0
+ep 1 0
+ep 2 1
+ep 3 1
+ep 4 0
+ep 5 1
+ep 6 0
+ep 7 0
+ep 8 0
+ep 9 1
+ep 10 0
+ep 11 1
+ep 12 0
+ep 13 0
+ep 14 3
+ep 15 0
+ep 16 1
+ep 17 0
+ep 18 0
+ep 19 1
+ep 20 0
+ep 21 0
+ep 22 0
+ep 23 0
+ep 24 0
+ep 25 0
+ep 26 1
+ep 27 100
+ep 28 1
+ep 29 4096
+ep 30 10
+ep 31 0
+
+// Enums
+access ffffffff
+enum Key
+enumval Key A 0
+enumval Key B 1
+enumval Key C 2
+enumval Key D 3
+enumval Key E 4
+enumval Key F 5
+enumval Key G 6
+enumval Key H 7
+enumval Key I 8
+enumval Key J 9
+enumval Key K 10
+enumval Key L 11
+enumval Key M 12
+enumval Key N 13
+enumval Key O 14
+enumval Key P 15
+enumval Key Q 16
+enumval Key R 17
+enumval Key S 18
+enumval Key T 19
+enumval Key U 20
+enumval Key V 21
+enumval Key W 22
+enumval Key X 23
+enumval Key Y 24
+enumval Key Z 25
+enumval Key Num0 26
+enumval Key Num1 27
+enumval Key Num2 28
+enumval Key Num3 29
+enumval Key Num4 30
+enumval Key Num5 31
+enumval Key Num6 32
+enumval Key Num7 33
+enumval Key Num8 34
+enumval Key Num9 35
+enumval Key Escape 36
+enumval Key LControl 37
+enumval Key LShift 38
+enumval Key LAlt 39
+enumval Key LSystem 40
+enumval Key RControl 41
+enumval Key RShift 42
+enumval Key RAlt 43
+enumval Key RSystem 44
+enumval Key Menu 45
+enumval Key LBracket 46
+enumval Key RBracket 47
+enumval Key Semicolon 48
+enumval Key Comma 49
+enumval Key Period 50
+enumval Key Quote 51
+enumval Key Slash 52
+enumval Key Backslash 53
+enumval Key Tilde 54
+enumval Key Equal 55
+enumval Key Hyphen 56
+enumval Key Space 57
+enumval Key Enter 58
+enumval Key Backspace 59
+enumval Key Tab 60
+enumval Key PageUp 61
+enumval Key PageDown 62
+enumval Key End 63
+enumval Key Home 64
+enumval Key Insert 65
+enumval Key Delete 66
+enumval Key Add 67
+enumval Key Subtract 68
+enumval Key Multiply 69
+enumval Key Divide 70
+enumval Key Left 71
+enumval Key Right 72
+enumval Key Up 73
+enumval Key Down 74
+enumval Key Numpad0 75
+enumval Key Numpad1 76
+enumval Key Numpad2 77
+enumval Key Numpad3 78
+enumval Key Numpad4 79
+enumval Key Numpad5 80
+enumval Key Numpad6 81
+enumval Key Numpad7 82
+enumval Key Numpad8 83
+enumval Key Numpad9 84
+enumval Key F1 85
+enumval Key F2 86
+enumval Key F3 87
+enumval Key F4 88
+enumval Key F5 89
+enumval Key F6 90
+enumval Key F7 91
+enumval Key F8 92
+enumval Key F9 93
+enumval Key F10 94
+enumval Key F11 95
+enumval Key F12 96
+enumval Key Pause 100
+enum MouseButton
+enumval MouseButton Left 0
+enumval MouseButton Right 1
+enumval MouseButton Middle 2
+enumval MouseButton Forward 3
+enumval MouseButton Backward 4
+enum ComponentType
+enumval ComponentType Transform 1
+enumval ComponentType Sprite 2
+enumval ComponentType Animation 8
+
+// Types
+objtype "array<T>" 69
+objtype "string" 7938
+objtype "file" 1
+objtype "filesystem" 1
+objtype "grid<T>" 69
+objtype "ref" 8070
+objtype "Vec2" 778
+objtype "Rect" 778
+objtype "Texture" 262145
+objtype "Color" 778
+objtype "Sprite" 262145
+objtype "Font" 262145
+objtype "Camera" 778
+objtype "RenderTexture" 262145
+objtype "TransformComponent" 262145
+objtype "SpriteComponent" 262145
+objtype "AnimationComponent" 262145
+typedef AnimationHandle "uint"
+typedef EntityHandle "uint"
+funcdef "bool array::less(const T&in, const T&in)"
+
+// Template type members
+objbeh "array<T>" 3 "array<T>@ array(int&in)"
+objbeh "array<T>" 3 "array<T>@ array(int&in, uint)"
+objbeh "array<T>" 3 "array<T>@ array(int&in, uint, const T&in)"
+objbeh "array<T>" 5 "void $beh5()"
+objbeh "array<T>" 6 "void $beh6()"
+objbeh "array<T>" 9 "int $beh9()"
+objbeh "array<T>" 10 "void $beh10()"
+objbeh "array<T>" 11 "bool $beh11()"
+objbeh "array<T>" 12 "void $beh12(int&in)"
+objbeh "array<T>" 13 "void $beh13(int&in)"
+objbeh "array<T>" 8 "bool $beh8(int&in, bool&out)"
+objbeh "array<T>" 4 "array<T>@ $beh4(int&in, int&in) { repeat T }"
+objmthd "array<T>" "T& opIndex(uint)"
+objmthd "array<T>" "const T& opIndex(uint) const"
+objmthd "array<T>" "array<T>& opAssign(const array<T>&in)"
+objmthd "array<T>" "void insertAt(uint, const T&in)"
+objmthd "array<T>" "void insertAt(uint, const array<T>&inout)"
+objmthd "array<T>" "void insertLast(const T&in)"
+objmthd "array<T>" "void removeAt(uint)"
+objmthd "array<T>" "void removeLast()"
+objmthd "array<T>" "void removeRange(uint, uint)"
+objmthd "array<T>" "uint length() const"
+objmthd "array<T>" "void reserve(uint)"
+objmthd "array<T>" "void resize(uint)"
+objmthd "array<T>" "void sortAsc()"
+objmthd "array<T>" "void sortAsc(uint, uint)"
+objmthd "array<T>" "void sortDesc()"
+objmthd "array<T>" "void sortDesc(uint, uint)"
+objmthd "array<T>" "void reverse()"
+objmthd "array<T>" "int find(const T&in) const"
+objmthd "array<T>" "int find(uint, const T&in) const"
+objmthd "array<T>" "int findByRef(const T&in) const"
+objmthd "array<T>" "int findByRef(uint, const T&in) const"
+objmthd "array<T>" "bool opEquals(const array<T>&in) const"
+objmthd "array<T>" "bool isEmpty() const"
+objmthd "array<T>" "void sort(array::less&in, uint = 0, uint = uint ( - 1 ))"
+objbeh "grid<T>" 3 "grid<T>@ grid(int&in)"
+objbeh "grid<T>" 3 "grid<T>@ grid(int&in, uint, uint)"
+objbeh "grid<T>" 3 "grid<T>@ grid(int&in, uint, uint, const T&in)"
+objbeh "grid<T>" 5 "void $beh5()"
+objbeh "grid<T>" 6 "void $beh6()"
+objbeh "grid<T>" 9 "int $beh9()"
+objbeh "grid<T>" 10 "void $beh10()"
+objbeh "grid<T>" 11 "bool $beh11()"
+objbeh "grid<T>" 12 "void $beh12(int&in)"
+objbeh "grid<T>" 13 "void $beh13(int&in)"
+objbeh "grid<T>" 8 "bool $beh8(int&in, bool&out)"
+objbeh "grid<T>" 4 "grid<T>@ $beh4(int&in, int&in) { repeat { repeat_same T } }"
+objmthd "grid<T>" "T& opIndex(uint, uint)"
+objmthd "grid<T>" "const T& opIndex(uint, uint) const"
+objmthd "grid<T>" "void resize(uint, uint)"
+objmthd "grid<T>" "uint width() const"
+objmthd "grid<T>" "uint height() const"
+
+// Type members
+objbeh "string" 2 "void string()"
+objbeh "string" 0 "void string()"
+objbeh "string" 0 "void string(const string&in)"
+objmthd "string" "string& opAssign(const string&in)"
+objmthd "string" "string& opAddAssign(const string&in)"
+objmthd "string" "bool opEquals(const string&in) const"
+objmthd "string" "int opCmp(const string&in) const"
+objmthd "string" "string opAdd(const string&in) const"
+objmthd "string" "uint length() const"
+objmthd "string" "void resize(uint)"
+objmthd "string" "bool isEmpty() const"
+objmthd "string" "uint8& opIndex(uint)"
+objmthd "string" "const uint8& opIndex(uint) const"
+objmthd "string" "string& opAssign(double)"
+objmthd "string" "string& opAddAssign(double)"
+objmthd "string" "string opAdd(double) const"
+objmthd "string" "string opAdd_r(double) const"
+objmthd "string" "string& opAssign(float)"
+objmthd "string" "string& opAddAssign(float)"
+objmthd "string" "string opAdd(float) const"
+objmthd "string" "string opAdd_r(float) const"
+objmthd "string" "string& opAssign(int64)"
+objmthd "string" "string& opAddAssign(int64)"
+objmthd "string" "string opAdd(int64) const"
+objmthd "string" "string opAdd_r(int64) const"
+objmthd "string" "string& opAssign(uint64)"
+objmthd "string" "string& opAddAssign(uint64)"
+objmthd "string" "string opAdd(uint64) const"
+objmthd "string" "string opAdd_r(uint64) const"
+objmthd "string" "string& opAssign(bool)"
+objmthd "string" "string& opAddAssign(bool)"
+objmthd "string" "string opAdd(bool) const"
+objmthd "string" "string opAdd_r(bool) const"
+objmthd "string" "string substr(uint = 0, int = - 1) const"
+objmthd "string" "int findFirst(const string&in, uint = 0) const"
+objmthd "string" "int findFirstOf(const string&in, uint = 0) const"
+objmthd "string" "int findFirstNotOf(const string&in, uint = 0) const"
+objmthd "string" "int findLast(const string&in, int = - 1) const"
+objmthd "string" "int findLastOf(const string&in, int = - 1) const"
+objmthd "string" "int findLastNotOf(const string&in, int = - 1) const"
+objmthd "string" "void insert(uint, const string&in)"
+objmthd "string" "void erase(uint, int = - 1)"
+objmthd "string" "array<string>@ split(const string&in) const"
+objbeh "file" 3 "file@ file()"
+objbeh "file" 5 "void $beh5()"
+objbeh "file" 6 "void $beh6()"
+objmthd "file" "int open(const string&in, const string&in)"
+objmthd "file" "int close()"
+objmthd "file" "int getSize() const"
+objmthd "file" "bool isEndOfFile() const"
+objmthd "file" "string readString(uint)"
+objmthd "file" "string readLine()"
+objmthd "file" "int64 readInt(uint)"
+objmthd "file" "uint64 readUInt(uint)"
+objmthd "file" "float readFloat()"
+objmthd "file" "double readDouble()"
+objmthd "file" "int writeString(const string&in)"
+objmthd "file" "int writeInt(int64, uint)"
+objmthd "file" "int writeUInt(uint64, uint)"
+objmthd "file" "int writeFloat(float)"
+objmthd "file" "int writeDouble(double)"
+objmthd "file" "int getPos() const"
+objmthd "file" "int setPos(int)"
+objmthd "file" "int movePos(int)"
+objprop "file" "bool mostSignificantByteFirst" 0 0
+objbeh "filesystem" 3 "filesystem@ filesystem()"
+objbeh "filesystem" 5 "void $beh5()"
+objbeh "filesystem" 6 "void $beh6()"
+objmthd "filesystem" "bool changeCurrentPath(const string&in)"
+objmthd "filesystem" "string getCurrentPath() const"
+objmthd "filesystem" "array<string>@ getDirs() const"
+objmthd "filesystem" "array<string>@ getFiles() const"
+objmthd "filesystem" "bool isDir(const string&in) const"
+objmthd "filesystem" "bool isLink(const string&in) const"
+objmthd "filesystem" "int64 getSize(const string&in) const"
+objmthd "filesystem" "int makeDir(const string&in)"
+objmthd "filesystem" "int removeDir(const string&in)"
+objmthd "filesystem" "int deleteFile(const string&in)"
+objmthd "filesystem" "int copyFile(const string&in, const string&in)"
+objmthd "filesystem" "int move(const string&in, const string&in)"
+objbeh "ref" 2 "void ref()"
+objbeh "ref" 12 "void $beh12(int&in)"
+objbeh "ref" 13 "void $beh13(int&in)"
+objbeh "ref" 0 "void ref()"
+objbeh "ref" 0 "void ref(const ref&in)"
+objbeh "ref" 0 "void ref(const ?&in)"
+objmthd "ref" "void opCast(?&out)"
+objmthd "ref" "ref& opHndlAssign(const ref&in)"
+objmthd "ref" "ref& opHndlAssign(const ?&in)"
+objmthd "ref" "bool opEquals(const ref&in) const"
+objmthd "ref" "bool opEquals(const ?&in) const"
+objbeh "Vec2" 0 "void Vec2(float)"
+objbeh "Vec2" 0 "void Vec2(float, float)"
+objmthd "Vec2" "Vec2 opSub(const Vec2) const"
+objmthd "Vec2" "Vec2 opAdd(const Vec2) const"
+objmthd "Vec2" "Vec2 opMul(const Vec2) const"
+objmthd "Vec2" "void opSubAssign(const Vec2)"
+objmthd "Vec2" "void opAddAssign(const Vec2)"
+objmthd "Vec2" "void opMulAssign(const Vec2)"
+objprop "Vec2" "float x" 0 0
+objprop "Vec2" "float y" 0 0
+objbeh "Rect" 0 "void Rect(float, float, float, float)"
+objprop "Rect" "float x" 0 0
+objprop "Rect" "float y" 0 0
+objprop "Rect" "float w" 0 0
+objprop "Rect" "float h" 0 0
+objbeh "Color" 0 "void Color(int, int, int)"
+objbeh "Color" 0 "void Color(int, int, int, int)"
+objprop "Color" "uint8 r" 0 0
+objprop "Color" "uint8 g" 0 0
+objprop "Color" "uint8 b" 0 0
+objprop "Color" "uint8 a" 0 0
+objprop "Sprite" "Texture@ tex" 0 0
+objprop "Sprite" "Vec2 pos" 0 0
+objprop "Sprite" "Vec2 scale" 0 0
+objprop "Sprite" "Rect textureRect" 0 0
+objprop "Sprite" "Vec2 textureSize" 0 0
+objprop "Sprite" "Color tint" 0 0
+objprop "Sprite" "uint layer" 0 0
+objprop "Camera" "Vec2 position" 0 0
+objprop "Camera" "Vec2 size" 0 0
+objprop "Camera" "float rotation" 0 0
+objprop "Camera" "Rect viewport" 0 0
+objprop "TransformComponent" "Vec2 position" 0 0
+objprop "TransformComponent" "Vec2 scale" 0 0
+objprop "TransformComponent" "Vec2 localOrigin" 0 0
+objprop "TransformComponent" "float rotation" 0 0
+objprop "SpriteComponent" "Texture@ texture" 0 0
+objprop "SpriteComponent" "int layer" 0 0
+objprop "SpriteComponent" "Rect textureRect" 0 0
+objprop "SpriteComponent" "Color color" 0 0
+
+// Functions
+func "string formatInt(int64, const string&in = \"\", uint = 0)"
+func "string formatUInt(uint64, const string&in = \"\", uint = 0)"
+func "string formatFloat(double, const string&in = \"\", uint = 0, uint = 0)"
+func "int64 parseInt(const string&in, uint = 10, uint&out = 0)"
+func "uint64 parseUInt(const string&in, uint = 10, uint&out = 0)"
+func "double parseFloat(const string&in, uint&out = 0)"
+func "string join(const array<string>&in, const string&in)"
+func "void print(const string&in)"
+func "void Break()"
+func "float RandomFloat()"
+func "int Random()"
+func "int Random(int, int)"
+func "void ClearWindow(int, int, int)"
+func "Texture@ LoadTexture(const string)"
+func "void UnloadTexture(Texture@)"
+func "void DrawSprite(const Texture@, const Vec2, const Vec2, const int = 3)"
+func "Sprite@ CreateSprite(Texture@, const Vec2)"
+func "void DestroySprite(Sprite@)"
+func "Font@ LoadFont(const string)"
+func "void UnloadFont(Font@)"
+func "void DrawText(Font@, const string, const Vec2, const Color, const int = 30, const int = 2)"
+func "void DrawCircle(Vec2, Color, float, int = 3)"
+func "void SetVsync(bool)"
+func "void AddCamera(Camera)"
+func "RenderTexture@ CreateRenderTexture(const string, Vec2)"
+func "void ClearRenderTexture(RenderTexture@, const Color)"
+func "void FlushRenderTexture(RenderTexture@)"
+func "void DrawSpriteToTexture(RenderTexture@, Texture@, Vec2, Vec2, Vec2, Vec2)"
+func "void DrawRectToTexture(RenderTexture@, Vec2, Vec2, const Color)"
+func "const Texture@ GetTextureFromRenderTexture(RenderTexture@)"
+func "bool IsKeyDown(Key)"
+func "bool IsKeyPushed(Key)"
+func "bool IsKeyReleased(Key)"
+func "bool IsMouseButtonDown(MouseButton)"
+func "bool IsMouseButtonPushed(MouseButton)"
+func "bool IsMouseButtonReleased(MouseButton)"
+func "Vec2 MousePos()"
+func "Vec2 MousePos(const Camera)"
+func "uint LoadAnimation(const string)"
+func "uint CreateEntity()"
+func "void DestroyEntity(uint)"
+func "uint64 GetEntityComponents(uint)"
+func "void CreateTransformComponent(uint, Vec2, Vec2, Vec2, float)"
+func "void CreateTransformComponent(uint)"
+func "TransformComponent@ GetTransformComponent(uint)"
+func "void CreateSpriteComponent(uint, Texture@, int, Rect, Color)"
+func "void CreateSpriteComponent(uint)"
+func "SpriteComponent@ GetSpriteComponent(uint)"
+func "void CreateAnimationComponent(uint, uint, uint = 0)"
+func "void CreateAnimationComponent(uint)"
+func "AnimationComponent@ GetAnimationComponent(uint)"
+
+// Properties
+
+// String factory
+strfactory "string"
+
+// Default array type
+defarray "array<T>"

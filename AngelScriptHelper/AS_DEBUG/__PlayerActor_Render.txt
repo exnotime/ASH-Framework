@@ -1,0 +1,150 @@
+void PlayerActor::Render()
+
+Temps: 3, 5, 7, 9, 10, 11, 12, 14, 16
+
+Variables: 
+ 002: (heap) TransformComponent@ tc
+ 006: Vec2 pos
+ 008: uint ac
+ 000: PlayerActor this
+ 005: (heap) TransformComponent {noname}
+ 014: (heap) Color {noname}
+ 016: (heap) Vec2 {noname}
+ 009: Color {noname}
+
+
+- 72,9 -
+    0  16 *    SUSPEND
+               VarDecl  0
+    1  16 *    LoadThisR v52, 134217765
+    3  16 *    RDR4     v3
+    4  16 *    PshV4    v3
+    5  17 *    CALLSYS  288           (TransformComponent@ GetTransformComponent(uint))
+    7  16 *    FREE     v2, 0x3c4cbcc0          (type:TransformComponent)
+   10  16 *    STOREOBJ v2
+- 73,9 -
+   11  16 *    SUSPEND
+               VarDecl  1
+   12  16 *    PshVPtr  v2
+   13  18 *    ADDSi    v0, 67108893
+   15  18 *    PSF      v6
+   16  20 *    COPY     v1, 67108885
+   18  18 *    PopPtr
+- 74,9 -
+   19  16 *    SUSPEND
+   20  16 *    LoadVObjR v6, v1, 67108885
+   23  16 *    RDR4     v3
+   24  16 *    SUBIf    v3, v3, 8.000000
+   27  16 *    WRTV4    v3
+- 75,9 -
+   28  16 *    SUSPEND
+   29  16 *    LoadVObjR v6, v0, 67108885
+   32  16 *    RDR4     v7
+   33  16 *    SUBIf    v7, v7, 4.000000
+   36  16 *    WRTV4    v7
+- 76,13 -
+   37  16 *    SUSPEND
+               VarDecl  2
+   38  16 *    SetV4    v8, 0x0          (i:0, f:0)
+   40  16 *    JMP      +105              (d:147)
+            4:
+   42  16 *    SUSPEND
+- 77,13 -
+            {
+   43  16 *    SUSPEND
+   44  16 *    LoadVObjR v6, v0, 67108885
+   47  16 *    RDR4     v7
+   48  16 *    ADDIf    v7, v7, 12.000000
+   51  16 *    WRTV4    v7
+- 78,13 -
+   52  16 *    SUSPEND
+   53  16 *    CpyVtoV4 v7, v8
+   55  16 *    uTOf     v7
+   56  16 *    LoadThisR v44, 134217765
+   58  16 *    RDR4     v3
+   59  16 *    CMPf     v7, v3
+   61  16 *    JNS      +42              (d:105)
+- 79,17 -
+            {
+   63  16 *    SUSPEND
+   64  16 *    PshC4    0x3          (i:3, f:4.2039e-45)
+   66  17 *    PshC4    0x40a00000          (i:1084227584, f:5)
+   68  18 *    PSF      v14
+   69  20 *    ALLOC    0x1353c4ca080, 0             (type:Color, {no func})
+   73  18 *    PshC4    0x0          (i:0, f:0)
+   75  19 *    PshC4    0x0          (i:0, f:0)
+   77  20 *    PshC4    0xff          (i:255, f:3.57331e-43)
+   79  21 *    PSF      v9
+   80  23 *    CALLSYS  74           (Color::Color(int, int, int))
+               ObjInfo  v9, 1
+   82  18 *    PSF      v9
+   83  20 *    PshVPtr  v14
+   84  22 *    COPY     v1, 67108888
+   86  20 *    PopPtr
+               ObjInfo  v9, 0
+   87  18 *    VAR      v14
+   88  20 *    PSF      v16
+   89  22 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+   93  20 *    PSF      v6
+   94  22 *    PshVPtr  v16
+   95  24 *    COPY     v1, 67108885
+   97  22 *    PopPtr
+   98  20 *    VAR      v16
+   99  22 *    GETOBJ   0
+  100  22 *    GETOBJ   2
+  101  22 *    CALLSYS  265           (void DrawCircle(Vec2, Color, float, int = 3))
+            }
+  103  16 *    JMP      +40              (d:145)
+- 81,17 -
+            5:
+            {
+  105  16 *    SUSPEND
+  106  16 *    PshC4    0x3          (i:3, f:4.2039e-45)
+  108  17 *    PshC4    0x40a00000          (i:1084227584, f:5)
+  110  18 *    PSF      v14
+  111  20 *    ALLOC    0x1353c4ca080, 0             (type:Color, {no func})
+  115  18 *    PshC4    0x0          (i:0, f:0)
+  117  19 *    PshC4    0x0          (i:0, f:0)
+  119  20 *    PshC4    0x14          (i:20, f:2.8026e-44)
+  121  21 *    PSF      v9
+  122  23 *    CALLSYS  74           (Color::Color(int, int, int))
+               ObjInfo  v9, 1
+  124  18 *    PSF      v9
+  125  20 *    PshVPtr  v14
+  126  22 *    COPY     v1, 67108888
+  128  20 *    PopPtr
+               ObjInfo  v9, 0
+  129  18 *    VAR      v14
+  130  20 *    PSF      v16
+  131  22 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  135  20 *    PSF      v6
+  136  22 *    PshVPtr  v16
+  137  24 *    COPY     v1, 67108885
+  139  22 *    PopPtr
+  140  20 *    VAR      v16
+  141  22 *    GETOBJ   0
+  142  22 *    GETOBJ   2
+  143  22 *    CALLSYS  265           (void DrawCircle(Vec2, Color, float, int = 3))
+- 76,50 -
+            }
+            6:
+            }
+            3:
+  145  16 *    SUSPEND
+  146  16 *    IncVi    v8
+- 76,26 -
+            1:
+  147  16 *    SUSPEND
+  148  16 *    CpyVtoV4 v3, v8
+  150  16 *    uTOf     v3
+  151  16 *    LoadThisR v48, 134217765
+  153  16 *    RDR4     v7
+  154  16 *    CMPf     v3, v7
+  156  16 *    JS       -116              (d:42)
+- 84,6 -
+            2:
+  158  16 *    SUSPEND
+               ObjInfo  v6, 0
+  159  16 *    FREE     v2, 0x3c4cbcc0          (type:TransformComponent)
+            0:
+  162  16 *    RET      2

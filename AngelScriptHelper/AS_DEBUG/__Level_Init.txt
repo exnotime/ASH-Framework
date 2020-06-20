@@ -1,0 +1,731 @@
+void Level::Init()
+
+Temps: 2, 4, 6, 7, 9, 10, 12, 14, 15, 16, 19, 25, 27, 28, 29, 30, 32, 34, 36, 37
+
+Variables: 
+ 017: uint i
+ 018: int startX
+ 020: int startY
+ 021: int endX
+ 022: int endY
+ 023: int y
+ 024: int x
+ 024: int y
+ 018: int x
+ 020: int y
+ 024: int x
+ 021: int y
+ 020: int x
+ 000: Level this
+ 002: (heap) string {noname}
+ 004: (heap) Texture {noname}
+ 006: (heap) Font {noname}
+ 009: (heap) Vec2 {noname}
+ 012: (heap) Vec2 {noname}
+ 014: (heap) RenderTexture {noname}
+ 027: (heap) Color {noname}
+ 032: (heap) Vec2 {noname}
+ 034: (heap) Vec2 {noname}
+ 036: (heap) Vec2 {noname}
+ 007: Vec2 {noname}
+ 010: Vec2 {noname}
+ 025: Color {noname}
+ 028: Vec2 {noname}
+ 029: Vec2 {noname}
+ 030: Vec2 {noname}
+
+
+- 85,9 -
+    0  37 *    SUSPEND
+    1  37 *    PSF      v2
+    2  39 *    PGA      0x3c4f21c0          (str:assets/textures/rogu...)
+    5  41 *    ALLOC    0x1353c487bd0, 33             (type:string, string::string(const string&in))
+    9  37 *    VAR      v2
+   10  39 *    GETOBJ   0
+   11  39 *    CALLSYS  257           (Texture@ LoadTexture(const string))
+   13  37 *    STOREOBJ v4
+   14  37 *    VAR      v4
+   15  39 *    PshVPtr  v0
+   16  41 *    ADDSi    v52, 134217767
+   18  41 *    RDSPtr
+   19  41 *    GETREF   2
+   20  41 *    CALLSYS  365           (void array::insertLast(Texture@&in))
+   22  37 *    FREE     v4, 0x3c4c9e50          (type:Texture)
+- 87,9 -
+   25  37 *    SUSPEND
+   26  37 *    PSF      v2
+   27  39 *    PGA      0x3c4f3960          (str:assets/fonts/jackinp...)
+   30  41 *    ALLOC    0x1353c487bd0, 33             (type:string, string::string(const string&in))
+   34  37 *    VAR      v2
+   35  39 *    GETOBJ   0
+   36  39 *    CALLSYS  262           (Font@ LoadFont(const string))
+   38  37 *    STOREOBJ v6
+   39  37 *    VAR      v6
+   40  39 *    PshVPtr  v0
+   41  41 *    ADDSi    v32, 134217767
+   43  41 *    GETOBJREF 2
+   44  41 *    REFCPY   0x1353c4ca620          (i:1328156550688, f:6.56197e-312)
+   47  39 *    FREE     v6, 0x3c4ca620          (type:Font)
+   50  39 *    PopPtr
+- 88,9 -
+   51  37 *    SUSPEND
+   52  37 *    PSF      v12
+   53  39 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+   57  37 *    PshVPtr  v0
+   58  39 *    ADDSi    v49, 134217767
+   60  39 *    PSF      v7
+   61  41 *    COPY     v1, 67108885
+   63  39 *    PopPtr
+   64  37 *    PSF      v9
+   65  39 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+   69  37 *    PshVPtr  v0
+   70  39 *    ADDSi    v48, 134217767
+   72  39 *    PshVPtr  v9
+   73  41 *    COPY     v1, 67108885
+   75  39 *    PopPtr
+   76  37 *    VAR      v9
+   77  39 *    PSF      v10
+   78  41 *    PSF      v7
+   79  43 *    GETOBJ   4
+   80  43 *    CALLSYS  240           (Vec2 Vec2::opMul(const Vec2) const)
+               ObjInfo  v10, 1
+               ObjInfo  v7, 0
+   82  37 *    PSF      v10
+   83  39 *    PshVPtr  v12
+   84  41 *    COPY     v1, 67108885
+   86  39 *    PopPtr
+               ObjInfo  v10, 0
+   87  37 *    VAR      v12
+   88  39 *    PSF      v2
+   89  41 *    PGA      0x3c4f3b10          (str:LevelBackground)
+   92  43 *    ALLOC    0x1353c487bd0, 33             (type:string, string::string(const string&in))
+   96  39 *    VAR      v2
+   97  41 *    GETOBJ   0
+   98  41 *    GETOBJ   2
+   99  41 *    CALLSYS  268           (RenderTexture@ CreateRenderTexture(const string, Vec2))
+  101  37 *    STOREOBJ v14
+  102  37 *    VAR      v14
+  103  39 *    PshVPtr  v0
+  104  41 *    ADDSi    v40, 134217767
+  106  41 *    GETOBJREF 2
+  107  41 *    REFCPY   0x1353c4cba90          (i:1328156555920, f:6.56197e-312)
+  110  39 *    FREE     v14, 0x3c4cba90          (type:RenderTexture)
+  113  39 *    PopPtr
+- 89,9 -
+  114  37 *    SUSPEND
+  115  37 *    PshVPtr  v0
+  116  39 *    ADDSi    v49, 134217767
+  118  39 *    ADDSi    v1, 67108885
+  120  39 *    PopRPtr
+  121  37 *    RDR4     v15
+  122  37 *    fTOu     v15
+  123  37 *    PshV4    v15
+  124  38 *    PshVPtr  v0
+  125  40 *    ADDSi    v49, 134217767
+  127  40 *    ADDSi    v0, 67108885
+  129  40 *    PopRPtr
+  130  38 *    RDR4     v16
+  131  38 *    fTOu     v16
+  132  38 *    PshV4    v16
+  133  39 *    PshVPtr  v0
+  134  41 *    ADDSi    v60, 134217767
+  136  41 *    RDSPtr
+  137  41 *    CALLSYS  393           (void grid::resize(uint, uint))
+- 90,13 -
+  139  37 *    SUSPEND
+               VarDecl  0
+  140  37 *    SetV4    v17, 0x0          (i:0, f:0)
+  142  37 *    JMP      +119              (d:263)
+            4:
+  144  37 *    SUSPEND
+- 91,13 -
+            {
+  145  37 *    SUSPEND
+               VarDecl  1
+  146  37 *    PshVPtr  v0
+  147  39 *    ADDSi    v60, 134217767
+  149  39 *    RDSPtr
+  150  39 *    CALLSYS  394           (uint grid::width() const)
+  152  37 *    CpyRtoV4 v16
+  153  37 *    SUBIi    v16, v16, 2
+  156  37 *    PshV4    v16
+  157  38 *    PshC4    0x0          (i:0, f:0)
+  159  39 *    CALLSYS  255           (int Random(int, int))
+  161  37 *    CpyRtoV4 v19
+  162  37 *    CpyVtoV4 v18, v19
+- 92,13 -
+  164  37 *    SUSPEND
+               VarDecl  2
+  165  37 *    PshVPtr  v0
+  166  39 *    ADDSi    v60, 134217767
+  168  39 *    RDSPtr
+  169  39 *    CALLSYS  395           (uint grid::height() const)
+  171  37 *    CpyRtoV4 v16
+  172  37 *    SUBIi    v15, v16, 2
+  175  37 *    PshV4    v15
+  176  38 *    PshC4    0x0          (i:0, f:0)
+  178  39 *    CALLSYS  255           (int Random(int, int))
+  180  37 *    CpyRtoV4 v16
+  181  37 *    CpyVtoV4 v20, v16
+- 93,13 -
+  183  37 *    SUSPEND
+               VarDecl  3
+  184  37 *    PshVPtr  v0
+  185  39 *    ADDSi    v60, 134217767
+  187  39 *    RDSPtr
+  188  39 *    CALLSYS  394           (uint grid::width() const)
+  190  37 *    CpyRtoV4 v15
+  191  37 *    PshV4    v15
+  192  38 *    ADDIi    v19, v18, 2
+  195  38 *    PshV4    v19
+  196  39 *    CALLSYS  255           (int Random(int, int))
+  198  37 *    CpyRtoV4 v16
+  199  37 *    CpyVtoV4 v21, v16
+- 94,13 -
+  201  37 *    SUSPEND
+               VarDecl  4
+  202  37 *    PshVPtr  v0
+  203  39 *    ADDSi    v60, 134217767
+  205  39 *    RDSPtr
+  206  39 *    CALLSYS  395           (uint grid::height() const)
+  208  37 *    CpyRtoV4 v15
+  209  37 *    PshV4    v15
+  210  38 *    ADDIi    v19, v20, 2
+  213  38 *    PshV4    v19
+  214  39 *    CALLSYS  255           (int Random(int, int))
+  216  37 *    CpyRtoV4 v16
+  217  37 *    CpyVtoV4 v22, v16
+- 96,19 -
+  219  37 *    SUSPEND
+               VarDecl  5
+  220  37 *    CpyVtoV4 v23, v20
+  222  37 *    JMP      +32              (d:256)
+            8:
+  224  37 *    SUSPEND
+- 97,23 -
+            {
+  225  37 *    SUSPEND
+               VarDecl  6
+  226  37 *    CpyVtoV4 v24, v18
+  228  37 *    JMP      +19              (d:249)
+            12:
+  230  37 *    SUSPEND
+- 98,21 -
+            {
+  231  37 *    SUSPEND
+  232  37 *    SetV1    v15, 0x1
+  234  37 *    PshV4    v23
+  235  38 *    PshV4    v24
+  236  39 *    PshVPtr  v0
+  237  41 *    ADDSi    v60, 134217767
+  239  41 *    RDSPtr
+  240  41 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  242  37 *    PshRPtr
+  243  39 *    ADDSi    v33, 134217761
+  245  39 *    PopRPtr
+  246  37 *    WRTV1    v15
+- 97,49 -
+            }
+            11:
+  247  37 *    SUSPEND
+  248  37 *    IncVi    v24
+- 97,39 -
+            9:
+  249  37 *    SUSPEND
+  250  37 *    CMPi     v24, v21
+  252  37 *    JS       -24              (d:230)
+- 96,45 -
+            10:
+            }
+            7:
+  254  37 *    SUSPEND
+  255  37 *    IncVi    v23
+- 96,35 -
+            5:
+  256  37 *    SUSPEND
+  257  37 *    CMPi     v23, v22
+  259  37 *    JS       -37              (d:224)
+- 90,33 -
+            6:
+            }
+            3:
+  261  37 *    SUSPEND
+  262  37 *    IncVi    v17
+- 90,26 -
+            1:
+  263  37 *    SUSPEND
+  264  37 *    CMPIu    v17, 2
+  266  37 *    JS       -124              (d:144)
+- 102,15 -
+            2:
+  268  37 *    SUSPEND
+               VarDecl  7
+  269  37 *    SetV4    v24, 0x0          (i:0, f:0)
+  271  37 *    JMP      +29              (d:302)
+            16:
+  273  37 *    SUSPEND
+- 103,19 -
+            {
+  274  37 *    SUSPEND
+               VarDecl  8
+  275  37 *    SetV4    v18, 0x0          (i:0, f:0)
+  277  37 *    JMP      +9              (d:288)
+            20:
+  279  37 *    SUSPEND
+- 104,17 -
+            {
+  280  37 *    SUSPEND
+  281  37 *    PshV4    v24
+  282  38 *    PshV4    v18
+  283  39 *    PshVPtr  v0
+  284  41 *    CALLINTF 348           (void Level::SelectTile(int, int))
+- 103,50 -
+            }
+            19:
+  286  37 *    SUSPEND
+  287  37 *    IncVi    v18
+- 103,30 -
+            17:
+  288  37 *    SUSPEND
+  289  37 *    PshVPtr  v0
+  290  39 *    ADDSi    v60, 134217767
+  292  39 *    RDSPtr
+  293  39 *    CALLSYS  394           (uint grid::width() const)
+  295  37 *    CpyRtoV4 v19
+  296  37 *    CMPi     v18, v19
+  298  37 *    JS       -21              (d:279)
+- 102,47 -
+            18:
+            }
+            15:
+  300  37 *    SUSPEND
+  301  37 *    IncVi    v24
+- 102,26 -
+            13:
+  302  37 *    SUSPEND
+  303  37 *    PshVPtr  v0
+  304  39 *    ADDSi    v60, 134217767
+  306  39 *    RDSPtr
+  307  39 *    CALLSYS  395           (uint grid::height() const)
+  309  37 *    CpyRtoV4 v19
+  310  37 *    CMPi     v24, v19
+  312  37 *    JS       -41              (d:273)
+- 107,9 -
+            14:
+  314  37 *    SUSPEND
+  315  37 *    PSF      v27
+  316  39 *    ALLOC    0x1353c4ca080, 0             (type:Color, {no func})
+  320  37 *    PshC4    0x0          (i:0, f:0)
+  322  38 *    PshC4    0x0          (i:0, f:0)
+  324  39 *    PshC4    0x0          (i:0, f:0)
+  326  40 *    PSF      v25
+  327  42 *    CALLSYS  74           (Color::Color(int, int, int))
+               ObjInfo  v25, 1
+  329  37 *    PSF      v25
+  330  39 *    PshVPtr  v27
+  331  41 *    COPY     v1, 67108888
+  333  39 *    PopPtr
+               ObjInfo  v25, 0
+  334  37 *    VAR      v27
+  335  39 *    PshVPtr  v0
+  336  41 *    ADDSi    v40, 134217767
+  338  41 *    RDSPtr
+  339  41 *    RefCpyV  v14, 0x3c4cba90          (type:RenderTexture)
+  342  41 *    PopPtr
+  343  39 *    VAR      v14
+  344  41 *    GETOBJ   0
+  345  41 *    GETOBJ   2
+  346  41 *    CALLSYS  269           (void ClearRenderTexture(RenderTexture@, const Color))
+- 108,14 -
+  348  37 *    SUSPEND
+               VarDecl  9
+  349  37 *    SetV4    v20, 0x0          (i:0, f:0)
+  351  37 *    JMP      +201              (d:554)
+            24:
+  353  37 *    SUSPEND
+- 109,19 -
+            {
+  354  37 *    SUSPEND
+               VarDecl  10
+  355  37 *    SetV4    v24, 0x0          (i:0, f:0)
+  357  37 *    JMP      +181              (d:540)
+            28:
+  359  37 *    SUSPEND
+- 110,17 -
+            {
+  360  37 *    SUSPEND
+  361  37 *    PSF      v32
+  362  39 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  366  37 *    PshC4    0x41800000          (i:1098907648, f:16)
+  368  38 *    PSF      v10
+  369  40 *    CALLSYS  71           (Vec2::Vec2(float))
+               ObjInfo  v10, 1
+  371  37 *    PSF      v10
+  372  39 *    PshVPtr  v32
+  373  41 *    COPY     v1, 67108885
+  375  39 *    PopPtr
+               ObjInfo  v10, 0
+  376  37 *    VAR      v32
+  377  39 *    PSF      v34
+  378  41 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  382  39 *    PshV4    v20
+  383  40 *    PshV4    v24
+  384  41 *    PshVPtr  v0
+  385  43 *    ADDSi    v60, 134217767
+  387  43 *    RDSPtr
+  388  43 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  390  39 *    PshRPtr
+  391  41 *    ADDSi    v32, 134217761
+  393  41 *    PSF      v28
+  394  43 *    COPY     v1, 67108885
+  396  41 *    PopPtr
+  397  39 *    PSF      v9
+  398  41 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  402  39 *    PshC4    0x41800000          (i:1098907648, f:16)
+  404  40 *    PSF      v7
+  405  42 *    CALLSYS  71           (Vec2::Vec2(float))
+               ObjInfo  v7, 1
+  407  39 *    PSF      v7
+  408  41 *    PshVPtr  v9
+  409  43 *    COPY     v1, 67108885
+  411  41 *    PopPtr
+               ObjInfo  v7, 0
+  412  39 *    VAR      v9
+  413  41 *    PSF      v7
+  414  43 *    PSF      v28
+  415  45 *    GETOBJ   4
+  416  45 *    CALLSYS  240           (Vec2 Vec2::opMul(const Vec2) const)
+               ObjInfo  v7, 1
+               ObjInfo  v28, 0
+  418  39 *    PSF      v12
+  419  41 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  423  39 *    PshV4    v20
+  424  40 *    PshV4    v24
+  425  41 *    PshVPtr  v0
+  426  43 *    ADDSi    v60, 134217767
+  428  43 *    RDSPtr
+  429  43 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  431  39 *    PshRPtr
+  432  41 *    ADDSi    v32, 134217761
+  434  41 *    PshVPtr  v12
+  435  43 *    COPY     v1, 67108885
+  437  41 *    PopPtr
+  438  39 *    VAR      v12
+  439  41 *    PSF      v28
+  440  43 *    PSF      v7
+  441  45 *    GETOBJ   4
+  442  45 *    CALLSYS  239           (Vec2 Vec2::opAdd(const Vec2) const)
+               ObjInfo  v28, 1
+               ObjInfo  v7, 0
+  444  39 *    PSF      v28
+  445  41 *    PshVPtr  v34
+  446  43 *    COPY     v1, 67108885
+  448  41 *    PopPtr
+               ObjInfo  v28, 0
+  449  39 *    VAR      v34
+  450  41 *    PSF      v9
+  451  43 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  455  41 *    PshC4    0x40800000          (i:1082130432, f:4)
+  457  42 *    PSF      v7
+  458  44 *    CALLSYS  71           (Vec2::Vec2(float))
+               ObjInfo  v7, 1
+  460  41 *    PSF      v7
+  461  43 *    PshVPtr  v9
+  462  45 *    COPY     v1, 67108885
+  464  43 *    PopPtr
+               ObjInfo  v7, 0
+  465  41 *    VAR      v9
+  466  43 *    PSF      v36
+  467  45 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  471  43 *    CpyVtoV4 v19, v20
+  473  43 *    iTOf     v19
+  474  43 *    PshV4    v19
+  475  44 *    CpyVtoV4 v15, v24
+  477  44 *    iTOf     v15
+  478  44 *    PshV4    v15
+  479  45 *    PSF      v29
+  480  47 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v29, 1
+  482  43 *    PSF      v12
+  483  45 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  487  43 *    PshVPtr  v0
+  488  45 *    ADDSi    v48, 134217767
+  490  45 *    PshVPtr  v12
+  491  47 *    COPY     v1, 67108885
+  493  45 *    PopPtr
+  494  43 *    VAR      v12
+  495  45 *    PSF      v30
+  496  47 *    PSF      v29
+  497  49 *    GETOBJ   4
+  498  49 *    CALLSYS  240           (Vec2 Vec2::opMul(const Vec2) const)
+               ObjInfo  v30, 1
+               ObjInfo  v29, 0
+  500  43 *    PSF      v30
+  501  45 *    PshVPtr  v36
+  502  47 *    COPY     v1, 67108885
+  504  45 *    PopPtr
+               ObjInfo  v30, 0
+  505  43 *    VAR      v36
+  506  45 *    PshC4    0x0          (i:0, f:0)
+  508  46 *    PshVPtr  v0
+  509  48 *    ADDSi    v52, 134217767
+  511  48 *    RDSPtr
+  512  48 *    Thiscall1 360           (Texture@& array::opIndex(uint))
+  514  45 *    PshRPtr
+  515  47 *    RDSPtr
+  516  47 *    RefCpyV  v4, 0x3c4c9e50          (type:Texture)
+  519  47 *    PopPtr
+  520  45 *    VAR      v4
+  521  47 *    PshVPtr  v0
+  522  49 *    ADDSi    v40, 134217767
+  524  49 *    RDSPtr
+  525  49 *    RefCpyV  v14, 0x3c4cba90          (type:RenderTexture)
+  528  49 *    PopPtr
+  529  47 *    VAR      v14
+  530  49 *    GETOBJ   0
+  531  49 *    GETOBJ   2
+  532  49 *    GETOBJ   4
+  533  49 *    GETOBJ   6
+  534  49 *    GETOBJ   8
+  535  49 *    GETOBJ   10
+  536  49 *    CALLSYS  271           (void DrawSpriteToTexture(RenderTexture@, Texture@, Vec2, Vec2, Vec2, Vec2))
+- 109,50 -
+            }
+            27:
+  538  37 *    SUSPEND
+  539  37 *    IncVi    v24
+- 109,30 -
+            25:
+  540  37 *    SUSPEND
+  541  37 *    PshVPtr  v0
+  542  39 *    ADDSi    v60, 134217767
+  544  39 *    RDSPtr
+  545  39 *    CALLSYS  394           (uint grid::width() const)
+  547  37 *    CpyRtoV4 v16
+  548  37 *    CMPi     v24, v16
+  550  37 *    JS       -193              (d:359)
+- 108,46 -
+            26:
+            }
+            23:
+  552  37 *    SUSPEND
+  553  37 *    IncVi    v20
+- 108,25 -
+            21:
+  554  37 *    SUSPEND
+  555  37 *    PshVPtr  v0
+  556  39 *    ADDSi    v60, 134217767
+  558  39 *    RDSPtr
+  559  39 *    CALLSYS  395           (uint grid::height() const)
+  561  37 *    CpyRtoV4 v15
+  562  37 *    CMPi     v20, v15
+  564  37 *    JS       -213              (d:353)
+- 113,14 -
+            22:
+  566  37 *    SUSPEND
+               VarDecl  11
+  567  37 *    SetV4    v21, 0x0          (i:0, f:0)
+  569  37 *    JMP      +102              (d:673)
+            32:
+  571  37 *    SUSPEND
+- 114,13 -
+            {
+  572  37 *    SUSPEND
+  573  37 *    PSF      v27
+  574  39 *    ALLOC    0x1353c4ca080, 0             (type:Color, {no func})
+  578  37 *    PshC4    0x0          (i:0, f:0)
+  580  38 *    PshC4    0x0          (i:0, f:0)
+  582  39 *    PshC4    0xff          (i:255, f:3.57331e-43)
+  584  40 *    PSF      v25
+  585  42 *    CALLSYS  74           (Color::Color(int, int, int))
+               ObjInfo  v25, 1
+  587  37 *    PSF      v25
+  588  39 *    PshVPtr  v27
+  589  41 *    COPY     v1, 67108888
+  591  39 *    PopPtr
+               ObjInfo  v25, 0
+  592  37 *    VAR      v27
+  593  39 *    PSF      v32
+  594  41 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  598  39 *    PshC4    0x3f800000          (i:1065353216, f:1)
+  600  40 *    PshVPtr  v0
+  601  42 *    ADDSi    v60, 134217767
+  603  42 *    RDSPtr
+  604  42 *    CALLSYS  394           (uint grid::width() const)
+  606  40 *    CpyRtoV4 v16
+  607  40 *    uTOf     v16
+  608  40 *    PshVPtr  v0
+  609  42 *    ADDSi    v48, 134217767
+  611  42 *    ADDSi    v0, 67108885
+  613  42 *    PopRPtr
+  614  40 *    RDR4     v15
+  615  40 *    MULf     v19, v16, v15
+  617  40 *    PshV4    v19
+  618  41 *    PSF      v30
+  619  43 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v30, 1
+  621  39 *    PSF      v30
+  622  41 *    PshVPtr  v32
+  623  43 *    COPY     v1, 67108885
+  625  41 *    PopPtr
+               ObjInfo  v30, 0
+  626  39 *    VAR      v32
+  627  41 *    PSF      v34
+  628  43 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  632  41 *    CpyVtoV4 v19, v21
+  634  41 *    iTOf     v19
+  635  41 *    PshVPtr  v0
+  636  43 *    ADDSi    v48, 134217767
+  638  43 *    ADDSi    v1, 67108885
+  640  43 *    PopRPtr
+  641  41 *    RDR4     v16
+  642  41 *    MULf     v37, v19, v16
+  644  41 *    PshV4    v37
+  645  42 *    PshC4    0x0          (i:0, f:0)
+  647  43 *    PSF      v7
+  648  45 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v7, 1
+  650  41 *    PSF      v7
+  651  43 *    PshVPtr  v34
+  652  45 *    COPY     v1, 67108885
+  654  43 *    PopPtr
+               ObjInfo  v7, 0
+  655  41 *    VAR      v34
+  656  43 *    PshVPtr  v0
+  657  45 *    ADDSi    v40, 134217767
+  659  45 *    RDSPtr
+  660  45 *    RefCpyV  v14, 0x3c4cba90          (type:RenderTexture)
+  663  45 *    PopPtr
+  664  43 *    VAR      v14
+  665  45 *    GETOBJ   0
+  666  45 *    GETOBJ   2
+  667  45 *    GETOBJ   4
+  668  45 *    GETOBJ   6
+  669  45 *    CALLSYS  272           (void DrawRectToTexture(RenderTexture@, Vec2, Vec2, const Color))
+- 113,46 -
+            }
+            31:
+  671  37 *    SUSPEND
+  672  37 *    IncVi    v21
+- 113,25 -
+            29:
+  673  37 *    SUSPEND
+  674  37 *    PshVPtr  v0
+  675  39 *    ADDSi    v60, 134217767
+  677  39 *    RDSPtr
+  678  39 *    CALLSYS  395           (uint grid::height() const)
+  680  37 *    CpyRtoV4 v19
+  681  37 *    CMPi     v21, v19
+  683  37 *    JS       -114              (d:571)
+- 116,14 -
+            30:
+  685  37 *    SUSPEND
+               VarDecl  12
+  686  37 *    SetV4    v20, 0x0          (i:0, f:0)
+  688  37 *    JMP      +102              (d:792)
+            36:
+  690  37 *    SUSPEND
+- 117,13 -
+            {
+  691  37 *    SUSPEND
+  692  37 *    PSF      v27
+  693  39 *    ALLOC    0x1353c4ca080, 0             (type:Color, {no func})
+  697  37 *    PshC4    0x0          (i:0, f:0)
+  699  38 *    PshC4    0x0          (i:0, f:0)
+  701  39 *    PshC4    0xff          (i:255, f:3.57331e-43)
+  703  40 *    PSF      v25
+  704  42 *    CALLSYS  74           (Color::Color(int, int, int))
+               ObjInfo  v25, 1
+  706  37 *    PSF      v25
+  707  39 *    PshVPtr  v27
+  708  41 *    COPY     v1, 67108888
+  710  39 *    PopPtr
+               ObjInfo  v25, 0
+  711  37 *    VAR      v27
+  712  39 *    PSF      v32
+  713  41 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  717  39 *    PshVPtr  v0
+  718  41 *    ADDSi    v60, 134217767
+  720  41 *    RDSPtr
+  721  41 *    CALLSYS  395           (uint grid::height() const)
+  723  39 *    CpyRtoV4 v37
+  724  39 *    uTOf     v37
+  725  39 *    PshVPtr  v0
+  726  41 *    ADDSi    v48, 134217767
+  728  41 *    ADDSi    v1, 67108885
+  730  41 *    PopRPtr
+  731  39 *    RDR4     v16
+  732  39 *    MULf     v15, v37, v16
+  734  39 *    PshV4    v15
+  735  40 *    PshC4    0x3f800000          (i:1065353216, f:1)
+  737  41 *    PSF      v29
+  738  43 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v29, 1
+  740  39 *    PSF      v29
+  741  41 *    PshVPtr  v32
+  742  43 *    COPY     v1, 67108885
+  744  41 *    PopPtr
+               ObjInfo  v29, 0
+  745  39 *    VAR      v32
+  746  41 *    PSF      v34
+  747  43 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  751  41 *    PshC4    0x0          (i:0, f:0)
+  753  42 *    CpyVtoV4 v37, v20
+  755  42 *    iTOf     v37
+  756  42 *    PshVPtr  v0
+  757  44 *    ADDSi    v48, 134217767
+  759  44 *    ADDSi    v0, 67108885
+  761  44 *    PopRPtr
+  762  42 *    RDR4     v19
+  763  42 *    MULf     v15, v37, v19
+  765  42 *    PshV4    v15
+  766  43 *    PSF      v28
+  767  45 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v28, 1
+  769  41 *    PSF      v28
+  770  43 *    PshVPtr  v34
+  771  45 *    COPY     v1, 67108885
+  773  43 *    PopPtr
+               ObjInfo  v28, 0
+  774  41 *    VAR      v34
+  775  43 *    PshVPtr  v0
+  776  45 *    ADDSi    v40, 134217767
+  778  45 *    RDSPtr
+  779  45 *    RefCpyV  v14, 0x3c4cba90          (type:RenderTexture)
+  782  45 *    PopPtr
+  783  43 *    VAR      v14
+  784  45 *    GETOBJ   0
+  785  45 *    GETOBJ   2
+  786  45 *    GETOBJ   4
+  787  45 *    GETOBJ   6
+  788  45 *    CALLSYS  272           (void DrawRectToTexture(RenderTexture@, Vec2, Vec2, const Color))
+- 116,45 -
+            }
+            35:
+  790  37 *    SUSPEND
+  791  37 *    IncVi    v20
+- 116,25 -
+            33:
+  792  37 *    SUSPEND
+  793  37 *    PshVPtr  v0
+  794  39 *    ADDSi    v60, 134217767
+  796  39 *    RDSPtr
+  797  39 *    CALLSYS  394           (uint grid::width() const)
+  799  37 *    CpyRtoV4 v19
+  800  37 *    CMPi     v20, v19
+  802  37 *    JS       -114              (d:690)
+- 119,9 -
+            34:
+  804  37 *    SUSPEND
+  805  37 *    PshVPtr  v0
+  806  39 *    ADDSi    v40, 134217767
+  808  39 *    RDSPtr
+  809  39 *    RefCpyV  v14, 0x3c4cba90          (type:RenderTexture)
+  812  39 *    PopPtr
+  813  37 *    VAR      v14
+  814  39 *    GETOBJ   0
+  815  39 *    CALLSYS  270           (void FlushRenderTexture(RenderTexture@))
+- 120,6 -
+  817  37 *    SUSPEND
+            0:
+  818  37 *    RET      2

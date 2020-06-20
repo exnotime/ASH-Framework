@@ -1,0 +1,12 @@
+void Actor::Render()
+
+Temps: 
+
+Variables: 
+ 000: Actor this
+
+
+- 14,21 -
+    0   0 *    SUSPEND
+            0:
+    1   0 *    RET      2

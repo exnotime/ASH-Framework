@@ -1,0 +1,12 @@
+void Actor::Reset()
+
+Temps: 
+
+Variables: 
+ 000: Actor this
+
+
+- 15,20 -
+    0   0 *    SUSPEND
+            0:
+    1   0 *    RET      2

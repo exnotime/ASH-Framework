@@ -1,0 +1,23 @@
+bool reload()
+
+Temps: 2, 3
+
+Variables: 
+ 002: (heap) Level {noname}
+
+
+- 45,5 -
+    0   3 *    SUSPEND
+    1   3 *    PshGPtr  0x1353c52e9a8          (i:1328156961192, f:6.56197e-312)
+    4   5 *    CHKREF
+    5   5 *    RefCpyV  v2, 0x3c4cd980          (type:Level)
+    8   5 *    CALLINTF 347           (void Level::reloadLevelGrid())
+   10   3 *    FREE     v2, 0x3c4cd980          (type:Level)
+- 46,5 -
+   13   3 *    SUSPEND
+   14   3 *    SetV1    v3, 0x1
+            {
+            }
+   16   3 *    CpyVtoR4 v3
+            0:
+   17   3 *    RET      0

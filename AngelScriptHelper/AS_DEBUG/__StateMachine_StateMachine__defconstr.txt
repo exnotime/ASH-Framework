@@ -1,0 +1,33 @@
+StateMachine::StateMachine()
+
+Temps: 2, 4
+
+Variables: 
+ 000: StateMachine this
+ 002: (heap) array {noname}
+ 004: (heap) EventStream {noname}
+
+
+- 8,26 -
+    0   4 *    SUSPEND
+    1   4 *    CALL     477           (Actor@[][]@ $fact())
+    3   4 *    STOREOBJ v2
+    4   4 *    PshVPtr  v2
+    5   6 *    PshVPtr  v0
+    6   8 *    ADDSi    v44, 134217771
+    8   8 *    REFCPY   0x1353c518010          (i:1328156868624, f:6.56197e-312)
+   11   6 *    PopPtr
+   12   4 *    FREE     v2, 0x3c518010          (type:array)
+- 9,17 -
+   15   4 *    SUSPEND
+   16   4 *    CALL     337           (EventStream@ EventStream())
+   18   4 *    STOREOBJ v4
+   19   4 *    PshVPtr  v4
+   20   6 *    PshVPtr  v0
+   21   8 *    ADDSi    v52, 134217771
+   23   8 *    REFCPY   0x1353c4cc800          (i:1328156559360, f:6.56197e-312)
+   26   6 *    PopPtr
+   27   4 *    FREE     v4, 0x3c4cc800          (type:EventStream)
+- 11,11 -
+   30   4 *    SUSPEND
+   31   4 *    RET      2

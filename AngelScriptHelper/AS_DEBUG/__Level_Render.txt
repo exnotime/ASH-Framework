@@ -1,0 +1,216 @@
+void Level::Render(float)
+
+Temps: 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 15, 17, 19, 20, 21, 23, 25, 27
+
+Variables: 
+ -002: float fps
+ 000: Level this
+ 011: (heap) Color {noname}
+ 013: (heap) Vec2 {noname}
+ 015: (heap) string {noname}
+ 017: (heap) Font {noname}
+ 023: (heap) RenderTexture {noname}
+ 025: (heap) Texture {noname}
+ 027: (heap) Vec2 {noname}
+ 001: Color {noname}
+ 005: Vec2 {noname}
+ 006: string {noname}
+ 007: string {noname}
+ 021: Vec2 {noname}
+
+
+- 123,9 -
+               VarDecl  0
+    0  27 *    SUSPEND
+    1  27 *    PshC4    0x2          (i:2, f:2.8026e-45)
+    3  28 *    PshC4    0x1e          (i:30, f:4.2039e-44)
+    5  29 *    PSF      v11
+    6  31 *    ALLOC    0x1353c4ca080, 0             (type:Color, {no func})
+   10  29 *    PshC4    0x0          (i:0, f:0)
+   12  30 *    PshC4    0x0          (i:0, f:0)
+   14  31 *    PshC4    0x0          (i:0, f:0)
+   16  32 *    PSF      v1
+   17  34 *    CALLSYS  74           (Color::Color(int, int, int))
+               ObjInfo  v1, 1
+   19  29 *    PSF      v1
+   20  31 *    PshVPtr  v11
+   21  33 *    COPY     v1, 67108888
+   23  31 *    PopPtr
+               ObjInfo  v1, 0
+   24  29 *    VAR      v11
+   25  31 *    PSF      v13
+   26  33 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+   30  31 *    PshC4    0x0          (i:0, f:0)
+   32  32 *    PSF      v5
+   33  34 *    CALLSYS  71           (Vec2::Vec2(float))
+               ObjInfo  v5, 1
+   35  31 *    PSF      v5
+   36  33 *    PshVPtr  v13
+   37  35 *    COPY     v1, 67108885
+   39  33 *    PopPtr
+               ObjInfo  v5, 0
+   40  31 *    VAR      v13
+   41  33 *    PSF      v15
+   42  35 *    PGA      0x3c4f3840          (str:Fps: )
+   45  37 *    PSF      v6
+   46  39 *    CALLSYS  33           (string::string(const string&in))
+               ObjInfo  v6, 1
+   48  35 *    PshV4    v-2
+   49  36 *    PSF      v7
+   50  38 *    PSF      v6
+   51  40 *    CALLSYS  117           (string string::opAdd(float) const)
+               ObjInfo  v7, 1
+   53  35 *    PSF      v6
+   54  37 *    CALLSYS  31           (string::~string())
+               ObjInfo  v6, 0
+   56  35 *    PSF      v7
+   57  37 *    ALLOC    0x1353c487bd0, 33             (type:string, string::string(const string&in))
+   61  33 *    PSF      v7
+   62  35 *    CALLSYS  31           (string::~string())
+               ObjInfo  v7, 0
+   64  33 *    VAR      v15
+   65  35 *    PshVPtr  v0
+   66  37 *    ADDSi    v32, 134217767
+   68  37 *    RDSPtr
+   69  37 *    RefCpyV  v17, 0x3c4ca620          (type:Font)
+   72  37 *    PopPtr
+   73  35 *    VAR      v17
+   74  37 *    GETOBJ   0
+   75  37 *    GETOBJ   2
+   76  37 *    GETOBJ   4
+   77  37 *    GETOBJ   6
+   78  37 *    CALLSYS  264           (void DrawText(Font@, const string, const Vec2, const Color, const int = 30, const int = 2))
+- 124,9 -
+   80  27 *    SUSPEND
+   81  27 *    PshC4    0x2          (i:2, f:2.8026e-45)
+   83  28 *    PshC4    0x1e          (i:30, f:4.2039e-44)
+   85  29 *    PSF      v11
+   86  31 *    ALLOC    0x1353c4ca080, 0             (type:Color, {no func})
+   90  29 *    PshC4    0x0          (i:0, f:0)
+   92  30 *    PshC4    0x0          (i:0, f:0)
+   94  31 *    PshC4    0x0          (i:0, f:0)
+   96  32 *    PSF      v1
+   97  34 *    CALLSYS  74           (Color::Color(int, int, int))
+               ObjInfo  v1, 1
+   99  29 *    PSF      v1
+  100  31 *    PshVPtr  v11
+  101  33 *    COPY     v1, 67108888
+  103  31 *    PopPtr
+               ObjInfo  v1, 0
+  104  29 *    VAR      v11
+  105  31 *    PSF      v13
+  106  33 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  110  31 *    PshC4    0x41f00000          (i:1106247680, f:30)
+  112  32 *    PshC4    0x0          (i:0, f:0)
+  114  33 *    PSF      v5
+  115  35 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v5, 1
+  117  31 *    PSF      v5
+  118  33 *    PshVPtr  v13
+  119  35 *    COPY     v1, 67108885
+  121  33 *    PopPtr
+               ObjInfo  v5, 0
+  122  31 *    VAR      v13
+  123  33 *    PSF      v15
+  124  35 *    PGA      0x3c5681f0          (str:Width: )
+  127  37 *    PSF      v6
+  128  39 *    CALLSYS  33           (string::string(const string&in))
+               ObjInfo  v6, 1
+  130  35 *    PshVPtr  v0
+  131  37 *    ADDSi    v60, 134217767
+  133  37 *    RDSPtr
+  134  37 *    CALLSYS  394           (uint grid::width() const)
+  136  35 *    CpyRtoV4 v4
+  137  35 *    uTOi64   v19, v4
+  139  35 *    PshV8    v19
+  140  37 *    PSF      v7
+  141  39 *    PSF      v6
+  142  41 *    CALLSYS  125           (string string::opAdd(uint64) const)
+               ObjInfo  v7, 1
+  144  35 *    PSF      v6
+  145  37 *    CALLSYS  31           (string::~string())
+               ObjInfo  v6, 0
+  147  35 *    PGA      0x3c567fb0          (str: Height: )
+  150  37 *    PSF      v6
+  151  39 *    PSF      v7
+  152  41 *    CALLSYS  105           (string string::opAdd(const string&in) const)
+               ObjInfo  v6, 1
+  154  35 *    PSF      v7
+  155  37 *    CALLSYS  31           (string::~string())
+               ObjInfo  v7, 0
+  157  35 *    PshVPtr  v0
+  158  37 *    ADDSi    v60, 134217767
+  160  37 *    RDSPtr
+  161  37 *    CALLSYS  395           (uint grid::height() const)
+  163  35 *    CpyRtoV4 v8
+  164  35 *    uTOi64   v19, v8
+  166  35 *    PshV8    v19
+  167  37 *    PSF      v7
+  168  39 *    PSF      v6
+  169  41 *    CALLSYS  125           (string string::opAdd(uint64) const)
+               ObjInfo  v7, 1
+  171  35 *    PSF      v6
+  172  37 *    CALLSYS  31           (string::~string())
+               ObjInfo  v6, 0
+  174  35 *    PSF      v7
+  175  37 *    ALLOC    0x1353c487bd0, 33             (type:string, string::string(const string&in))
+  179  33 *    PSF      v7
+  180  35 *    CALLSYS  31           (string::~string())
+               ObjInfo  v7, 0
+  182  33 *    VAR      v15
+  183  35 *    PshVPtr  v0
+  184  37 *    ADDSi    v32, 134217767
+  186  37 *    RDSPtr
+  187  37 *    RefCpyV  v17, 0x3c4ca620          (type:Font)
+  190  37 *    PopPtr
+  191  35 *    VAR      v17
+  192  37 *    GETOBJ   0
+  193  37 *    GETOBJ   2
+  194  37 *    GETOBJ   4
+  195  37 *    GETOBJ   6
+  196  37 *    CALLSYS  264           (void DrawText(Font@, const string, const Vec2, const Color, const int = 30, const int = 2))
+- 125,9 -
+  198  27 *    SUSPEND
+  199  27 *    PshC4    0x1          (i:1, f:1.4013e-45)
+  201  28 *    PSF      v13
+  202  30 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  206  28 *    PshC4    0x3f800000          (i:1065353216, f:1)
+  208  29 *    PSF      v5
+  209  31 *    CALLSYS  71           (Vec2::Vec2(float))
+               ObjInfo  v5, 1
+  211  28 *    PSF      v5
+  212  30 *    PshVPtr  v13
+  213  32 *    COPY     v1, 67108885
+  215  30 *    PopPtr
+               ObjInfo  v5, 0
+  216  28 *    VAR      v13
+  217  30 *    PSF      v27
+  218  32 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+  222  30 *    PshC4    0x0          (i:0, f:0)
+  224  31 *    PSF      v21
+  225  33 *    CALLSYS  71           (Vec2::Vec2(float))
+               ObjInfo  v21, 1
+  227  30 *    PSF      v21
+  228  32 *    PshVPtr  v27
+  229  34 *    COPY     v1, 67108885
+  231  32 *    PopPtr
+               ObjInfo  v21, 0
+  232  30 *    VAR      v27
+  233  32 *    PshVPtr  v0
+  234  34 *    ADDSi    v40, 134217767
+  236  34 *    RDSPtr
+  237  34 *    RefCpyV  v23, 0x3c4cba90          (type:RenderTexture)
+  240  34 *    PopPtr
+  241  32 *    VAR      v23
+  242  34 *    GETOBJ   0
+  243  34 *    CALLSYS  273           (const Texture@ GetTextureFromRenderTexture(RenderTexture@))
+  245  32 *    STOREOBJ v25
+  246  32 *    VAR      v25
+  247  34 *    GETOBJ   0
+  248  34 *    GETOBJ   2
+  249  34 *    GETOBJ   4
+  250  34 *    CALLSYS  259           (void DrawSprite(const Texture@, const Vec2, const Vec2, const int = 3))
+- 126,6 -
+  252  27 *    SUSPEND
+            0:
+  253  27 *    RET      3

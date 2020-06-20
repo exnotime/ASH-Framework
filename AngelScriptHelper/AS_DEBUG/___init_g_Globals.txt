@@ -1,0 +1,18 @@
+<unrecognized token> _unnamed_function_()
+
+Temps: 2
+
+Variables: 
+ 002: (heap) Globals {noname}
+
+
+- 8,9 -
+    0   2 *    SUSPEND
+    1   2 *    CALL     339           (Globals@ Globals())
+    3   2 *    STOREOBJ v2
+    4   2 *    PshVPtr  v2
+    5   4 *    PGA      0x3c52f558          (var:g_Globals)
+    8   6 *    REFCPY   0x1353c4cd750          (i:1328156563280, f:6.56197e-312)
+   11   4 *    PopPtr
+   12   2 *    FREE     v2, 0x3c4cd750          (type:Globals)
+   15   2 *    RET      0

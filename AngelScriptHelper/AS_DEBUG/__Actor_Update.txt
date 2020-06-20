@@ -1,0 +1,15 @@
+void Actor::Update(EventStream@)
+
+Temps: 
+
+Variables: 
+ -002: EventStream@ es
+ 000: Actor this
+
+
+- 13,36 -
+               VarDecl  0
+    0   0 *    SUSPEND
+            0:
+    1   0 *    FREE     v-2, 0x3c4cc800          (type:EventStream)
+    4   0 *    RET      4

@@ -1,0 +1,28 @@
+void EventStream::PushNewEvent(Event@)
+
+Temps: 2
+
+Variables: 
+ -002: Event@ e
+ 000: EventStream this
+ 002: (heap) Event {noname}
+
+
+- 33,9 -
+               VarDecl  0
+    0   2 *    SUSPEND
+    1   2 *    PshVPtr  v-2
+    2   4 *    RefCpyV  v2, 0x3c4cbf40          (type:Event)
+    5   4 *    PopPtr
+    6   2 *    VAR      v2
+    7   4 *    PshVPtr  v0
+    8   6 *    ADDSi    v36, 134217770
+   10   6 *    RDSPtr
+   11   6 *    GETREF   2
+   12   6 *    CALLSYS  418           (void array::insertLast(Event@&in))
+   14   2 *    FREE     v2, 0x3c4cbf40          (type:Event)
+- 34,6 -
+   17   2 *    SUSPEND
+            0:
+   18   2 *    FREE     v-2, 0x3c4cbf40          (type:Event)
+   21   2 *    RET      4

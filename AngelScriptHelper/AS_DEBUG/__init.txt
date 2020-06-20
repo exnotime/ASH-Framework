@@ -1,0 +1,177 @@
+void init()
+
+Temps: 1, 2, 3, 5, 7, 9, 10, 11, 12, 14, 16
+
+Variables: 
+ 005: (heap) Vec2 {noname}
+ 007: (heap) Level {noname}
+ 009: (heap) Level {noname}
+ 014: (heap) StateMachine {noname}
+ 016: (heap) Actor {noname}
+ 001: Vec2 {noname}
+ 010: Rect {noname}
+
+
+- 17,5 -
+    0  16 *    SUSPEND
+    1  16 *    PSF      v5
+    2  18 *    ALLOC    0x1353c4bddb0, 0             (type:Vec2, {no func})
+    6  16 *    PshC4    0x42200000          (i:1109393408, f:40)
+    8  17 *    PshC4    0x42200000          (i:1109393408, f:40)
+   10  18 *    PSF      v1
+   11  20 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v1, 1
+   13  16 *    PSF      v1
+   14  18 *    PshVPtr  v5
+   15  20 *    COPY     v1, 67108885
+   17  18 *    PopPtr
+               ObjInfo  v1, 0
+   18  16 *    VAR      v5
+   19  18 *    GETOBJ   0
+   20  18 *    CALL     307           (Level@ Level(Vec2))
+   22  16 *    STOREOBJ v7
+   23  16 *    ChkNullV v7
+   24  16 *    VAR      v7
+   25  18 *    PshGPtr  0x1353c52e9a8          (i:1328156961192, f:6.56197e-312)
+   28  20 *    CHKREF
+   29  20 *    GETOBJREF 2
+   30  20 *    CALLSYS  4           (int& $obj::opAssign(int&in))
+   32  16 *    PshRPtr
+   33  18 *    FREE     v7, 0x3c4cd980          (type:Level)
+   36  18 *    PopPtr
+- 18,5 -
+   37  16 *    SUSPEND
+   38  16 *    PshGPtr  0x1353c52e9a8          (i:1328156961192, f:6.56197e-312)
+   41  18 *    CHKREF
+   42  18 *    RefCpyV  v9, 0x3c4cd980          (type:Level)
+   45  18 *    CALLINTF 349           (void Level::Init())
+   47  16 *    FREE     v9, 0x3c4cd980          (type:Level)
+- 20,5 -
+   50  16 *    SUSPEND
+   51  16 *    SetV1    v2, 0x1
+   53  16 *    PshV4    v2
+   54  17 *    CALLSYS  266           (void SetVsync(bool))
+- 22,5 -
+   56  16 *    SUSPEND
+   57  16 *    PshC4    0x0          (i:0, f:0)
+   59  17 *    PshC4    0x0          (i:0, f:0)
+   61  18 *    PSF      v1
+   62  20 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v1, 1
+   64  16 *    PSF      v1
+   65  18 *    PshGPtr  0x1353c52e8f8          (i:1328156961016, f:6.56197e-312)
+   68  20 *    ADDSi    v0, 67108891
+   70  20 *    COPY     v1, 67108885
+               ObjInfo  v1, 0
+   72  18 *    PopPtr
+- 23,5 -
+   73  16 *    SUSPEND
+   74  16 *    PshC4    0x44610000          (i:1147207680, f:900)
+   76  17 *    PshC4    0x44c80000          (i:1153957888, f:1600)
+   78  18 *    PSF      v1
+   79  20 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v1, 1
+   81  16 *    PSF      v1
+   82  18 *    PshGPtr  0x1353c52e8f8          (i:1328156961016, f:6.56197e-312)
+   85  20 *    ADDSi    v1, 67108891
+   87  20 *    COPY     v1, 67108885
+               ObjInfo  v1, 0
+   89  18 *    PopPtr
+- 24,5 -
+   90  16 *    SUSPEND
+   91  16 *    PshC4    0x3f800000          (i:1065353216, f:1)
+   93  17 *    PshC4    0x3f800000          (i:1065353216, f:1)
+   95  18 *    PshC4    0x0          (i:0, f:0)
+   97  19 *    PshC4    0x0          (i:0, f:0)
+   99  20 *    PSF      v10
+  100  22 *    CALLSYS  73           (Rect::Rect(float, float, float, float))
+               ObjInfo  v10, 1
+  102  16 *    PSF      v10
+  103  18 *    PshGPtr  0x1353c52e8f8          (i:1328156961016, f:6.56197e-312)
+  106  20 *    ADDSi    v3, 67108891
+  108  20 *    COPY     v1, 67108886
+               ObjInfo  v10, 0
+  110  18 *    PopPtr
+- 25,5 -
+  111  16 *    SUSPEND
+  112  16 *    SetV4    v3, 0x0          (i:0, f:0)
+  114  16 *    PshGPtr  0x1353c52e8f8          (i:1328156961016, f:6.56197e-312)
+  117  18 *    ADDSi    v2, 67108891
+  119  18 *    PopRPtr
+  120  16 *    WRTV4    v3
+- 27,5 -
+  121  16 *    SUSPEND
+  122  16 *    PshGPtr  0x1353c52f138          (i:1328156963128, f:6.56197e-312)
+  125  18 *    CHKREF
+  126  18 *    RefCpyV  v14, 0x3c4cd0c0          (type:StateMachine)
+  129  18 *    CALLINTF 437           (int StateMachine::CreateTeam())
+  131  16 *    CpyRtoV4 v2
+  132  16 *    FREE     v14, 0x3c4cd0c0          (type:StateMachine)
+  135  16 *    CpyVtoG4 v2, 0x1353c52e2c8          (i:1328156959432, f:6.56197e-312)
+- 28,5 -
+  138  16 *    SUSPEND
+  139  16 *    PshGPtr  0x1353c52e638          (i:1328156960312, f:6.56197e-312)
+  142  18 *    CHKREF
+  143  18 *    RefCpyV  v16, 0x3c4cca30          (type:Actor)
+  146  18 *    PopPtr
+  147  16 *    VAR      v16
+  148  18 *    PshG4    0x1353c52e2c8          (i:1328156959432, f:6.56197e-312)
+  151  19 *    PshGPtr  0x1353c52f138          (i:1328156963128, f:6.56197e-312)
+  154  21 *    CHKREF
+  155  21 *    GETOBJ   3
+  156  21 *    RefCpyV  v14, 0x3c4cd0c0          (type:StateMachine)
+  159  21 *    CALLINTF 438           (void StateMachine::AddActorToTeam(int, Actor@))
+  161  16 *    FREE     v14, 0x3c4cd0c0          (type:StateMachine)
+- 30,5 -
+  164  16 *    SUSPEND
+  165  16 *    PshC4    0x40a00000          (i:1084227584, f:5)
+  167  17 *    PshC4    0x40a00000          (i:1084227584, f:5)
+  169  18 *    PSF      v1
+  170  20 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v1, 1
+  172  16 *    PSF      v1
+  173  18 *    PshGPtr  0x1353c52fe48          (i:1328156966472, f:6.56197e-312)
+  176  20 *    ADDSi    v32, 134217765
+  178  20 *    COPY     v1, 67108885
+               ObjInfo  v1, 0
+  180  18 *    PopPtr
+- 32,5 -
+  181  16 *    SUSPEND
+  182  16 *    PshGPtr  0x1353c52f138          (i:1328156963128, f:6.56197e-312)
+  185  18 *    CHKREF
+  186  18 *    RefCpyV  v14, 0x3c4cd0c0          (type:StateMachine)
+  189  18 *    CALLINTF 437           (int StateMachine::CreateTeam())
+  191  16 *    CpyRtoV4 v11
+  192  16 *    FREE     v14, 0x3c4cd0c0          (type:StateMachine)
+  195  16 *    CpyVtoG4 v11, 0x1353c52f088          (i:1328156962952, f:6.56197e-312)
+- 33,5 -
+  198  16 *    SUSPEND
+  199  16 *    PshGPtr  0x1353c52fe48          (i:1328156966472, f:6.56197e-312)
+  202  18 *    CHKREF
+  203  18 *    RefCpyV  v16, 0x3c4cca30          (type:Actor)
+  206  18 *    PopPtr
+  207  16 *    VAR      v16
+  208  18 *    PshG4    0x1353c52f088          (i:1328156962952, f:6.56197e-312)
+  211  19 *    PshGPtr  0x1353c52f138          (i:1328156963128, f:6.56197e-312)
+  214  21 *    CHKREF
+  215  21 *    GETOBJ   3
+  216  21 *    RefCpyV  v14, 0x3c4cd0c0          (type:StateMachine)
+  219  21 *    CALLINTF 438           (void StateMachine::AddActorToTeam(int, Actor@))
+  221  16 *    FREE     v14, 0x3c4cd0c0          (type:StateMachine)
+- 35,5 -
+  224  16 *    SUSPEND
+  225  16 *    PshGPtr  0x1353c52e9a8          (i:1328156961192, f:6.56197e-312)
+  228  18 *    CHKREF
+  229  18 *    RefCpyV  v7, 0x3c4cd980          (type:Level)
+  232  18 *    PopPtr
+  233  16 *    VAR      v7
+  234  18 *    PshGPtr  0x1353c52f558          (i:1328156964184, f:6.56197e-312)
+  237  20 *    ADDSi    v32, 134217766
+  239  20 *    GETOBJREF 2
+  240  20 *    REFCPY   0x1353c4cd980          (i:1328156563840, f:6.56197e-312)
+  243  18 *    FREE     v7, 0x3c4cd980          (type:Level)
+  246  18 *    PopPtr
+- 36,2 -
+  247  16 *    SUSPEND
+            0:
+  248  16 *    RET      0

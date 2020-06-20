@@ -1,0 +1,76 @@
+Level::Level(Vec2)
+
+Temps: 1, 2, 3, 5, 7
+
+Variables: 
+ -002: Vec2 size
+ 000: Level this
+ 005: (heap) array {noname}
+ 007: (heap) grid {noname}
+ 003: Vec2 {noname}
+
+
+- 136,21 -
+               VarDecl  0
+    0   7 *    SUSPEND
+    1   7 *    CALL     356           (Texture@[]@ $fact())
+    3   7 *    STOREOBJ v5
+    4   7 *    PshVPtr  v5
+    5   9 *    PshVPtr  v0
+    6  11 *    ADDSi    v52, 134217767
+    8  11 *    REFCPY   0x1353c4cd520          (i:1328156562720, f:6.56197e-312)
+   11   9 *    PopPtr
+   12   7 *    FREE     v5, 0x3c4cd520          (type:array)
+- 137,16 -
+   15   7 *    SUSPEND
+   16   7 *    CALL     387           (grid<Tile>@ $fact())
+   18   7 *    STOREOBJ v7
+   19   7 *    PshVPtr  v7
+   20   9 *    PshVPtr  v0
+   21  11 *    ADDSi    v60, 134217767
+   23  11 *    REFCPY   0x1353c5158b0          (i:1328156858544, f:6.56197e-312)
+   26   9 *    PopPtr
+   27   7 *    FREE     v7, 0x3c5158b0          (type:grid)
+- 12,9 -
+   30   7 *    SUSPEND
+   31   7 *    PshVPtr  v-2
+   32   9 *    PshVPtr  v0
+   33  11 *    ADDSi    v49, 134217767
+   35  11 *    COPY     v1, 67108885
+   37   9 *    PopPtr
+- 13,9 -
+   38   7 *    SUSPEND
+   39   7 *    LoadRObjR v-2, v1, 67108885
+   42   7 *    RDR4     v1
+   43   7 *    fTOu     v1
+   44   7 *    PshV4    v1
+   45   8 *    LoadRObjR v-2, v0, 67108885
+   48   8 *    RDR4     v2
+   49   8 *    fTOu     v2
+   50   8 *    PshV4    v2
+   51   9 *    PshVPtr  v0
+   52  11 *    ADDSi    v60, 134217767
+   54  11 *    RDSPtr
+   55  11 *    CALLSYS  393           (void grid::resize(uint, uint))
+- 14,9 -
+   57   7 *    SUSPEND
+   58   7 *    PshC4    0x42800000          (i:1115684864, f:64)
+   60   8 *    PshC4    0x42800000          (i:1115684864, f:64)
+   62   9 *    PSF      v3
+   63  11 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v3, 1
+   65   7 *    PSF      v3
+   66   9 *    PshVPtr  v0
+   67  11 *    ADDSi    v48, 134217767
+   69  11 *    COPY     v1, 67108885
+               ObjInfo  v3, 0
+   71   9 *    PopPtr
+- 15,9 -
+   72   7 *    SUSPEND
+   73   7 *    PshVPtr  v0
+   74   9 *    CALLINTF 346           (void Level::Clear())
+- 16,6 -
+   76   7 *    SUSPEND
+            0:
+   77   7 *    FREE     v-2, 0x3c4bddb0          (type:Vec2)
+   80   7 *    RET      4

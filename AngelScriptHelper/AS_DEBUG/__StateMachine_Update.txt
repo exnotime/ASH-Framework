@@ -1,0 +1,216 @@
+void StateMachine::Update(float)
+
+Temps: 1, 5, 7, 8, 12, 15, 17, 19, 20, 23
+
+Variables: 
+ -002: float deltaTime
+ 003: (heap) Event@ event
+ 010: (heap) MovementEvent@ me
+ 014: (heap) Actor@ actor
+ 021: uint a
+ 000: StateMachine this
+ 005: (heap) Event {noname}
+ 007: (heap) Event {noname}
+ 012: (heap) MovementEvent {noname}
+ 017: (heap) array {noname}
+ 019: (heap) EventStream {noname}
+ 023: (heap) Actor {noname}
+
+
+- 24,9 -
+               VarDecl  0
+    0  23 *    SUSPEND
+    1  23 *    LoadThisR v64, 134217771
+    3  23 *    RDR4     v1
+    4  23 *    ADDf     v1, v1, v-2
+    6  23 *    WRTV4    v1
+- 27,9 -
+               VarDecl  1
+    7  23 *    SUSPEND
+    8  23 *    VAR      v5
+    9  25 *    PshVPtr  v0
+   10  27 *    ADDSi    v52, 134217771
+   12  27 *    RDSPtr
+   13  27 *    GETREF   2
+   14  27 *    CALLINTF 404           (bool EventStream::GetNextEvent(Event@&out))
+   16  23 *    CpyRtoV4 v1
+   17  23 *    PshVPtr  v5
+   18  25 *    RefCpyV  v7, 0x3c4cbf40          (type:Event)
+   21  25 *    PopPtr
+   22  23 *    FREE     v5, 0x3c4cbf40          (type:Event)
+   25  23 *    PshVPtr  v7
+   26  25 *    RefCpyV  v3, 0x3c4cbf40          (type:Event)
+   29  25 *    FREE     v7, 0x3c4cbf40          (type:Event)
+   32  25 *    PopPtr
+   33  23 *    CpyVtoR4 v1
+   34  23 *    JLowZ    +24              (d:60)
+- 28,13 -
+            {
+   36  23 *    SUSPEND
+   37  23 *    LoadRObjR v3, v32, 134217762
+   40  23 *    RDR4     v8
+   41  23 *    CMPIi    v8, 0
+   43  23 *    JNZ      +15              (d:60)
+- 29,17 -
+            {
+   45  23 *    SUSPEND
+               VarDecl  2
+   46  23 *    PSF      v3
+   47  25 *    Cast     0x48000029          (i:1207959593, f:131073)
+   49  23 *    FREE     v10, 0x3c4ccc60          (type:MovementEvent)
+   52  23 *    STOREOBJ v10
+- 30,17 -
+   53  23 *    SUSPEND
+   54  23 *    PshVPtr  v10
+   55  25 *    CALLINTF 402           (void Event::Perform())
+   57  23 *    FREE     v10, 0x3c4ccc60          (type:MovementEvent)
+- 34,9 -
+            }
+            2:
+            }
+            1:
+   60  23 *    SUSPEND
+               VarDecl  3
+   61  23 *    LoadThisR v40, 134217771
+   63  23 *    RDR4     v15
+   64  23 *    PshV4    v15
+   65  24 *    LoadThisR v32, 134217771
+   67  24 *    RDR4     v1
+   68  24 *    PshV4    v1
+   69  25 *    PshVPtr  v0
+   70  27 *    ADDSi    v44, 134217771
+   72  27 *    RDSPtr
+   73  27 *    Thiscall1 481           (Actor@[]& array::opIndex(uint))
+   75  24 *    PshRPtr
+   76  26 *    RefCpyV  v17, 0x3c518b00          (type:array)
+   79  26 *    Thiscall1 449           (Actor@& array::opIndex(uint))
+   81  23 *    PshRPtr
+   82  25 *    RDSPtr
+   83  25 *    RefCpyV  v14, 0x3c4cca30          (type:Actor)
+   86  25 *    PopPtr
+   87  23 *    FREE     v17, 0x3c518b00          (type:array)
+- 35,9 -
+   90  23 *    SUSPEND
+   91  23 *    PshVPtr  v0
+   92  25 *    ADDSi    v52, 134217771
+   94  25 *    RDSPtr
+   95  25 *    RefCpyV  v19, 0x3c4cc800          (type:EventStream)
+   98  25 *    PopPtr
+   99  23 *    VAR      v19
+  100  25 *    PshVPtr  v14
+  101  27 *    GETOBJ   2
+  102  27 *    CALLINTF 398           (void Actor::Update(EventStream@))
+- 37,9 -
+  104  23 *    SUSPEND
+  105  23 *    LoadRObjR v14, v44, 134217763
+  108  23 *    RDR4     v1
+  109  23 *    CMPIf    v1, 0.000000
+  111  23 *    JNZ      +115              (d:228)
+- 38,13 -
+            {
+  113  23 *    SUSPEND
+  114  23 *    LoadThisR v40, 134217771
+  116  23 *    INCi
+- 39,13 -
+  117  23 *    SUSPEND
+  118  23 *    LoadThisR v40, 134217771
+  120  23 *    RDR4     v20
+  121  23 *    LoadThisR v32, 134217771
+  123  23 *    RDR4     v1
+  124  23 *    PshV4    v1
+  125  24 *    PshVPtr  v0
+  126  26 *    ADDSi    v44, 134217771
+  128  26 *    RDSPtr
+  129  26 *    Thiscall1 481           (Actor@[]& array::opIndex(uint))
+  131  23 *    PshRPtr
+  132  25 *    CALLSYS  458           (uint array::length() const)
+  134  23 *    CpyRtoV4 v15
+  135  23 *    CMPi     v20, v15
+  137  23 *    JS       +89              (d:228)
+- 40,17 -
+            {
+  139  23 *    SUSPEND
+  140  23 *    LoadThisR v32, 134217771
+  142  23 *    INCi
+- 41,17 -
+  143  23 *    SUSPEND
+  144  23 *    SetV4    v1, 0x0          (i:0, f:0)
+  146  23 *    LoadThisR v40, 134217771
+  148  23 *    WRTV4    v1
+- 42,17 -
+  149  23 *    SUSPEND
+  150  23 *    LoadThisR v32, 134217771
+  152  23 *    RDR4     v1
+  153  23 *    PshVPtr  v0
+  154  25 *    ADDSi    v44, 134217771
+  156  25 *    RDSPtr
+  157  25 *    CALLSYS  490           (uint array::length() const)
+  159  23 *    CpyRtoV4 v15
+  160  23 *    CMPi     v1, v15
+  162  23 *    JS       +6              (d:170)
+- 43,21 -
+            {
+  164  23 *    SUSPEND
+  165  23 *    SetV4    v15, 0x0          (i:0, f:0)
+  167  23 *    LoadThisR v32, 134217771
+  169  23 *    WRTV4    v15
+- 46,21 -
+            }
+            5:
+  170  23 *    SUSPEND
+               VarDecl  4
+  171  23 *    SetV4    v21, 0x0          (i:0, f:0)
+  173  23 *    JMP      +34              (d:209)
+            9:
+  175  23 *    SUSPEND
+- 47,21 -
+            {
+  176  23 *    SUSPEND
+  177  23 *    PshV4    v21
+  178  24 *    LoadThisR v32, 134217771
+  180  24 *    RDR4     v20
+  181  24 *    PshV4    v20
+  182  25 *    PshVPtr  v0
+  183  27 *    ADDSi    v44, 134217771
+  185  27 *    RDSPtr
+  186  27 *    Thiscall1 481           (Actor@[]& array::opIndex(uint))
+  188  24 *    PshRPtr
+  189  26 *    RefCpyV  v17, 0x3c518b00          (type:array)
+  192  26 *    Thiscall1 449           (Actor@& array::opIndex(uint))
+  194  23 *    PshRPtr
+  195  25 *    RDSPtr
+  196  25 *    RefCpyV  v23, 0x3c4cca30          (type:Actor)
+  199  25 *    CALLINTF 400           (void Actor::Reset())
+  201  23 *    FREE     v17, 0x3c518b00          (type:array)
+  204  23 *    FREE     v23, 0x3c4cca30          (type:Actor)
+- 46,71 -
+            }
+            8:
+  207  23 *    SUSPEND
+  208  23 *    IncVi    v21
+- 46,33 -
+            6:
+  209  23 *    SUSPEND
+  210  23 *    LoadThisR v32, 134217771
+  212  23 *    RDR4     v15
+  213  23 *    PshV4    v15
+  214  24 *    PshVPtr  v0
+  215  26 *    ADDSi    v44, 134217771
+  217  26 *    RDSPtr
+  218  26 *    Thiscall1 481           (Actor@[]& array::opIndex(uint))
+  220  23 *    PshRPtr
+  221  25 *    CALLSYS  458           (uint array::length() const)
+  223  23 *    CpyRtoV4 v20
+  224  23 *    CMPu     v21, v20
+  226  23 *    JS       -53              (d:175)
+- 54,6 -
+            7:
+            }
+            4:
+            }
+            3:
+  228  23 *    SUSPEND
+  229  23 *    FREE     v14, 0x3c4cca30          (type:Actor)
+  232  23 *    FREE     v3, 0x3c4cbf40          (type:Event)
+            0:
+  235  23 *    RET      3

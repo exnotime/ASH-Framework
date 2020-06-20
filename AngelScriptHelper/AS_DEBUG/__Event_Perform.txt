@@ -1,0 +1,16 @@
+void Event::Perform()
+
+Temps: 
+
+Variables: 
+ 000: Event this
+
+
+- 11,9 -
+    0   0 *    SUSPEND
+    1   0 *    PGA      0x3c568670          (str:base perform)
+    4   2 *    CALLSYS  251           (void print(const string&in))
+- 12,6 -
+    6   0 *    SUSPEND
+            0:
+    7   0 *    RET      2

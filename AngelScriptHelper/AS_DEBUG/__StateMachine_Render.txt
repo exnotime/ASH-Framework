@@ -1,0 +1,68 @@
+void StateMachine::Render()
+
+Temps: 2, 6
+
+Variables: 
+ 001: uint a
+ 004: (heap) Actor@ actor
+ 000: StateMachine this
+ 006: (heap) array {noname}
+
+
+- 58,13 -
+    0   6 *    SUSPEND
+               VarDecl  0
+    1   6 *    SetV4    v1, 0x0          (i:0, f:0)
+    3   6 *    JMP      +37              (d:42)
+            4:
+    5   6 *    SUSPEND
+- 59,13 -
+            {
+    6   6 *    SUSPEND
+               VarDecl  1
+    7   6 *    PshV4    v1
+    8   7 *    LoadThisR v32, 134217771
+   10   7 *    RDR4     v2
+   11   7 *    PshV4    v2
+   12   8 *    PshVPtr  v0
+   13  10 *    ADDSi    v44, 134217771
+   15  10 *    RDSPtr
+   16  10 *    Thiscall1 481           (Actor@[]& array::opIndex(uint))
+   18   7 *    PshRPtr
+   19   9 *    RefCpyV  v6, 0x3c518b00          (type:array)
+   22   9 *    Thiscall1 449           (Actor@& array::opIndex(uint))
+   24   6 *    PshRPtr
+   25   8 *    RDSPtr
+   26   8 *    RefCpyV  v4, 0x3c4cca30          (type:Actor)
+   29   8 *    PopPtr
+   30   6 *    FREE     v6, 0x3c518b00          (type:array)
+- 60,13 -
+   33   6 *    SUSPEND
+   34   6 *    PshVPtr  v4
+   35   8 *    CALLINTF 399           (void Actor::Render())
+   37   6 *    FREE     v4, 0x3c4cca30          (type:Actor)
+- 58,63 -
+            }
+            3:
+   40   6 *    SUSPEND
+   41   6 *    IncVi    v1
+- 58,25 -
+            1:
+   42   6 *    SUSPEND
+   43   6 *    LoadThisR v32, 134217771
+   45   6 *    RDR4     v2
+   46   6 *    PshV4    v2
+   47   7 *    PshVPtr  v0
+   48   9 *    ADDSi    v44, 134217771
+   50   9 *    RDSPtr
+   51   9 *    Thiscall1 481           (Actor@[]& array::opIndex(uint))
+   53   6 *    PshRPtr
+   54   8 *    CALLSYS  458           (uint array::length() const)
+   56   6 *    CpyRtoV4 v2
+   57   6 *    CMPu     v1, v2
+   59   6 *    JS       -56              (d:5)
+- 62,6 -
+            2:
+   61   6 *    SUSPEND
+            0:
+   62   6 *    RET      2

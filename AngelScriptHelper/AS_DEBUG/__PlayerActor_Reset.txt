@@ -1,0 +1,18 @@
+void PlayerActor::Reset()
+
+Temps: 1
+
+Variables: 
+ 000: PlayerActor this
+
+
+- 87,9 -
+    0   1 *    SUSPEND
+    1   1 *    LoadThisR v48, 134217765
+    3   1 *    RDR4     v1
+    4   1 *    LoadThisR v44, 134217765
+    6   1 *    WRTV4    v1
+- 88,6 -
+    7   1 *    SUSPEND
+            0:
+    8   1 *    RET      2

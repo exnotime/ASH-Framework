@@ -1,0 +1,725 @@
+void Level::SelectTile(int, int)
+
+Temps: 4, 5, 9, 10, 11
+
+Variables: 
+ -002: int x
+ -003: int y
+ 002: (heap) const int[] values
+ 006: int val
+ 007: int i
+ 008: int k
+ 000: Level this
+ 004: (heap)  {noname}
+ 011: Vec2 {noname}
+
+
+- 32,9 -
+               VarDecl  0
+               VarDecl  1
+    0  11 *    SUSPEND
+               VarDecl  2
+    1  11 *    AllocMem v4, 44
+    3  11 *    SetListSize v4, 0, 10
+    6  11 *    SetV4    v5, 0x1          (i:1, f:1.4013e-45)
+    8  11 *    PshListElmnt v4, 4
+   10  13 *    PopRPtr
+   11  11 *    WRTV4    v5
+   12  11 *    SetV4    v5, 0x2          (i:2, f:2.8026e-45)
+   14  11 *    PshListElmnt v4, 8
+   16  13 *    PopRPtr
+   17  11 *    WRTV4    v5
+   18  11 *    SetV4    v5, 0x4          (i:4, f:5.60519e-45)
+   20  11 *    PshListElmnt v4, 12
+   22  13 *    PopRPtr
+   23  11 *    WRTV4    v5
+   24  11 *    SetV4    v5, 0x8          (i:8, f:1.12104e-44)
+   26  11 *    PshListElmnt v4, 16
+   28  13 *    PopRPtr
+   29  11 *    WRTV4    v5
+   30  11 *    SetV4    v5, 0x10          (i:16, f:2.24208e-44)
+   32  11 *    PshListElmnt v4, 20
+   34  13 *    PopRPtr
+   35  11 *    WRTV4    v5
+   36  11 *    SetV4    v5, 0x20          (i:32, f:4.48416e-44)
+   38  11 *    PshListElmnt v4, 24
+   40  13 *    PopRPtr
+   41  11 *    WRTV4    v5
+   42  11 *    SetV4    v5, 0x40          (i:64, f:8.96831e-44)
+   44  11 *    PshListElmnt v4, 28
+   46  13 *    PopRPtr
+   47  11 *    WRTV4    v5
+   48  11 *    SetV4    v5, 0x80          (i:128, f:1.79366e-43)
+   50  11 *    PshListElmnt v4, 32
+   52  13 *    PopRPtr
+   53  11 *    WRTV4    v5
+   54  11 *    SetV4    v5, 0x100          (i:256, f:3.58732e-43)
+   56  11 *    PshListElmnt v4, 36
+   58  13 *    PopRPtr
+   59  11 *    WRTV4    v5
+   60  11 *    SetV4    v5, 0x200          (i:512, f:7.17465e-43)
+   62  11 *    PshListElmnt v4, 40
+   64  13 *    PopRPtr
+   65  11 *    WRTV4    v5
+   66  11 *    PshVPtr  v4
+   67  13 *    CALL     518           (int[]@ $list(int&in) { repeat int })
+   69  11 *    STOREOBJ v2
+   70  11 *    FREE     v4, 0x3c516c60          (type:)
+- 33,9 -
+   73  11 *    SUSPEND
+               VarDecl  3
+   74  11 *    SetV4    v6, 0x0          (i:0, f:0)
+- 34,13 -
+   76  11 *    SUSPEND
+               VarDecl  4
+   77  11 *    SetV4    v7, 0xffffffff          (i:-1, f:-nan)
+   79  11 *    JMP      +125              (d:206)
+            4:
+   81  11 *    SUSPEND
+- 35,17 -
+            {
+   82  11 *    SUSPEND
+               VarDecl  5
+   83  11 *    SetV4    v8, 0xffffffff          (i:-1, f:-nan)
+   85  11 *    JMP      +112              (d:199)
+            8:
+   87  11 *    SUSPEND
+- 36,17 -
+            {
+   88  11 *    SUSPEND
+   89  11 *    ADDi     v5, v-2, v7
+   91  11 *    CMPIi    v5, 0
+   93  11 *    JNS      +4              (d:99)
+   95  11 *    SetV1    v10, 0x1
+   97  11 *    JMP      +15              (d:114)
+            10:
+   99  11 *    ADDi     v9, v-2, v7
+  101  11 *    PshVPtr  v0
+  102  13 *    ADDSi    v60, 134217767
+  104  13 *    RDSPtr
+  105  13 *    CALLSYS  394           (uint grid::width() const)
+  107  11 *    CpyRtoV4 v10
+  108  11 *    CMPi     v9, v10
+  110  11 *    TNS
+  111  11 *    CpyRtoV4 v9
+  112  11 *    CpyVtoV4 v10, v9
+            11:
+  114  11 *    CpyVtoR4 v10
+  115  11 *    JLowZ    +4              (d:121)
+  117  11 *    SetV1    v9, 0x1
+  119  11 *    JMP      +8              (d:129)
+            12:
+  121  11 *    ADDi     v5, v-3, v8
+  123  11 *    CMPIi    v5, 0
+  125  11 *    TS
+  126  11 *    CpyRtoV4 v5
+  127  11 *    CpyVtoV4 v9, v5
+            13:
+  129  11 *    CpyVtoR4 v9
+  130  11 *    JLowZ    +4              (d:136)
+  132  11 *    SetV1    v5, 0x1
+  134  11 *    JMP      +15              (d:151)
+            14:
+  136  11 *    ADDi     v10, v-3, v8
+  138  11 *    PshVPtr  v0
+  139  13 *    ADDSi    v60, 134217767
+  141  13 *    RDSPtr
+  142  13 *    CALLSYS  395           (uint grid::height() const)
+  144  11 *    CpyRtoV4 v5
+  145  11 *    CMPi     v10, v5
+  147  11 *    TNS
+  148  11 *    CpyRtoV4 v10
+  149  11 *    CpyVtoV4 v5, v10
+            15:
+  151  11 *    CpyVtoR4 v5
+  152  11 *    JLowZ    +3              (d:157)
+- 37,21 -
+            {
+  154  11 *    SUSPEND
+            {
+            }
+  155  11 *    JMP      +40              (d:197)
+- 39,17 -
+            }
+            9:
+  157  11 *    SUSPEND
+  158  11 *    ADDi     v9, v-3, v8
+  160  11 *    PshV4    v9
+  161  12 *    ADDi     v5, v-2, v7
+  163  12 *    PshV4    v5
+  164  13 *    PshVPtr  v0
+  165  15 *    ADDSi    v60, 134217767
+  167  15 *    RDSPtr
+  168  15 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  170  11 *    PshRPtr
+  171  13 *    ADDSi    v33, 134217761
+  173  13 *    PopRPtr
+  174  11 *    RDR1     v10
+  175  11 *    CpyVtoR4 v10
+  176  11 *    JLowZ    +19              (d:197)
+- 40,21 -
+            {
+  178  11 *    SUSPEND
+  179  11 *    ADDIi    v10, v8, 1
+  182  11 *    MULIi    v5, v10, 3
+  185  11 *    ADDIi    v10, v7, 1
+  188  11 *    ADDi     v9, v5, v10
+  190  11 *    PshV4    v9
+  191  12 *    PshVPtr  v2
+  192  14 *    Thiscall1 520           (const int& array::opIndex(uint) const)
+  194  11 *    RDR4     v10
+  195  11 *    ADDi     v6, v6, v10
+- 35,36 -
+            }
+            16:
+            }
+            7:
+  197  11 *    SUSPEND
+  198  11 *    IncVi    v8
+- 35,29 -
+            5:
+  199  11 *    SUSPEND
+  200  11 *    CMPIi    v8, 2
+  202  11 *    JS       -117              (d:87)
+- 34,32 -
+            6:
+            }
+            3:
+  204  11 *    SUSPEND
+  205  11 *    IncVi    v7
+- 34,25 -
+            1:
+  206  11 *    SUSPEND
+  207  11 *    CMPIi    v7, 2
+  209  11 *    JS       -130              (d:81)
+- 45,9 -
+            2:
+  211  11 *    SUSPEND
+  212  11 *    CMPIi    v6, 219
+  214  11 *    JNZ      +26              (d:242)
+- 46,13 -
+            {
+  216  11 *    SUSPEND
+  217  11 *    PshC4    0x41300000          (i:1093664768, f:11)
+  219  12 *    PshC4    0x40000000          (i:1073741824, f:2)
+  221  13 *    PSF      v11
+  222  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  224  11 *    VAR      v11
+  225  13 *    PshV4    v-3
+  226  14 *    PshV4    v-2
+  227  15 *    PshVPtr  v0
+  228  17 *    ADDSi    v60, 134217767
+  230  17 *    RDSPtr
+  231  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  233  13 *    PshRPtr
+  234  15 *    ADDSi    v32, 134217761
+  236  15 *    GETREF   2
+  237  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  239  13 *    PopPtr
+            }
+  240  11 *    JMP      +532              (d:774)
+- 47,15 -
+            17:
+  242  11 *    SUSPEND
+  243  11 *    CMPIi    v6, 223
+  245  11 *    JNZ      +26              (d:273)
+- 48,13 -
+            {
+  247  11 *    SUSPEND
+  248  11 *    PshC4    0x41300000          (i:1093664768, f:11)
+  250  12 *    PshC4    0x40000000          (i:1073741824, f:2)
+  252  13 *    PSF      v11
+  253  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  255  11 *    VAR      v11
+  256  13 *    PshV4    v-3
+  257  14 *    PshV4    v-2
+  258  15 *    PshVPtr  v0
+  259  17 *    ADDSi    v60, 134217767
+  261  17 *    RDSPtr
+  262  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  264  13 *    PshRPtr
+  265  15 *    ADDSi    v32, 134217761
+  267  15 *    GETREF   2
+  268  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  270  13 *    PopPtr
+            }
+  271  11 *    JMP      +501              (d:774)
+- 49,15 -
+            19:
+  273  11 *    SUSPEND
+  274  11 *    CMPIi    v6, 438
+  276  11 *    JNZ      +26              (d:304)
+- 50,13 -
+            {
+  278  11 *    SUSPEND
+  279  11 *    PshC4    0x41300000          (i:1093664768, f:11)
+  281  12 *    PshC4    0x0          (i:0, f:0)
+  283  13 *    PSF      v11
+  284  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  286  11 *    VAR      v11
+  287  13 *    PshV4    v-3
+  288  14 *    PshV4    v-2
+  289  15 *    PshVPtr  v0
+  290  17 *    ADDSi    v60, 134217767
+  292  17 *    RDSPtr
+  293  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  295  13 *    PshRPtr
+  296  15 *    ADDSi    v32, 134217761
+  298  15 *    GETREF   2
+  299  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  301  13 *    PopPtr
+            }
+  302  11 *    JMP      +470              (d:774)
+- 51,15 -
+            21:
+  304  11 *    SUSPEND
+  305  11 *    CMPIi    v6, 439
+  307  11 *    JNZ      +26              (d:335)
+- 52,13 -
+            {
+  309  11 *    SUSPEND
+  310  11 *    PshC4    0x41300000          (i:1093664768, f:11)
+  312  12 *    PshC4    0x0          (i:0, f:0)
+  314  13 *    PSF      v11
+  315  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  317  11 *    VAR      v11
+  318  13 *    PshV4    v-3
+  319  14 *    PshV4    v-2
+  320  15 *    PshVPtr  v0
+  321  17 *    ADDSi    v60, 134217767
+  323  17 *    RDSPtr
+  324  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  326  13 *    PshRPtr
+  327  15 *    ADDSi    v32, 134217761
+  329  15 *    GETREF   2
+  330  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  332  13 *    PopPtr
+            }
+  333  11 *    JMP      +439              (d:774)
+- 53,15 -
+            23:
+  335  11 *    SUSPEND
+  336  11 *    CMPIi    v6, 63
+  338  11 *    JNZ      +26              (d:366)
+- 54,13 -
+            {
+  340  11 *    SUSPEND
+  341  11 *    PshC4    0x41400000          (i:1094713344, f:12)
+  343  12 *    PshC4    0x3f800000          (i:1065353216, f:1)
+  345  13 *    PSF      v11
+  346  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  348  11 *    VAR      v11
+  349  13 *    PshV4    v-3
+  350  14 *    PshV4    v-2
+  351  15 *    PshVPtr  v0
+  352  17 *    ADDSi    v60, 134217767
+  354  17 *    RDSPtr
+  355  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  357  13 *    PshRPtr
+  358  15 *    ADDSi    v32, 134217761
+  360  15 *    GETREF   2
+  361  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  363  13 *    PopPtr
+            }
+  364  11 *    JMP      +408              (d:774)
+- 55,15 -
+            25:
+  366  11 *    SUSPEND
+  367  11 *    CMPIi    v6, 127
+  369  11 *    JNZ      +26              (d:397)
+- 56,13 -
+            {
+  371  11 *    SUSPEND
+  372  11 *    PshC4    0x41400000          (i:1094713344, f:12)
+  374  12 *    PshC4    0x3f800000          (i:1065353216, f:1)
+  376  13 *    PSF      v11
+  377  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  379  11 *    VAR      v11
+  380  13 *    PshV4    v-3
+  381  14 *    PshV4    v-2
+  382  15 *    PshVPtr  v0
+  383  17 *    ADDSi    v60, 134217767
+  385  17 *    RDSPtr
+  386  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  388  13 *    PshRPtr
+  389  15 *    ADDSi    v32, 134217761
+  391  15 *    GETREF   2
+  392  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  394  13 *    PopPtr
+            }
+  395  11 *    JMP      +377              (d:774)
+- 57,15 -
+            27:
+  397  11 *    SUSPEND
+  398  11 *    CMPIi    v6, 504
+  400  11 *    JNZ      +26              (d:428)
+- 58,13 -
+            {
+  402  11 *    SUSPEND
+  403  11 *    PshC4    0x41200000          (i:1092616192, f:10)
+  405  12 *    PshC4    0x3f800000          (i:1065353216, f:1)
+  407  13 *    PSF      v11
+  408  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  410  11 *    VAR      v11
+  411  13 *    PshV4    v-3
+  412  14 *    PshV4    v-2
+  413  15 *    PshVPtr  v0
+  414  17 *    ADDSi    v60, 134217767
+  416  17 *    RDSPtr
+  417  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  419  13 *    PshRPtr
+  420  15 *    ADDSi    v32, 134217761
+  422  15 *    GETREF   2
+  423  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  425  13 *    PopPtr
+            }
+  426  11 *    JMP      +346              (d:774)
+- 59,15 -
+            29:
+  428  11 *    SUSPEND
+  429  11 *    CMPIi    v6, 505
+  431  11 *    JNZ      +26              (d:459)
+- 60,13 -
+            {
+  433  11 *    SUSPEND
+  434  11 *    PshC4    0x41200000          (i:1092616192, f:10)
+  436  12 *    PshC4    0x3f800000          (i:1065353216, f:1)
+  438  13 *    PSF      v11
+  439  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  441  11 *    VAR      v11
+  442  13 *    PshV4    v-3
+  443  14 *    PshV4    v-2
+  444  15 *    PshVPtr  v0
+  445  17 *    ADDSi    v60, 134217767
+  447  17 *    RDSPtr
+  448  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  450  13 *    PshRPtr
+  451  15 *    ADDSi    v32, 134217761
+  453  15 *    GETREF   2
+  454  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  456  13 *    PopPtr
+            }
+  457  11 *    JMP      +315              (d:774)
+- 61,15 -
+            31:
+  459  11 *    SUSPEND
+  460  11 *    CMPIi    v6, 216
+  462  11 *    JNZ      +26              (d:490)
+- 62,13 -
+            {
+  464  11 *    SUSPEND
+  465  11 *    PshC4    0x41200000          (i:1092616192, f:10)
+  467  12 *    PshC4    0x40000000          (i:1073741824, f:2)
+  469  13 *    PSF      v11
+  470  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  472  11 *    VAR      v11
+  473  13 *    PshV4    v-3
+  474  14 *    PshV4    v-2
+  475  15 *    PshVPtr  v0
+  476  17 *    ADDSi    v60, 134217767
+  478  17 *    RDSPtr
+  479  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  481  13 *    PshRPtr
+  482  15 *    ADDSi    v32, 134217761
+  484  15 *    GETREF   2
+  485  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  487  13 *    PopPtr
+            }
+  488  11 *    JMP      +284              (d:774)
+- 63,15 -
+            33:
+  490  11 *    SUSPEND
+  491  11 *    CMPIi    v6, 27
+  493  11 *    JNZ      +26              (d:521)
+- 64,13 -
+            {
+  495  11 *    SUSPEND
+  496  11 *    PshC4    0x41400000          (i:1094713344, f:12)
+  498  12 *    PshC4    0x40000000          (i:1073741824, f:2)
+  500  13 *    PSF      v11
+  501  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  503  11 *    VAR      v11
+  504  13 *    PshV4    v-3
+  505  14 *    PshV4    v-2
+  506  15 *    PshVPtr  v0
+  507  17 *    ADDSi    v60, 134217767
+  509  17 *    RDSPtr
+  510  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  512  13 *    PshRPtr
+  513  15 *    ADDSi    v32, 134217761
+  515  15 *    GETREF   2
+  516  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  518  13 *    PopPtr
+            }
+  519  11 *    JMP      +253              (d:774)
+- 65,15 -
+            35:
+  521  11 *    SUSPEND
+  522  11 *    CMPIi    v6, 54
+  524  11 *    JNZ      +26              (d:552)
+- 66,13 -
+            {
+  526  11 *    SUSPEND
+  527  11 *    PshC4    0x41400000          (i:1094713344, f:12)
+  529  12 *    PshC4    0x0          (i:0, f:0)
+  531  13 *    PSF      v11
+  532  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  534  11 *    VAR      v11
+  535  13 *    PshV4    v-3
+  536  14 *    PshV4    v-2
+  537  15 *    PshVPtr  v0
+  538  17 *    ADDSi    v60, 134217767
+  540  17 *    RDSPtr
+  541  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  543  13 *    PshRPtr
+  544  15 *    ADDSi    v32, 134217761
+  546  15 *    GETREF   2
+  547  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  549  13 *    PopPtr
+            }
+  550  11 *    JMP      +222              (d:774)
+- 67,15 -
+            37:
+  552  11 *    SUSPEND
+  553  11 *    CMPIi    v6, 432
+  555  11 *    JNZ      +26              (d:583)
+- 68,13 -
+            {
+  557  11 *    SUSPEND
+  558  11 *    PshC4    0x41200000          (i:1092616192, f:10)
+  560  12 *    PshC4    0x0          (i:0, f:0)
+  562  13 *    PSF      v11
+  563  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  565  11 *    VAR      v11
+  566  13 *    PshV4    v-3
+  567  14 *    PshV4    v-2
+  568  15 *    PshVPtr  v0
+  569  17 *    ADDSi    v60, 134217767
+  571  17 *    RDSPtr
+  572  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  574  13 *    PshRPtr
+  575  15 *    ADDSi    v32, 134217761
+  577  15 *    GETREF   2
+  578  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  580  13 *    PopPtr
+            }
+  581  11 *    JMP      +191              (d:774)
+- 69,15 -
+            39:
+  583  11 *    SUSPEND
+  584  11 *    CMPIi    v6, 510
+  586  11 *    JNZ      +26              (d:614)
+- 70,13 -
+            {
+  588  11 *    SUSPEND
+  589  11 *    PshC4    0x41300000          (i:1093664768, f:11)
+  591  12 *    PshC4    0x40800000          (i:1082130432, f:4)
+  593  13 *    PSF      v11
+  594  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  596  11 *    VAR      v11
+  597  13 *    PshV4    v-3
+  598  14 *    PshV4    v-2
+  599  15 *    PshVPtr  v0
+  600  17 *    ADDSi    v60, 134217767
+  602  17 *    RDSPtr
+  603  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  605  13 *    PshRPtr
+  606  15 *    ADDSi    v32, 134217761
+  608  15 *    GETREF   2
+  609  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  611  13 *    PopPtr
+            }
+  612  11 *    JMP      +160              (d:774)
+- 71,15 -
+            41:
+  614  11 *    SUSPEND
+  615  11 *    CMPIi    v6, 507
+  617  11 *    JNZ      +26              (d:645)
+- 72,13 -
+            {
+  619  11 *    SUSPEND
+  620  11 *    PshC4    0x41300000          (i:1093664768, f:11)
+  622  12 *    PshC4    0x40400000          (i:1077936128, f:3)
+  624  13 *    PSF      v11
+  625  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  627  11 *    VAR      v11
+  628  13 *    PshV4    v-3
+  629  14 *    PshV4    v-2
+  630  15 *    PshVPtr  v0
+  631  17 *    ADDSi    v60, 134217767
+  633  17 *    RDSPtr
+  634  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  636  13 *    PshRPtr
+  637  15 *    ADDSi    v32, 134217761
+  639  15 *    GETREF   2
+  640  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  642  13 *    PopPtr
+            }
+  643  11 *    JMP      +129              (d:774)
+- 73,15 -
+            43:
+  645  11 *    SUSPEND
+  646  11 *    CMPIi    v6, 447
+  648  11 *    JNZ      +26              (d:676)
+- 74,13 -
+            {
+  650  11 *    SUSPEND
+  651  11 *    PshC4    0x41300000          (i:1093664768, f:11)
+  653  12 *    PshC4    0x40800000          (i:1082130432, f:4)
+  655  13 *    PSF      v11
+  656  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  658  11 *    VAR      v11
+  659  13 *    PshV4    v-3
+  660  14 *    PshV4    v-2
+  661  15 *    PshVPtr  v0
+  662  17 *    ADDSi    v60, 134217767
+  664  17 *    RDSPtr
+  665  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  667  13 *    PshRPtr
+  668  15 *    ADDSi    v32, 134217761
+  670  15 *    GETREF   2
+  671  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  673  13 *    PopPtr
+            }
+  674  11 *    JMP      +98              (d:774)
+- 75,15 -
+            45:
+  676  11 *    SUSPEND
+  677  11 *    CMPIi    v6, 255
+  679  11 *    JNZ      +26              (d:707)
+- 76,13 -
+            {
+  681  11 *    SUSPEND
+  682  11 *    PshC4    0x41200000          (i:1092616192, f:10)
+  684  12 *    PshC4    0x40400000          (i:1077936128, f:3)
+  686  13 *    PSF      v11
+  687  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  689  11 *    VAR      v11
+  690  13 *    PshV4    v-3
+  691  14 *    PshV4    v-2
+  692  15 *    PshVPtr  v0
+  693  17 *    ADDSi    v60, 134217767
+  695  17 *    RDSPtr
+  696  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  698  13 *    PshRPtr
+  699  15 *    ADDSi    v32, 134217761
+  701  15 *    GETREF   2
+  702  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  704  13 *    PopPtr
+            }
+  705  11 *    JMP      +67              (d:774)
+- 77,15 -
+            47:
+  707  11 *    SUSPEND
+  708  11 *    PshV4    v-3
+  709  12 *    PshV4    v-2
+  710  13 *    PshVPtr  v0
+  711  15 *    ADDSi    v60, 134217767
+  713  15 *    RDSPtr
+  714  15 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  716  11 *    PshRPtr
+  717  13 *    ADDSi    v33, 134217761
+  719  13 *    PopRPtr
+  720  11 *    RDR1     v9
+  721  11 *    CpyVtoR4 v9
+  722  11 *    JLowZ    +26              (d:750)
+- 78,13 -
+            {
+  724  11 *    SUSPEND
+  725  11 *    PshC4    0x41300000          (i:1093664768, f:11)
+  727  12 *    PshC4    0x3f800000          (i:1065353216, f:1)
+  729  13 *    PSF      v11
+  730  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  732  11 *    VAR      v11
+  733  13 *    PshV4    v-3
+  734  14 *    PshV4    v-2
+  735  15 *    PshVPtr  v0
+  736  17 *    ADDSi    v60, 134217767
+  738  17 *    RDSPtr
+  739  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  741  13 *    PshRPtr
+  742  15 *    ADDSi    v32, 134217761
+  744  15 *    GETREF   2
+  745  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  747  13 *    PopPtr
+            }
+  748  11 *    JMP      +24              (d:774)
+- 80,13 -
+            49:
+            {
+  750  11 *    SUSPEND
+  751  11 *    PshC4    0x40e00000          (i:1088421888, f:7)
+  753  12 *    PshC4    0x41100000          (i:1091567616, f:9)
+  755  13 *    PSF      v11
+  756  15 *    CALLSYS  72           (Vec2::Vec2(float, float))
+               ObjInfo  v11, 1
+  758  11 *    VAR      v11
+  759  13 *    PshV4    v-3
+  760  14 *    PshV4    v-2
+  761  15 *    PshVPtr  v0
+  762  17 *    ADDSi    v60, 134217767
+  764  17 *    RDSPtr
+  765  17 *    CALLSYS  391           (Tile& grid::opIndex(uint, uint))
+  767  13 *    PshRPtr
+  768  15 *    ADDSi    v32, 134217761
+  770  15 *    GETREF   2
+  771  15 *    COPY     v1, 67108885
+               ObjInfo  v11, 0
+  773  13 *    PopPtr
+- 82,6 -
+            }
+            50:
+            48:
+            46:
+            44:
+            42:
+            40:
+            38:
+            36:
+            34:
+            32:
+            30:
+            28:
+            26:
+            24:
+            22:
+            20:
+            18:
+  774  11 *    SUSPEND
+  775  11 *    FREE     v2, 0x3c518d30          (type:array)
+            0:
+  778  11 *    RET      4

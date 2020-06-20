@@ -1,0 +1,18 @@
+Actor::Actor()
+
+Temps: 1
+
+Variables: 
+ 000: Actor this
+
+
+- 6,9 -
+    0   1 *    SUSPEND
+    1   1 *    CALLSYS  283           (uint CreateEntity())
+    3   1 *    CpyRtoV4 v1
+    4   1 *    LoadThisR v52, 134217763
+    6   1 *    WRTV4    v1
+- 7,6 -
+    7   1 *    SUSPEND
+            0:
+    8   1 *    RET      2
