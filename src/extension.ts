@@ -41,13 +41,13 @@ export function activate(context: vscode.ExtensionContext) {
 
 			interfaceObject.GlobalTypes.forEach(type => {
 				let comp = new vscode.CompletionItem(type.Name, vscode.CompletionItemKind.Class);
-				comp.commitCharacters = [' ', '('];
+				comp.commitCharacters = ['('];
 				completions.push(comp);
 			});
 
 			interfaceObject.GlobalEnums.forEach(e => {
 				let comp = new vscode.CompletionItem(e.Name, vscode.CompletionItemKind.Enum);
-				comp.commitCharacters = [' ', '::'];
+				comp.commitCharacters = ['::'];
 				completions.push(comp);
 			});
 
@@ -72,19 +72,19 @@ export function activate(context: vscode.ExtensionContext) {
 	
 				moduleObject.Types.forEach(type => {
 					let comp = new vscode.CompletionItem(type.Name, vscode.CompletionItemKind.Class);
-					comp.commitCharacters = [' ', '('];
+					comp.commitCharacters = ['('];
 					completions.push(comp);
 				});
 	
 				moduleObject.Enums.forEach(e => {
 					let comp = new vscode.CompletionItem(e.Name, vscode.CompletionItemKind.Enum);
-					comp.commitCharacters = [' ', '::'];
+					comp.commitCharacters = ['::'];
 					completions.push(comp);
 				});
 
 				moduleObject.GlobalVariables.forEach(v => {
 					let comp = new vscode.CompletionItem(v.Name, vscode.CompletionItemKind.Variable);
-					comp.commitCharacters = [' ', '.', ';'];
+					comp.commitCharacters = ['.', ';'];
 					completions.push(comp);
 				});
 			}
@@ -423,13 +423,15 @@ export function activate(context: vscode.ExtensionContext) {
 				let sectionProblems : Map<string, vscode.Diagnostic[]> = new Map<string, vscode.Diagnostic[]>();
 				resultObjects.Warnings.forEach(w => {
 					let line = w.Line - 1 < 0 ? 0 : w.Line - 1;
-					let column = w.column - 1 < 0 ? 0 : w.column - 1;
+					let column = w.Column - 1 < 0 ? 0 : w.Column - 1;
 					let range = new vscode.Range(new vscode.Position(line, column), new vscode.Position(line, column + 1));
-					let currentDocument = vscode.window.activeTextEditor?.document;
-					if(currentDocument){
-						let ident = readIdent(new ForwardIterator(currentDocument, column, line));
-						range = new vscode.Range(range.start, new vscode.Position(line, column + ident.length));
-					}
+					let currentDocument = vscode.Uri.file(w.Section);
+					vscode.workspace.openTextDocument(currentDocument).then((doc:vscode.TextDocument) => {
+						if(doc){
+							let ident = readIdent(new ForwardIterator(doc, column, line));
+							range = new vscode.Range(range.start, new vscode.Position(line, column + ident.length));
+						}
+					});
 					let diag = new vscode.Diagnostic(range, w.Message, vscode.DiagnosticSeverity.Warning);
 					let location = new vscode.Location(w.Section, range);
 					diag.relatedInformation?.push(new vscode.DiagnosticRelatedInformation(location, w.Message));
@@ -444,13 +446,15 @@ export function activate(context: vscode.ExtensionContext) {
 
 				resultObjects.Errors.forEach(e => {
 					let line = e.Line - 1 < 0 ? 0 : e.Line - 1;
-					let column = e.column - 1 < 0 ? 0 : e.column - 1;
+					let column = e.Column - 1 < 0 ? 0 : e.Column - 1;
 					let range = new vscode.Range(new vscode.Position(line, column), new vscode.Position(line, column + 1));
-					let currentDocument = vscode.window.activeTextEditor?.document;
-					if(currentDocument){
-						let ident = readIdent(new ForwardIterator(currentDocument, column, line));
-						range = new vscode.Range(range.start, new vscode.Position(line, column + ident.length));
-					}
+					let currentDocument = vscode.Uri.file(e.Section);
+					vscode.workspace.openTextDocument(currentDocument).then((doc:vscode.TextDocument) => {
+						if(doc){
+							let ident = readIdent(new ForwardIterator(doc, column, line));
+							range = new vscode.Range(range.start, new vscode.Position(line, column + ident.length));
+						}
+					});
 					let diag = new vscode.Diagnostic(range, e.Message, vscode.DiagnosticSeverity.Error);
 					let location = new vscode.Location(e.Section, range);
 					diag.relatedInformation?.push(new vscode.DiagnosticRelatedInformation(location, e.Message));

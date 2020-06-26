@@ -62,9 +62,10 @@ export class ASDebugSession extends LoggingDebugSession {
 	private _process!: ChildProcess;
 	private _ids = 0;
 	private _line : number;
-	private _callstack : JSON;
-	private _global_vars : JSON;
-
+	private _callstack : JSON | undefined;
+	private _global_vars : JSON | undefined;
+	private _variables : Array<JSON> = [];
+	private _breakpointMessages : [] = [];
     public constructor(){
 		super('ASDebugger.txt');
 		this.setDebuggerLinesStartAt1(true);
@@ -118,16 +119,26 @@ export class ASDebugSession extends LoggingDebugSession {
 		await this._configurationDone.wait(1000);
 
 		// start the program
-		let shellCmd = args.program + ' ' + args.arguments;
-		this._process = spawn(shellCmd, {cwd:args.workingdir});
+		let shellCmd = args.program;
+		this._process = spawn(shellCmd, [args.arguments], {cwd:args.workingdir});
 		const channel = vscode.window.createOutputChannel(args.program);
 		this._process.stdout?.on('data', (data) => {
 			channel.appendLine(data.toString());
 			console.log(data.toString());
 		});
+		this._process.on('close', (code, signal) => {
+			this.sendEvent(new TerminatedEvent());
+		});
 		console.log("Starting process");
 		this._connection = new DebuggerConnection(args.address, args.port, this);
 
+		for(let b of this._breakpointMessages){
+			this._connection.Send(b);
+		}
+		var finishedSetupMsg = {
+			Type:"FinishedSetup"
+		};
+		this._connection.Send(JSON.stringify(finishedSetupMsg));
 		this.sendResponse(response);
 	}
 
@@ -210,8 +221,12 @@ export class ASDebugSession extends LoggingDebugSession {
 		breakpointMessage.File = breakpointMessage.File.charAt(0).toUpperCase() + breakpointMessage.File.slice(1);
 
 		var jsonBreakpoint = JSON.stringify(breakpointMessage);
-		this._connection.Send(jsonBreakpoint);
-		
+		if(this._process){
+			this._connection.Send(jsonBreakpoint);
+		}else{
+			//we have not started the process yet
+			this._breakpointMessages.push(jsonBreakpoint);
+		}
 		this._breakpoints.set(breakpointMessage.File, responseBreakpoints);
 
 		response.body = {
@@ -236,6 +251,7 @@ export class ASDebugSession extends LoggingDebugSession {
 		response.body = { threads: [ new Thread(ASDebugSession.THREAD_ID, "thread 1") ] };
 		this.sendResponse(response);
 	}
+
 	protected stackTraceRequest(response: DebugProtocol.StackTraceResponse, args: DebugProtocol.StackTraceArguments): void {
 		let i : number = 0;
 		let stack : StackFrame[] = []; 
@@ -253,16 +269,17 @@ export class ASDebugSession extends LoggingDebugSession {
 	private createSource(filePath: string): Source {
 		return new Source(basename(filePath), this.convertDebuggerPathToClient(filePath), undefined, undefined, 'mock-adapter-data');
 	}
-
+	private globalScope = 0x145C21CA2;
 	protected scopesRequest(response: DebugProtocol.ScopesResponse, args: DebugProtocol.ScopesArguments): void {
+		this._variables = []; //clear any existing variables
 		let scopes : Scope[] = [];
-		let i = 0;
-		scopes.push(new Scope("Globals", 32, false));
-		this._handleMap.set(32, -1);
+		let i = 1;
+		scopes.push(new Scope("Globals", this.globalScope, false));
+		//this._handleMap.set(32, -1);
 
 		for(let frame of this._callstack){
 			let id = this._variableHandles.create(frame.Declaration);
-			scopes.push(new Scope(frame.Declaration, id, false));
+			scopes.push(new Scope(frame.Declaration, i, false));
 			this._handleMap.set(id, i);
 			i++;
 		}
@@ -274,22 +291,44 @@ export class ASDebugSession extends LoggingDebugSession {
 
 	protected async variablesRequest(response: DebugProtocol.VariablesResponse, args: DebugProtocol.VariablesArguments, request?: DebugProtocol.Request) {
 		let variables : Variable[] = [];
-		let id = this._handleMap.get(args.variablesReference);
-		if(id >= 0){
-			for(let variable of this._callstack[id].Variables){
-				variables.push(
-					{name:variable.Declaration, value:variable.Value.toString(), variablesReference: 0}
-				);
-			}
-			
-		}
-		if(id === -1){
+		const variableBit = 0x1000;
+		let id = args.variablesReference;
+		if(id === this.globalScope){
 			for(let variable of this._global_vars){
 				variables.push(
 					{name: variable.Declaration, value: variable.Value.toString(), variablesReference: 0}
 				);
 			}
+		}else{
+			if((id & variableBit) === 0){
+				for(let variable of this._callstack[id - 1].Variables){
+					if(variable.Properties){
+						id = this._variables.length;
+						this._variables.push(variable);
+						id |= variableBit;
+					}else{
+						id = 0;
+					}
+					variables.push(
+						{name:variable.Declaration, value:variable.Value?.toString(), variablesReference: id}
+					);
+				}
+			}else{
+				id = id & (variableBit - 1);
+				for(let prop of this._variables[id].Properties){
+					let newID = 0;
+					if(prop.Properties){
+						newID = this._variables.length;
+						this._variables.push(prop);
+						newID |= variableBit;
+					}
+					variables.push(
+						{name:prop.Declaration, value:prop.Value?.toString(), variablesReference: newID}
+					);
+				}
+			}
 		}
+		
 		response.body = {
 			variables: variables
 		};
@@ -327,10 +366,13 @@ export class ASDebugSession extends LoggingDebugSession {
 class DebuggerConnection{
 	m_Socket:net.Socket;
 	m_Session:ASDebugSession;
+
 	constructor(ip:string, port:number, session: ASDebugSession){
 		this.m_Socket = new net.Socket();
+		this.m_Socket.setNoDelay(true);
 		this.m_Socket.connect(port, ip);
-		this.m_Socket.write("{\"Type\":\"OpenConnection\"}");
+		this.m_Socket.write('{\"Type\":\"OpenConnection\"}');
+		this.m_Socket.write('\n');
 		this.m_Session = session;
 		this.m_Socket.on('data', (data:string) => {
 			this.m_Session.onData(data);
@@ -339,6 +381,8 @@ class DebuggerConnection{
 
 	Send(buffer:string){
 		this.m_Socket.write(buffer);
+		//send a new line to split on
+		this.m_Socket.write('\n');
 	}
 
 	Receive() : string {
