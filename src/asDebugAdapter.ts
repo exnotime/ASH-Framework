@@ -275,7 +275,6 @@ export class ASDebugSession extends LoggingDebugSession {
 		let scopes : Scope[] = [];
 		let i = 1;
 		scopes.push(new Scope("Globals", this.globalScope, false));
-		//this._handleMap.set(32, -1);
 
 		for(let frame of this._callstack){
 			let id = this._variableHandles.create(frame.Declaration);
@@ -295,8 +294,15 @@ export class ASDebugSession extends LoggingDebugSession {
 		let id = args.variablesReference;
 		if(id === this.globalScope){
 			for(let variable of this._global_vars){
+				if(variable.Properties){
+					id = this._variables.length;
+					this._variables.push(variable);
+					id |= variableBit;
+				}else{
+					id = 0;
+				}
 				variables.push(
-					{name: variable.Declaration, value: variable.Value.toString(), variablesReference: 0}
+					{name: variable.Declaration, value: variable.Value.toString(), variablesReference: id}
 				);
 			}
 		}else{

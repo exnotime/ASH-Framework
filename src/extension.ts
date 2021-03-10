@@ -84,10 +84,31 @@ export function activate(context: vscode.ExtensionContext) {
 
 				moduleObject.GlobalVariables.forEach(v => {
 					let comp = new vscode.CompletionItem(v.Name, vscode.CompletionItemKind.Variable);
-					comp.commitCharacters = ['.', ';'];
+					comp.commitCharacters = [];
 					completions.push(comp);
 				});
 			}
+
+			completions.push({label:'for',kind:vscode.CompletionItemKind.Function});
+			completions.push({label:'if',kind:vscode.CompletionItemKind.Function});
+			completions.push({label:'else',kind:vscode.CompletionItemKind.Function});
+			completions.push({label:'elseif',kind:vscode.CompletionItemKind.Function});
+			completions.push({label:'is',kind:vscode.CompletionItemKind.Function});
+			completions.push({label:'do',kind:vscode.CompletionItemKind.Function});
+			completions.push({label:'while',kind:vscode.CompletionItemKind.Function});
+
+			completions.push({label:'int',kind:vscode.CompletionItemKind.Variable});
+			completions.push({label:'int8',kind:vscode.CompletionItemKind.Variable});
+			completions.push({label:'int16',kind:vscode.CompletionItemKind.Variable});
+			completions.push({label:'int64',kind:vscode.CompletionItemKind.Variable});
+			completions.push({label:'uint',kind:vscode.CompletionItemKind.Variable});
+			completions.push({label:'uint8',kind:vscode.CompletionItemKind.Variable});
+			completions.push({label:'uint16',kind:vscode.CompletionItemKind.Variable});
+			completions.push({label:'uint64',kind:vscode.CompletionItemKind.Variable});
+
+			completions.push({label:'float',kind:vscode.CompletionItemKind.Variable});
+			completions.push({label:'double',kind:vscode.CompletionItemKind.Variable});
+			completions.push({label:'bool',kind:vscode.CompletionItemKind.Variable});
 
 			// return all completion items as array
 			return completions;
@@ -342,16 +363,16 @@ export function activate(context: vscode.ExtensionContext) {
 
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
 			let completions : Array<vscode.CompletionItem> = Array<vscode.CompletionItem>(0);
-
-			let iterator = new BackwardIterator(document, position.character - 1, position.line);
-			let ident = readIdent(iterator);
-			if (!ident) {
-				return null;
-			}
-
 			let settings = vscode.workspace.getConfiguration('angelscript_helper');
 			let moduleCache = settings['moduleCacheDir'];
 			if(moduleCache){
+
+				let iterator = new BackwardIterator(document, position.character - 1, position.line);
+				let ident = readIdent(iterator);
+				if (!ident) {
+					return null;
+				}
+
 				var path = require('path');
 				var fs = require('fs');
 				//Cache in memory somewhere?
@@ -375,10 +396,23 @@ export function activate(context: vscode.ExtensionContext) {
 						}
 						break;
 					}
-				}	
+				}
 				
+				for(let f of moduleObject.Functions){
+					if(position.line > f.StartLine && position.line < f.EndLine){
+						for(let v of f.Variables){
+							let comp = new vscode.CompletionItem(v.Name, vscode.CompletionItemKind.Variable);
+							completions.push(comp);
+						}
+						for(let p of f.Params){
+							let comp = new vscode.CompletionItem(p.Name, vscode.CompletionItemKind.Variable);
+							completions.push(comp);
+						}
+					}
+
+				}
+
 			}
-			
 			
 			// return all completion items as array
 			return completions;
