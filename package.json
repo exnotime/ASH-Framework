@@ -33,6 +33,13 @@
 				"title": "Debug program"
 			}
 		],
+		"grammars": [
+			{
+				"language": "angelscript",
+				"scopeName": "source.angelscript",
+				"path": "./syntaxes/AngelScript.tmLanguage"
+			}
+		],
 		"configuration": {
 			"title": "AngelScriptHelper",
 			"properties": {

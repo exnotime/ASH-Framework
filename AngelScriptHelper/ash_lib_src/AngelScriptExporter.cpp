@@ -70,7 +70,9 @@ namespace AngelScriptExporter {
 			type = engine->GetTypeInfoById(typeID);
 		} else if (typeID & AngelScript::asTYPEID_SCRIPTOBJECT && module) {
 			//type is declared in script module
-			type = module->GetTypeInfoByName(moduleTypeIdToName[typeID].c_str());
+			int t = typeID & ~AngelScript::asTYPEID_HANDLETOCONST;
+			t &= ~AngelScript::asTYPEID_OBJHANDLE;
+			type = module->GetTypeInfoByName(moduleTypeIdToName[t].c_str());
 		}
 		if (type) {
 			std::string name = type->GetName();
@@ -191,7 +193,8 @@ namespace AngelScriptExporter {
 			param.AddMember("DefaultVal", defaultVal ? Value(defaultVal, allocator) : Value(""), allocator);
 			params.PushBack(param, allocator);
 		}
-		//Local Variables
+		//Local Variables, are not used right now
+		/*
 		Value vars = Value(kArrayType);
 		uint32_t varCount = asFunc->GetVarCount();
 		for (uint32_t i = 0; i < varCount; ++i) {
@@ -204,9 +207,10 @@ namespace AngelScriptExporter {
 			var.AddMember("Type", Value(typeName.c_str(), allocator), allocator);
 			vars.PushBack(var, allocator);
 		}
+		*/
 		func.AddMember("Declaration", Value(asFunc->GetDeclaration(false), allocator), allocator);
 		func.AddMember("Params", params, allocator);
-		func.AddMember("Variables", vars, allocator);
+		//func.AddMember("Variables", vars, allocator);
 		std::string returnType = FormatType(asFunc->GetReturnTypeId(), engine, module);
 		func.AddMember("ReturnType", Value(returnType.c_str(), allocator), allocator);
 		return func;
@@ -618,6 +622,9 @@ namespace AngelScriptExporter {
 			for (const auto& type : globalTypes.GetArray()) {
 				int flags = type["Flags"].GetInt();
 				const char* decl = type["Declaration"].GetString();
+				const char* space = type["Namespace"].GetString();
+				engine->SetDefaultNamespace(space);
+
 				if (flags & AngelScript::asOBJ_SCRIPT_OBJECT) {
 					r = engine->RegisterInterface(decl);
 				} else {
@@ -633,7 +640,9 @@ namespace AngelScriptExporter {
 					}
 					assert(r >= 0);
 				}
+				engine->SetDefaultNamespace("");
 			}
+			
 			//Hopefully we will have registered the string type now
 			if (document.HasMember("StringFactoryType")) {
 				const Value& stringType = document["StringFactoryType"];
@@ -689,8 +698,11 @@ namespace AngelScriptExporter {
 		if (document.HasMember("GlobalFunctions")) {
 			const Value& globalFunctions = document["GlobalFunctions"];
 			for (const auto& func : globalFunctions.GetArray()) {
+				const char* space = func["Namespace"].GetString();
+				engine->SetDefaultNamespace(space);
 				r = engine->RegisterGlobalFunction(func["Declaration"].GetString(), AngelScript::asFUNCTION(0), AngelScript::asCALL_GENERIC);
 				assert(r >= 0);
+				engine->SetDefaultNamespace("");
 			}
 		}
 

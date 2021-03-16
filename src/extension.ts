@@ -28,29 +28,43 @@ export function activate(context: vscode.ExtensionContext) {
 			var interfaceJSON = fs.readFileSync(interfaceFile);
 			interfaceObject = JSON.parse(interfaceJSON);
 
+			let namespaces = new Set();
 			interfaceObject.GlobalFunctions.forEach(func => {
-				let comp = new vscode.CompletionItem(func.Name, vscode.CompletionItemKind.Function);
-				comp.detail = func.ReturnType + " " + func.Name + "(";
-				func.Params.forEach(param => {
-					comp.detail += param.Type + " " + param.Name + ", ";
-				});
-				comp.detail += ")";
-				comp.commitCharacters = ['('];
-				completions.push(comp);
+				if(func.Namespace === ''){
+					let comp = new vscode.CompletionItem(func.Name, vscode.CompletionItemKind.Function);
+					comp.detail = func.ReturnType + " " + func.Name + "(";
+					func.Params.forEach(param => {
+						comp.detail += param.Type + " " + param.Name + ", ";
+					});
+					comp.detail += ")";
+					comp.commitCharacters = ['('];
+					completions.push(comp);
+				}else{
+					namespaces.add(func.Namespace);
+				}
 			});
 
 			interfaceObject.GlobalTypes.forEach(type => {
-				let comp = new vscode.CompletionItem(type.Name, vscode.CompletionItemKind.Class);
-				comp.commitCharacters = ['('];
-				completions.push(comp);
+				if(type.Namespace === ''){
+					let comp = new vscode.CompletionItem(type.Name, vscode.CompletionItemKind.Class);
+					comp.commitCharacters = ['('];
+					completions.push(comp);
+				}else{
+					namespaces.add(type.Namespace);
+				}
 			});
 
 			interfaceObject.GlobalEnums.forEach(e => {
 				let comp = new vscode.CompletionItem(e.Name, vscode.CompletionItemKind.Enum);
-				comp.commitCharacters = ['::'];
+				comp.commitCharacters = [':'];
 				completions.push(comp);
 			});
 
+			for (let space of namespaces){
+				let comp = new vscode.CompletionItem(space, vscode.CompletionItemKind.Interface);
+				comp.commitCharacters = [':'];
+				completions.push(comp);
+			}
 
 			let moduleCache = settings['moduleCacheDir'];
 			if(moduleCache){
@@ -60,7 +74,7 @@ export function activate(context: vscode.ExtensionContext) {
 				let moduleObject = JSON.parse(moduleJSON);
 
 				moduleObject.Functions.forEach(func => {
-					let comp = new vscode.CompletionItem(func.Name, vscode.CompletionItemKind.Function);
+					let comp = new vscode.CompletionItem(func.Name, vscode.CompletionItemKind.Module);
 					comp.detail = func.ReturnType + " " + func.Name + "(";
 					func.Params.forEach(param => {
 						comp.detail += param.Type + " " + param.Name + ", ";
@@ -71,19 +85,30 @@ export function activate(context: vscode.ExtensionContext) {
 				});
 	
 				moduleObject.Types.forEach(type => {
-					let comp = new vscode.CompletionItem(type.Name, vscode.CompletionItemKind.Class);
-					comp.commitCharacters = ['('];
+					let comp = new vscode.CompletionItem(type.Name, vscode.CompletionItemKind.Struct);
+					comp.commitCharacters = ['(', ' '];
 					completions.push(comp);
+					//Push methods as well
+					for(let meth of type.Methods){
+						let mComp = new vscode.CompletionItem(meth.Name, vscode.CompletionItemKind.Method);
+						mComp.detail = meth.ReturnType + " " + meth.Name + "(";
+						meth.Params.forEach(param => {
+							mComp.detail += param.Type + " " + param.Name + ", ";
+						});
+						mComp.detail += ")";
+						mComp.commitCharacters = ['(', ' '];
+						completions.push(mComp);
+					}
 				});
 	
 				moduleObject.Enums.forEach(e => {
-					let comp = new vscode.CompletionItem(e.Name, vscode.CompletionItemKind.Enum);
+					let comp = new vscode.CompletionItem(e.Name, vscode.CompletionItemKind.Constant);
 					comp.commitCharacters = ['::'];
 					completions.push(comp);
 				});
 
 				moduleObject.GlobalVariables.forEach(v => {
-					let comp = new vscode.CompletionItem(v.Name, vscode.CompletionItemKind.Variable);
+					let comp = new vscode.CompletionItem(v.Name, vscode.CompletionItemKind.Value);
 					comp.commitCharacters = [];
 					completions.push(comp);
 				});
@@ -174,8 +199,8 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 
 	class ForwardIterator {
-		private lineNumber: number;
-		private offset: number;
+		public lineNumber: number;
+		public offset: number;
 		private line: string;
 		private model: vscode.TextDocument;
 
@@ -187,12 +212,12 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		public hasNext(): boolean {
-			return this.lineNumber < this.model.lineCount;
+			return this.lineNumber < this.model.lineCount && this.lineNumber !== -1;
 		}
 
 		public next(): number {
 			if (this.offset > this.line.length) {
-				if (this.lineNumber < this.model.lineCount) {
+				if (this.lineNumber + 1 < this.model.lineCount) {
 					this.lineNumber++;
 					this.line = this.model.lineAt(this.lineNumber).text;
 					this.offset = 0;
@@ -265,6 +290,24 @@ export function activate(context: vscode.ExtensionContext) {
             if (isIdentPart(ch)) {
                 identStarted = true;
                 ident = String.fromCharCode(ch) + ident;
+            } else if (identStarted) {
+                return ident;
+            }
+        }
+        return ident;
+	}
+
+	function readIdentF(iterator: BackwardIterator | ForwardIterator): string {
+        let identStarted = false;
+        let ident = '';
+        while (iterator.hasNext()) {
+            let ch = iterator.next();
+            if (!identStarted && (ch === _WSB || ch === _TAB || ch === _NL)) {
+                continue;
+            }
+            if (isIdentPart(ch)) {
+                identStarted = true;
+                ident = ident + String.fromCharCode(ch);
             } else if (identStarted) {
                 return ident;
             }
@@ -352,6 +395,27 @@ export function activate(context: vscode.ExtensionContext) {
 					});
 				}
 			});
+
+			interfaceObject.GlobalFunctions.forEach(func => {
+				if(func.Namespace === ident){
+					let comp = new vscode.CompletionItem(func.Name, vscode.CompletionItemKind.Function);
+					comp.detail = func.ReturnType + " " + func.Name + "(";
+					func.Params.forEach(param => {
+						comp.detail += param.Type + " " + param.Name + ", ";
+					});
+					comp.detail += ")";
+					comp.commitCharacters = ['('];
+					completions.push(comp);
+				}
+			});
+
+			interfaceObject.GlobalTypes.forEach(type => {
+				if(type.Namespace === ident){
+					let comp = new vscode.CompletionItem(type.Name, vscode.CompletionItemKind.Class);
+					comp.commitCharacters = ['('];
+					completions.push(comp);
+				}
+			});
 			
 			// return all completion items as array
 			return completions;
@@ -380,44 +444,142 @@ export function activate(context: vscode.ExtensionContext) {
 				let moduleJSON = fs.readFileSync(cachedModuleFile);
 				let moduleObject = JSON.parse(moduleJSON);
 				//Find type
-				var type;
+				var type = '';
 				for(let v of moduleObject.GlobalVariables){
 					if(v.Name === ident){
 						type = v.Type;
 						break;
 					}
 				}
+				if(type === ''){
+					return completions;
+				}
+				if(type[type.length - 1] === '@'){
+					type = type.substr(0, type.length - 1);
+				}
 				//Find type information
+				let found = false;
 				for(let t of moduleObject.Types){
 					if(t.Name === type){
+						found = true;
 						for(let p of t.Properties){
 							let comp = new vscode.CompletionItem(p.Name, vscode.CompletionItemKind.Property);
 							completions.push(comp);
 						}
+						for(let m of t.Methods){
+							let mComp = new vscode.CompletionItem(m.Name, vscode.CompletionItemKind.Method);
+							mComp.detail = m.ReturnType + " " + m.Name + "(";
+							m.Params.forEach(param => {
+								mComp.detail += param.Type + " " + param.Name + ", ";
+							});
+							mComp.detail += ")";
+							mComp.commitCharacters = ['(', ' '];
+							completions.push(mComp);
+						}
 						break;
 					}
 				}
-				
-				for(let f of moduleObject.Functions){
-					if(position.line > f.StartLine && position.line < f.EndLine){
-						for(let v of f.Variables){
-							let comp = new vscode.CompletionItem(v.Name, vscode.CompletionItemKind.Variable);
-							completions.push(comp);
-						}
-						for(let p of f.Params){
-							let comp = new vscode.CompletionItem(p.Name, vscode.CompletionItemKind.Variable);
-							completions.push(comp);
+				if(!found){
+					let settings = vscode.workspace.getConfiguration('angelscript_helper');
+					let interfaceFile = settings['interfaceLocation'];
+					var fs = require('fs');
+					var interfaceObject;
+					var interfaceJSON = fs.readFileSync(interfaceFile);
+					interfaceObject = JSON.parse(interfaceJSON);
+					//Find type information
+					for(let t of interfaceObject.GlobalTypes){
+						if(t.Name === type){
+							for(let p of t.Properties){
+								let comp = new vscode.CompletionItem(p.Name, vscode.CompletionItemKind.Property);
+								completions.push(comp);
+							}
+							for(let m of t.Methods){
+								let mComp = new vscode.CompletionItem(m.Name, vscode.CompletionItemKind.Method);
+								mComp.detail = m.ReturnType + " " + m.Name + "(";
+								m.Params.forEach(param => {
+									mComp.detail += param.Type + " " + param.Name + ", ";
+								});
+								mComp.detail += ")";
+								mComp.commitCharacters = ['(', ' '];
+								completions.push(mComp);
+							}
+							break;
 						}
 					}
-
 				}
-
 			}
-			
-			// return all completion items as array
 			return completions;
 		}
 	},'.');
+	const tokenTypes = ['class', 'interface', 'enum', 'function', 'variable'];
+	const tokenModifiers = ['declaration', 'documentation'];
+	const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers);
+	let asSemanticTokenizer = vscode.languages.registerDocumentSemanticTokensProvider({scheme:'file', language:'angelscript'},{
+		
+		provideDocumentSemanticTokens( document: vscode.TextDocument): vscode.ProviderResult<vscode.SemanticTokens> {
+			// analyze the document and return semantic tokens
+			let settings = vscode.workspace.getConfiguration('angelscript_helper');
+			let moduleCache = settings['moduleCacheDir'];
+			const tokensBuilder = new vscode.SemanticTokensBuilder(legend);
+			
+			if(moduleCache){
+				var path = require('path');
+				var fs = require('fs');
+				//Cache in memory somewhere?
+				let cachedModuleFile = moduleCache + path.parse(document.fileName).name + '.json';
+				let moduleJSON = fs.readFileSync(cachedModuleFile);
+				let moduleObject = JSON.parse(moduleJSON);
+
+				let iterator = new ForwardIterator(document, 0, 0);
+				let ident = readIdentF(iterator);
+				while(ident !== '' && iterator.lineNumber !== -1){
+					
+					for(let f of moduleObject.Functions){
+						if(f.Name === ident){
+							tokensBuilder.push(
+								new vscode.Range(
+									new vscode.Position(iterator.lineNumber, iterator.offset - ident.length - 1),
+									new vscode.Position(iterator.lineNumber, iterator.offset - 1)),
+									'function',
+									['declaration']
+								);
+							break;
+						}
+					}
+					for(let f of moduleObject.Types){
+						if(f.Name === ident){
+							tokensBuilder.push(
+								new vscode.Range(
+									new vscode.Position(iterator.lineNumber, iterator.offset - ident.length - 1),
+									new vscode.Position(iterator.lineNumber, iterator.offset - 1)),
+									'class',
+									['declaration']
+								);
+							break;
+						}
+					}
+					for(let f of moduleObject.Enums){
+						if(f.Name === ident){
+							tokensBuilder.push(
+								new vscode.Range(
+									new vscode.Position(iterator.lineNumber, iterator.offset - ident.length - 1),
+									new vscode.Position(iterator.lineNumber, iterator.offset - 1)),
+									'enum',
+									['declaration']
+								);
+							break;
+						}
+					}
+					try{
+						ident = readIdentF(iterator);
+					}catch(e){
+						let x = 0;
+					}
+				}
+			}
+			return tokensBuilder.build();
+		}
+	}, legend);
 
 	let workspaceRoot = vscode.workspace.rootPath;
 	if (!workspaceRoot) {
